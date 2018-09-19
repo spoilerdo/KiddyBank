@@ -1,0 +1,13 @@
+2018-09-19 10:02:25,929 [      0]   INFO -        #com.intellij.idea.Main - ------------------------------------------------------ IDE STARTED ------------------------------------------------------ 
+2018-09-19 10:02:25,995 [     66]   INFO -        #com.intellij.idea.Main - IDE: IntelliJ IDEA (build #IC-182.4129.33, 21 Aug 2018 10:25) 
+2018-09-19 10:02:25,995 [     66]   INFO -        #com.intellij.idea.Main - OS: Windows 10 (10.0, amd64) 
+2018-09-19 10:02:25,995 [     66]   INFO -        #com.intellij.idea.Main - JRE: 1.8.0_152-release-1248-b8 (JetBrains s.r.o) 
+2018-09-19 10:02:25,995 [     66]   INFO -        #com.intellij.idea.Main - JVM: 25.152-b8 (OpenJDK 64-Bit Server VM) 
+2018-09-19 10:02:26,001 [     72]   INFO -        #com.intellij.idea.Main - JVM Args: -Didea.classpath.index.enabled=false -Didea.config.path=C:\Users\yugio\Desktop\school\Opdrachten\S3\Backend individueel\build\idea-sandbox\config -Didea.is.internal=true -Didea.platform.prefix=Idea -Didea.plugins.path=C:\Users\yugio\Desktop\school\Opdrachten\S3\Backend individueel\build\idea-sandbox\plugins -Didea.required.plugins.id=com.KiddyAPI.KiddyEnterprise -Didea.system.path=C:\Users\yugio\Desktop\school\Opdrachten\S3\Backend individueel\build\idea-sandbox\system -XX:MaxPermSize=250m -Xms256m -Xmx512m -Dfile.encoding=windows-1252 -Duser.country=NL -Duser.language=nl -Duser.variant -ea 
+2018-09-19 10:02:26,002 [     73]   INFO -        #com.intellij.idea.Main - ext: C:\Users\yugio\.gradle\caches\modules-2\files-2.1\com.jetbrains\jbre\jbrex8u152b1248.8_windows_x64\jre\lib\ext: [access-bridge-64.jar, cldrdata.jar, dnsns.jar, jaccess.jar, jfxrt.jar, localedata.jar, meta-index, nashorn.jar, sunec.jar, sunjce_provider.jar, sunmscapi.jar, sunpkcs11.jar, zipfs.jar] 
+2018-09-19 10:02:26,002 [     73]   INFO -        #com.intellij.idea.Main - charsets: JNU=Cp1252 file=windows-1252 
+2018-09-19 10:02:26,053 [    124]   INFO -        #com.intellij.idea.Main - JNA library (64-bit) loaded in 50 ms 
+2018-09-19 10:02:26,061 [    132]   INFO - penapi.util.io.win32.IdeaWin32 - Native filesystem for Windows is operational 
+2018-09-19 10:02:26,223 [    294]   INFO -     #com.intellij.util.ui.JBUI - User scale factor: 1.0 
+2018-09-19 10:02:26,242 [    313]   INFO -     #com.intellij.util.ui.JBUI - System scale factor: 1.0 (JRE-managed HiDPI) 
+2018-09-19 10:02:27,361 [   1432]   INFO - m.intellij.ui.mac.touchbar.NST - OS doesn't support touchbar, skip nst loading 
