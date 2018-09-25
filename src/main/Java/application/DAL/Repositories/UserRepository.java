@@ -5,14 +5,14 @@ import DAL.Interfaces.IUserRepository;
 import Domain.Account;
 import Domain.StorageType;
 
-import java.util.Date;
+import java.sql.Date;
+import java.time.LocalDate;
 
 public class UserRepository implements IUserRepository {
     private IUserContext _context;
 
-    public UserRepository() {
-        //Met factory context opvragen
-
+    public UserRepository(IUserContext context) {
+        this._context = context;
     }
 
     @Override
@@ -21,7 +21,12 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public Boolean CreateUser(String username, String password, String email, String TelephoneNumber, Date DateOfBirth) {
+    public Boolean Login(String username, String password) {
+        return null;
+    }
+
+    @Override
+    public Boolean CreateUser(String username, String password, String email, String TelephoneNumber, LocalDate DateOfBirth) {
         return _context.CreateUser(username, password, email, TelephoneNumber, DateOfBirth);
     }
 
