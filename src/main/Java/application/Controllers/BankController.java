@@ -1,4 +1,4 @@
-package Controllers;
+package application.Controllers;
 
 public class BankController {
     public BankController() {

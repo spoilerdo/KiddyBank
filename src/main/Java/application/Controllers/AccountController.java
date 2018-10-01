@@ -1,20 +1,25 @@
-package Controllers;
+package application.Controllers;
 
-import Factory.UserLogicFactory;
-import Logic.Interfaces.IUserLogic;
+import application.Domain.Account;
+import application.Logic.Interfaces.IAccountLogic;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
-
+@RestController
+@RequestMapping(path="/account")
 public class AccountController {
-    private IUserLogic _logic;
+    private IAccountLogic _logic;
 
-    public AccountController() {
-        this._logic = UserLogicFactory.CreateLogic();
+    @Autowired
+    public AccountController(IAccountLogic logic) {
+        this._logic = logic;
     }
 
-    public Boolean CreateAccount() {
-       Boolean accountCreated = _logic.CreateUser("admin", "admin", "admin@live.nl", "012345678910", LocalDate.now());
-       return accountCreated;
+    //TODO : fixen dat json gemapt wordt naar account
+    @PostMapping(path="/add")
+    public @ResponseBody String AddNewUser(Account account) {
+        Boolean accountCreated = _logic.CreateUser(account);
+        return accountCreated.toString();
     }
 
 
