@@ -1,11 +1,15 @@
 package com.kiddybank.Entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Account {
     //JsonProperty wordt toegevoegd zodat de ingebouwde json omzetter weet naar welke namen hij moet zoeken.
     @Id
@@ -23,12 +27,15 @@ public class Account {
     @Column(name="dateofbirth")
     @JsonProperty("regdate")
     private Date registrationDate;
-  /*  @JoinTable(
+
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
             name = "AccountBankAccount",
             joinColumns = { @JoinColumn(name = "AccountID") },
             inverseJoinColumns = { @JoinColumn(name = "BankAccountID") }
     )
-    private Set<BankAccount> bankAccounts = new HashSet<>(); */
+    private Set<BankAccount> bankAccounts = new HashSet<>();
 
 
     public Account() {}
@@ -39,6 +46,10 @@ public class Account {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.registrationDate = registrationDate;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUsername() {
@@ -61,8 +72,8 @@ public class Account {
         return registrationDate;
     }
 
-  /*  public Set<BankAccount> getBankAccounts() {
+    public Set<BankAccount> getBankAccounts() {
         return bankAccounts;
-    } */
+    }
 
 }

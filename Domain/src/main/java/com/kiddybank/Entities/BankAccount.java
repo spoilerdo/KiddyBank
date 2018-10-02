@@ -1,6 +1,8 @@
 package com.kiddybank.Entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "bank_account")
@@ -13,8 +15,8 @@ public class BankAccount {
     @Column(name="balance")
     private float balance;
 
-   // @ManyToMany(mappedBy = "accounts")
-   // private Set<Account> accounts = new HashSet<>();
+    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "bankAccounts")
+    private Set<Account> accounts = new HashSet<>();
 
     public BankAccount() {}
 
@@ -23,7 +25,7 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    /*public Set<Account> getAccounts() {
+    public Set<Account> getAccounts() {
         return accounts;
-    } */
+    }
 }

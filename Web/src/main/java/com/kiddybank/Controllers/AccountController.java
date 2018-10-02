@@ -15,10 +15,15 @@ public class AccountController {
         this._accountLogic = accountLogic;
     }
 
-    //TODO : fixen dat json gemapt wordt naar account
     @PostMapping(path="/add")
     public Boolean AddNewUser(@RequestBody  Account account) {
         Boolean accountCreated = _accountLogic.CreateUser(account);
         return accountCreated;
+    }
+
+    @PostMapping(path="/login")
+    public boolean LoginUser(@RequestBody Account account) {
+        boolean login = _accountLogic.Login(account);
+        return login;
     }
 }
