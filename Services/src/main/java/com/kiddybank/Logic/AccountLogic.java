@@ -9,45 +9,31 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AccountLogic implements IAccountLogic {
-    private IAccountRepository _context;
+    private IAccountRepository context;
 
     @Autowired
     public AccountLogic(IAccountRepository context) {
-        this._context = context;
+        this.context = context;
     }
 
     @Override
-    public Account GetUser(int id) {
-        return this._context.findById(id).get();
-    }
-
-    @Override
-    public Boolean Login(Account account) {
-        //Account in database opvragen indien deze bestaat.
-        Account accountInDatabase = _context.findByUsername(account.getUsername());
-        if(accountInDatabase == null) {
-            return false;
-        }
-
-        if (BCrypt.checkpw(account.getPassword(), accountInDatabase.getPassword())) {
-            return true;
-            // TODO : VERIFICATIE TOKEN GENEREN  - TYGO
-
-        }
-        return false;
+    public Account GetUser(int userId) {
+        Account account = this.context.findById(userId).get();
+        account.setPassword("");
+        return account;
     }
 
     @Override
     public Boolean CreateUser(Account account) {
         String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
         account.setPassword(encryptedPassword);
-        this._context.save(account);
+        this.context.save(account);
         return true;
     }
 
     @Override
-    public Boolean DeleteUser(int id) {
-        this._context.deleteById(id);
+    public Boolean DeleteUser(int userId) {
+        this.context.deleteById(userId);
         return true;
     }
 }

@@ -3,8 +3,7 @@ package com.kiddybank.LogicInterfaces;
 import com.kiddybank.Entities.Account;
 
 public interface IAccountLogic {
-    Account GetUser(int id);
-    Boolean Login(Account account);
+    Account GetUser(int userId);
     Boolean CreateUser(Account account);
-    Boolean DeleteUser(int id);
+    Boolean DeleteUser(int userId);
 }

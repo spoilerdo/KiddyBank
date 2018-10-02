@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(path="/account")
 public class AccountController {
-    private IAccountLogic _accountLogic;
+    private IAccountLogic accountLogic;
 
     @Autowired
     public AccountController(IAccountLogic accountLogic) {
-        this._accountLogic = accountLogic;
+        this.accountLogic = accountLogic;
     }
 
-    @PostMapping(path="/add")
+    @RequestMapping(value = "", method = RequestMethod.POST)
     public Boolean AddNewUser(@RequestBody  Account account) {
-        Boolean accountCreated = _accountLogic.CreateUser(account);
+        Boolean accountCreated = accountLogic.CreateUser(account);
         return accountCreated;
     }
 
-    @PostMapping(path="/login")
-    public boolean LoginUser(@RequestBody Account account) {
-        boolean login = _accountLogic.Login(account);
-        return login;
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public Account GetUser(@PathVariable("userId") int userId) {
+        Account account = accountLogic.GetUser(userId);
+        return account;
     }
 }
