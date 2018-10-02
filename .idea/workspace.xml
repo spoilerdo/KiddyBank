@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4614b7e-804e-439d-9082-28ec57387531" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -291,11 +286,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="22" column="36" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="88" column="4" selection-start-line="88" selection-start-column="4" selection-end-line="88" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -1976,7 +1980,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Java/application/DAL/Contexts/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/DAL/Interfaces/IUserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Logic/Interfaces/IUserLogic.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Logic/Logic/UserLogic.java" />
@@ -2027,6 +2030,7 @@
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -2315,7 +2319,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52406000" />
+    <option name="totallyTimeSpent" value="52410000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
