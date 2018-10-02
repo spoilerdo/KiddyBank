@@ -15,11 +15,7 @@ public class BankAccount {
     @Column(name="balance")
     private float balance;
 
-<<<<<<< HEAD
-   // @ManyToMany(mappedBy = "accounts")
-=======
     @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "bankAccounts")
->>>>>>> dffd126afd63d31112b2c8b3f39d92add36a6e3c
     private Set<Account> accounts = new HashSet<>();
 
     public BankAccount() {}
@@ -30,7 +26,6 @@ public class BankAccount {
         this.balance = balance;
     }
 
-<<<<<<< HEAD
     public int getBankNumber() {
         return bankNumber;
     }
@@ -47,8 +42,6 @@ public class BankAccount {
         this.accounts = accounts;
     }
 
-=======
->>>>>>> dffd126afd63d31112b2c8b3f39d92add36a6e3c
     public Set<Account> getAccounts() {
         return accounts;
     }

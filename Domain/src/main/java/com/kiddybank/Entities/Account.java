@@ -48,13 +48,12 @@ public class Account {
         this.registrationDate = registrationDate;
     }
 
-<<<<<<< HEAD
     public int getId() {
         return id;
-=======
+    }
+
     public void setPassword(String password) {
         this.password = password;
->>>>>>> dffd126afd63d31112b2c8b3f39d92add36a6e3c
     }
 
     public String getUsername() {
