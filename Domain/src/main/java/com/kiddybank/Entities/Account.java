@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
@@ -25,12 +27,15 @@ public class Account {
     @Column(name="dateofbirth")
     @JsonProperty("regdate")
     private Date registrationDate;
-  /*  @JoinTable(
+
+
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    @JoinTable(
             name = "AccountBankAccount",
             joinColumns = { @JoinColumn(name = "AccountID") },
             inverseJoinColumns = { @JoinColumn(name = "BankAccountID") }
     )
-    private Set<BankAccount> bankAccounts = new HashSet<>(); */
+    private Set<BankAccount> bankAccounts = new HashSet<>();
 
 
     public Account() {}
@@ -43,8 +48,13 @@ public class Account {
         this.registrationDate = registrationDate;
     }
 
+<<<<<<< HEAD
     public int getId() {
         return id;
+=======
+    public void setPassword(String password) {
+        this.password = password;
+>>>>>>> dffd126afd63d31112b2c8b3f39d92add36a6e3c
     }
 
     public String getUsername() {
@@ -67,8 +77,8 @@ public class Account {
         return registrationDate;
     }
 
-  /*  public Set<BankAccount> getBankAccounts() {
+    public Set<BankAccount> getBankAccounts() {
         return bankAccounts;
-    } */
+    }
 
 }

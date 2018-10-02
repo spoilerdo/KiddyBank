@@ -22,18 +22,25 @@ public class AccountLogic implements IAccountLogic {
     }
 
     @Override
-    public Boolean Login(String username, String password) {
-        Account account = this._context.findByUsername(username);
-        if (BCrypt.checkpw(password, account.getPassword()))
-            return true;
-            //Token waarin id geencode zit
-        else
+    public Boolean Login(Account account) {
+        //Account in database opvragen indien deze bestaat.
+        Account accountInDatabase = _context.findByUsername(account.getUsername());
+        if(accountInDatabase == null) {
             return false;
+        }
+
+        if (BCrypt.checkpw(account.getPassword(), accountInDatabase.getPassword())) {
+            return true;
+            // TODO : VERIFICATIE TOKEN GENEREN  - TYGO
+
+        }
+        return false;
     }
 
     @Override
     public Boolean CreateUser(Account account) {
         String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
+        account.setPassword(encryptedPassword);
         this._context.save(account);
         return true;
     }
