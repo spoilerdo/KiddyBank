@@ -1,11 +1,13 @@
 package com.kiddybank.Entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Account {
     //JsonProperty wordt toegevoegd zodat de ingebouwde json omzetter weet naar welke namen hij moet zoeken.
     @Id
@@ -39,6 +41,10 @@ public class Account {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.registrationDate = registrationDate;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getUsername() {

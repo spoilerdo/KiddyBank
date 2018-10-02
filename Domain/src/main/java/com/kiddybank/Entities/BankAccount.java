@@ -1,6 +1,8 @@
 package com.kiddybank.Entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "bank_account")
@@ -14,16 +16,33 @@ public class BankAccount {
     private float balance;
 
    // @ManyToMany(mappedBy = "accounts")
-   // private Set<Account> accounts = new HashSet<>();
+    private Set<Account> accounts = new HashSet<>();
 
     public BankAccount() {}
 
-    public BankAccount(int bankNumber, int balance) {
+    public BankAccount(int id, int bankNumber, int balance) {
+        this.id = id;
         this.bankNumber = bankNumber;
         this.balance = balance;
     }
 
-    /*public Set<Account> getAccounts() {
+    public int getBankNumber() {
+        return bankNumber;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    public Set<Account> getAccounts() {
         return accounts;
-    } */
+    }
 }
