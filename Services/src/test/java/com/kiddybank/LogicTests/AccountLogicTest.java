@@ -20,9 +20,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -53,6 +51,27 @@ public class AccountLogicTest {
     }
 
     @Test
+    public void TestAddUserInvalid() {
+        //Given
+        Account dummyAccount = new Account("peter", "wachtwoord", "", "012345", Date.valueOf(LocalDate.now()));
+        //id 1 vooruit zetten omdat mockito niet slim is.
+        Account dummyAccountDuplicate = new Account("peter", "wachtwoord", "", "012345", Date.valueOf(LocalDate.now()));
+        dummyAccountDuplicate.setId(1);
+
+        when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
+        //when(accountRepository.findById(1)).thenReturn(Optional.of(dummyAccountDuplicate));
+
+        //when
+        this._logic.CreateUser(dummyAccount);
+
+        //Then
+        verify(accountRepository, times(1)).save(dummyAccount);
+
+        //Hierna testen of de createuser false returnt omdat de username niet uniek is.
+        Assert.assertEquals(false, this._logic.CreateUser(dummyAccountDuplicate));
+    }
+
+    @Test
     public void TestDeleteUserValid() {
         //Given
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
@@ -62,6 +81,18 @@ public class AccountLogicTest {
         this._logic.DeleteUser(dummyAccount);
         //Then
         verify(accountRepository, times(1)).deleteAccountByUsername(dummyAccount.getUsername());
+    }
+
+    @Test
+    public void TestDeleteUserInvalid() {
+        //account die nog niet bestaat
+        Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
+        when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
+        //when
+        boolean deletedUser = this._logic.DeleteUser(dummyAccount);
+
+        //then  
+        Assert.assertEquals(false, deletedUser);
     }
 
 
