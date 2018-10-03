@@ -32,8 +32,8 @@ public class AccountLogic implements IAccountLogic {
     }
 
     @Override
-    public Boolean DeleteUser(int userId) {
-        this.context.deleteById(userId);
+    public Boolean DeleteUser(Account account) {
+        this._context.deleteAccountByUsername(account.getUsername());
         return true;
     }
 }

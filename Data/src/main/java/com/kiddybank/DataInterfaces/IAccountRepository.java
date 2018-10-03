@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 public interface IAccountRepository extends CrudRepository<Account, Integer> {
     Account findByUsername(String username);
+    void deleteAccountByUsername(String username);
 }

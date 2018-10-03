@@ -25,5 +25,9 @@ public class AccountController {
     public Account GetUser(@PathVariable("userId") int userId) {
         Account account = accountLogic.GetUser(userId);
         return account;
+    @PostMapping(path="/delete")
+    public Boolean DeleteUser(@RequestBody Account account) {
+        return _accountLogic.DeleteUser(account);
+    }
     }
 }

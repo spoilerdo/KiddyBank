@@ -26,6 +26,10 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public int getBankNumber() {
         return bankNumber;
     }
@@ -33,16 +37,14 @@ public class BankAccount {
     public float getBalance() {
         return balance;
     }
-
     public void setBalance(float balance) {
         this.balance = balance;
     }
 
-    public void setAccounts(Set<Account> accounts) {
-        this.accounts = accounts;
-    }
-
     public Set<Account> getAccounts() {
         return accounts;
+    }
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
     }
 }
