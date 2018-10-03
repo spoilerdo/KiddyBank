@@ -21,6 +21,11 @@ public class AccountController {
         return accountCreated;
     }
 
+    @PostMapping(path="/delete")
+    public Boolean DeleteUser(@RequestBody Account account) {
+        return _accountLogic.DeleteUser(account);
+    }
+
     @PostMapping(path="/login")
     public boolean LoginUser(@RequestBody Account account) {
         boolean login = _accountLogic.Login(account);
