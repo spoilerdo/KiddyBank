@@ -1,5 +1,7 @@
 package com.kiddybank.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -18,6 +20,7 @@ public class Account {
     @JsonProperty("name")
     private String username;
     @JsonProperty("password")
+    @JsonIgnore
     private String password;
     @JsonProperty("email")
     private String email;
@@ -28,7 +31,7 @@ public class Account {
     @JsonProperty("regdate")
     private Date registrationDate;
 
-
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "AccountBankAccount",
@@ -60,6 +63,7 @@ public class Account {
         return username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -76,6 +80,7 @@ public class Account {
         return registrationDate;
     }
 
+    @JsonIgnore
     public Set<BankAccount> getBankAccounts() {
         return bankAccounts;
     }

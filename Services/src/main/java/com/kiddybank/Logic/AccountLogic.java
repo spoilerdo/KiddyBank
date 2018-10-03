@@ -7,6 +7,8 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class AccountLogic implements IAccountLogic {
     private IAccountRepository _context;
@@ -42,12 +44,28 @@ public class AccountLogic implements IAccountLogic {
         String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
         account.setPassword(encryptedPassword);
         this._context.save(account);
+
+        //Get account in database to check it is created
+        Optional<Account> accountInDatabase = this._context.findById(account.getId());
+        if(!accountInDatabase.isPresent()) {
+            return false;
+        }
+
+        //Account bestaat
         return true;
     }
 
     @Override
     public Boolean DeleteUser(Account account) {
         this._context.deleteAccountByUsername(account.getUsername());
+
+        //Get account in database to check if it is deleted
+        Optional<Account> accountInDatabase = this._context.findById(account.getId());
+        if(accountInDatabase.isPresent()) {
+            //Account bestaat nog, is niet gedelete
+            return false;
+        }
+        //account is verwijderd
         return true;
     }
 }
