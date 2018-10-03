@@ -19,7 +19,6 @@ public class AccountLogic implements IAccountLogic {
     @Override
     public Account GetUser(int userId) {
         Account account = this.context.findById(userId).get();
-        account.setPassword("");
         return account;
     }
 
@@ -33,7 +32,7 @@ public class AccountLogic implements IAccountLogic {
 
     @Override
     public Boolean DeleteUser(Account account) {
-        this._context.deleteAccountByUsername(account.getUsername());
+        this.context.deleteAccountByUsername(account.getUsername());
         return true;
     }
 }

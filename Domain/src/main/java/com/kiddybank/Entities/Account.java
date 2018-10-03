@@ -1,5 +1,6 @@
 package com.kiddybank.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -18,6 +19,7 @@ public class Account {
     @JsonProperty("name")
     private String username;
     @JsonProperty("password")
+    @JsonIgnore
     private String password;
     @JsonProperty("email")
     private String email;
@@ -35,6 +37,7 @@ public class Account {
             joinColumns = { @JoinColumn(name = "AccountID") },
             inverseJoinColumns = { @JoinColumn(name = "BankAccountID") }
     )
+    @JsonIgnore
     private Set<BankAccount> bankAccounts = new HashSet<>();
 
 
@@ -60,6 +63,7 @@ public class Account {
         return username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -76,6 +80,7 @@ public class Account {
         return registrationDate;
     }
 
+    @JsonIgnore
     public Set<BankAccount> getBankAccounts() {
         return bankAccounts;
     }
