@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -22,8 +23,9 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
+//Voorbeeld : https://stackoverflow.com/questions/36001201/spring-mock-repository-does-not-work
+@RunWith(MockitoJUnitRunner.class)
 public class AccountLogicTest {
     @Mock
     private IAccountRepository accountRepository;
@@ -44,10 +46,11 @@ public class AccountLogicTest {
         when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
 
         //Then
-        this._logic.CreateUser(dummyAccount);
+        boolean createUser = this._logic.CreateUser(dummyAccount);
 
         //When
         verify(accountRepository, times(1)).save(dummyAccount);
+        Assert.assertEquals(true, createUser);
     }
 
     @Test
