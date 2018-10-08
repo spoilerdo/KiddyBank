@@ -7,6 +7,10 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.security.auth.login.FailedLoginException;
+import javax.transaction.Transactional;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -19,53 +23,62 @@ public class AccountLogic implements IAccountLogic {
     }
 
     @Override
-    public Account GetUser(int id) {
-        return this._context.findById(id).get();
+    public Account getUser(int id) throws IllegalArgumentException {
+        Optional<Account> foundAccount = _context.findById(id);
+        //check if account was found in the system
+        if(!foundAccount.isPresent()) {
+            throw new IllegalArgumentException("Account with id : " + String.valueOf(id) + "not found in the system");
+        }
+        //return account
+        return foundAccount.get();
     }
 
     @Override
-    public Boolean Login(Account account) {
-        //Account in database opvragen indien deze bestaat.
-        Account accountInDatabase = _context.findByUsername(account.getUsername());
-        if(accountInDatabase == null) {
-            return false;
+    public void login(Account account) throws IllegalArgumentException, FailedLoginException {
+        Optional<Account> foundAccount = _context.findByUsername(account.getUsername());
+
+        //controleren of account bestaat
+        if(!foundAccount.isPresent()) {
+            throw new IllegalArgumentException("Account with username : " + String.valueOf(account.getUsername()) + "not found in the system");
         }
 
-        if (BCrypt.checkpw(account.getPassword(), accountInDatabase.getPassword())) {
-            return true;
-            // TODO : VERIFICATIE TOKEN GENEREN  - TYGO
-
+        Account accountInDatabase = foundAccount.get();
+        if (!BCrypt.checkpw(account.getPassword(), accountInDatabase.getPassword())) {
+            throw new FailedLoginException("given parameters do not match with data in the server");
         }
-        return false;
+
+        // TODO : VERIFICATIE TOKEN GENEREN  - TYGO
     }
 
     @Override
-    public Boolean CreateUser(Account account) {
+    public Account createUser(Account account) throws IllegalArgumentException {
+        Optional<Account> accountInDatabase = this._context.findByUsername(account.getUsername());
+        if(accountInDatabase.isPresent()) {
+            throw new IllegalArgumentException("User already exists");
+        }
+        //password encrypten
         String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
         account.setPassword(encryptedPassword);
-        this._context.save(account);
 
-        //Get account in database to check it is created
-        Optional<Account> accountInDatabase = this._context.findById(account.getId());
-        if(!accountInDatabase.isPresent()) {
-            return false;
-        }
+        //registration date is tijd van nu
+        account.setRegistrationDate(Date.valueOf(LocalDate.now()));
 
-        //Account bestaat
-        return true;
+        //opslaan in database en result ophalen.
+        Account createdUser = this._context.save(account);
+
+        return createdUser;
     }
 
     @Override
-    public Boolean DeleteUser(Account account) {
-        this._context.deleteAccountByUsername(account.getUsername());
-
-        //Get account in database to check if it is deleted
-        Optional<Account> accountInDatabase = this._context.findById(account.getId());
-        if(accountInDatabase.isPresent()) {
-            //Account bestaat nog, is niet gedelete
-            return false;
+    @Transactional
+    public void deleteUser(int accountID) throws IllegalArgumentException {
+        //Controleren of account wel bestaat
+        Optional<Account> accountInDatabase = this._context.findById(accountID);
+        if(!accountInDatabase.isPresent()) {
+            throw new IllegalArgumentException("Account does not exist");
         }
-        //account is verwijderd
-        return true;
+
+        //account verwijderen van database
+        this._context.deleteAccountById(accountID);
     }
 }

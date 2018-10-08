@@ -11,6 +11,7 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name="banknumber")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int bankNumber;
     @Column(name="balance")
     private float balance;

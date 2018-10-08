@@ -83,6 +83,10 @@ public class Account {
         return registrationDate;
     }
 
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
     @JsonIgnore
     public Set<BankAccount> getBankAccounts() {
         return bankAccounts;

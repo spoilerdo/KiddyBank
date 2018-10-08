@@ -4,25 +4,32 @@ import com.kiddybank.DataInterfaces.IAccountRepository;
 import com.kiddybank.DataInterfaces.IBankRepository;
 import com.kiddybank.DataInterfaces.ITransactionRepository;
 import com.kiddybank.Entities.BankAccount;
+import com.kiddybank.Entities.TransactionHistory;
 import com.kiddybank.Logic.BankLogic;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BankLogicTest {
+
+    //Exception afvanger toevoegen
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
 
     //Mock repos
     @Mock
@@ -44,33 +51,51 @@ public class BankLogicTest {
     @Test
     public void TestGetBalanceValidId(){
         //Given
-        BankAccount dummyAccount = new BankAccount(1, 1, 1);
+        BankAccount dummyAccount = new BankAccount(1, 1, 100);
         when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
 
         //When
-        Float balance = _logic.GetBalance(1);
+        Float balance = _logic.getBalance(1);
 
         //Then
-        Assert.assertTrue(balance >= 0);
+        Assert.assertTrue(balance == 100);
     }
 
     @Test
-    public void TestGetBalanceUnvalidId(){
+    public void TestGetBalanceUnvalidId() {
         BankAccount dummyAccount = new BankAccount(1, 1, 1);
-        when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
 
-        Assert.assertNull(_logic.GetBalance(0));
+        //we verwachten dat logic.getbalance een exception teruggooid omdat accountid van 0 niet bestaat.
+        exception.expect(IllegalArgumentException.class);
+
+        Float balance = _logic.getBalance(0);
     }
 
     @Test
     public void TestTransactionValid() {
-        BankAccount dummy1Account = new BankAccount(1, 1, 1);
-        BankAccount dummy2Account = new BankAccount(2, 2, 1);
+        BankAccount dummy1Account = new BankAccount(1, 1, 100);
+        BankAccount dummy2Account = new BankAccount(2, 2, 110);
+
         when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));
         when(bankRepository.findById(dummy2Account.getId())).thenReturn(Optional.ofNullable(dummy2Account));
 
-        Assert.assertTrue(_logic.Transaction(dummy1Account.getId(), dummy2Account.getId(), 1f));
+        _logic.transaction(dummy1Account.getId(), dummy2Account.getId(), 10f);
 
-        //Assert.assertEquals(_logic.GetBalance(dummy2Account.getId()), 2f);
+        //controleren of er een save call naar transaction repository gemaakt is met een transactionhistory klasse.
+        //indien dit gebeurd is en er is geen exception opgetreden kunnen we concluderen dat de actie juist uitgevoerd is.
+        verify(transactionRepository, times(1)).save(any(TransactionHistory.class));
+    }
+
+    @Test
+    public void TestTransactionInvalid() {
+        BankAccount dummy1Account = new BankAccount(1, 1, 100);
+        //receiver bestaat in deze context niet
+        when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));
+        when(bankRepository.findById(1)).thenReturn(Optional.empty());
+
+        //we verwachten dat er een exception optreed omdat receiver niet bestaat.
+        exception.expect(IllegalArgumentException.class);
+
+        _logic.transaction(dummy1Account.getId(), 1, 10f);
     }
 }

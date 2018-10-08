@@ -3,18 +3,16 @@ package com.kiddybank.LogicTests;
 import com.kiddybank.DataInterfaces.IAccountRepository;
 import com.kiddybank.Entities.Account;
 import com.kiddybank.Logic.AccountLogic;
-import com.kiddybank.Logic.BankLogic;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -27,6 +25,11 @@ import static org.mockito.Mockito.*;
 //Voorbeeld : https://stackoverflow.com/questions/36001201/spring-mock-repository-does-not-work
 @RunWith(MockitoJUnitRunner.class)
 public class AccountLogicTest {
+
+    //Exception afvanger toevoegen
+    @Rule
+    public final ExpectedException exception = ExpectedException.none();
+
     @Mock
     private IAccountRepository accountRepository;
 
@@ -43,59 +46,67 @@ public class AccountLogicTest {
     public void TestAddUserValid() {
         //Given
         Account dummyAccount = new Account("Peter", "wachtwoord", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
-        when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
+
+        when(accountRepository.findByUsername("Peter")).thenReturn(Optional.empty());
+        when(accountRepository.save(any(Account.class))).thenReturn(dummyAccount);
 
         //Then
-        boolean createUser = this._logic.CreateUser(dummyAccount);
+        Account createUser = this._logic.createUser(dummyAccount);
 
-        //When
+        //controleren of save van repository is aangeroepen
         verify(accountRepository, times(1)).save(dummyAccount);
-        Assert.assertEquals(true, createUser);
+        //controleren of we juiste terugkrijgen, na twee gegevens geloven we het wel.
+        Assert.assertEquals("Peter", createUser.getUsername());
+        Assert.assertEquals("jan@live.nl", createUser.getEmail());
     }
 
     @Test
     public void TestAddUserInvalid() {
         //Given
         Account dummyAccount = new Account("peter", "wachtwoord", "", "012345", Date.valueOf(LocalDate.now()));
-        //id 1 vooruit zetten omdat mockito niet slim is.
-        Account dummyAccountDuplicate = new Account("peter", "wachtwoord", "", "012345", Date.valueOf(LocalDate.now()));
-        dummyAccountDuplicate.setId(1);
+        dummyAccount.setId(0);
 
-        when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
-        //when(accountRepository.findById(1)).thenReturn(Optional.of(dummyAccountDuplicate));
+        //Repo calls mocken
+        when(accountRepository.findByUsername("peter")).thenReturn(Optional.of(dummyAccount));
+
+        //we verwachten dat er een exception optreed.
+        exception.expect(IllegalArgumentException.class);
 
         //when
-        this._logic.CreateUser(dummyAccount);
+        this._logic.createUser(dummyAccount);
 
         //Then
         verify(accountRepository, times(1)).save(dummyAccount);
-
-        //Hierna testen of de createuser false returnt omdat de username niet uniek is.
-        Assert.assertEquals(false, this._logic.CreateUser(dummyAccountDuplicate));
     }
 
     @Test
     public void TestDeleteUserValid() {
         //Given
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
+        dummyAccount.setId(0);
+
         when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
 
         //When
-        this._logic.DeleteUser(dummyAccount);
-        //Then
-        verify(accountRepository, times(1)).deleteAccountByUsername(dummyAccount.getUsername());
+        this._logic.deleteUser(dummyAccount.getId());
+
+        //we verwachten dat de call naar deletaccountbyid gemaakt is en dat er geen exception optreed.
+        verify(accountRepository, times(1)).deleteAccountById(dummyAccount.getId());
     }
 
     @Test
     public void TestDeleteUserInvalid() {
         //account die nog niet bestaat
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
-        when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
-        //when
-        boolean deletedUser = this._logic.DeleteUser(dummyAccount);
+        dummyAccount.setId(0);
+        when(accountRepository.findById(0)).thenReturn(Optional.empty());
 
-        //then  
-        Assert.assertEquals(false, deletedUser);
+        //We verwachten een exception van illegalargument omdat de mock nu aangeeft dat de account nog bestaat
+        exception.expect(IllegalArgumentException.class);
+
+        //when
+        this._logic.deleteUser(dummyAccount.getId());
+
     }
 
 

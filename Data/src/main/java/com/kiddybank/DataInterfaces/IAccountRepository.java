@@ -4,7 +4,9 @@ import com.kiddybank.Entities.Account;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 public interface IAccountRepository extends CrudRepository<Account, Integer> {
-    Account findByUsername(String username);
-    void deleteAccountByUsername(String username);
+    Optional<Account> findByUsername(String username);
+    void deleteAccountById(int id);
 }
