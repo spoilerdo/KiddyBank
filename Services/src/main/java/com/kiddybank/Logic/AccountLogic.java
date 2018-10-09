@@ -3,6 +3,7 @@ package com.kiddybank.Logic;
 import com.kiddybank.Entities.Account;
 import com.kiddybank.LogicInterfaces.IAccountLogic;
 import com.kiddybank.DataInterfaces.IAccountRepository;
+import org.assertj.core.util.Strings;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,11 @@ public class AccountLogic implements IAccountLogic {
 
     @Override
     public Account createUser(Account account) throws IllegalArgumentException {
+        //Controleren of belangrijke waardes nul zijn. TODO : Werkt nog niet
+        if (Strings.isNullOrEmpty(account.getUsername() )|| Strings.isNullOrEmpty(account.getPassword())|| Strings.isNullOrEmpty(account.getEmail())) {
+            throw new IllegalArgumentException("Values cannot be null");
+        }
+
         Optional<Account> accountInDatabase = this._context.findByUsername(account.getUsername());
         if(accountInDatabase.isPresent()) {
             throw new IllegalArgumentException("User already exists");
