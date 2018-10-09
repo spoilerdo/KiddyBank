@@ -83,7 +83,7 @@ public class AccountLogicTest {
     public void TestDeleteUserValid() {
         //Given
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
-        dummyAccount.setId(0);
+        dummyAccount.setId(0); //TODO: Martijn: is volgens mij niet nodig
 
         when(accountRepository.findById(0)).thenReturn(Optional.of(dummyAccount));
 
@@ -91,14 +91,14 @@ public class AccountLogicTest {
         this._logic.deleteUser(dummyAccount.getId());
 
         //we verwachten dat de call naar deletaccountbyid gemaakt is en dat er geen exception optreed.
-        verify(accountRepository, times(1)).deleteAccountById(dummyAccount.getId());
+        verify(accountRepository, times(1)).deleteById(dummyAccount.getId());
     }
 
     @Test
     public void TestDeleteUserInvalid() {
         //account die nog niet bestaat
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
-        dummyAccount.setId(0);
+        dummyAccount.setId(0); //TODO: hier nog zo eentje
         when(accountRepository.findById(0)).thenReturn(Optional.empty());
 
         //We verwachten een exception van illegalargument omdat de mock nu aangeeft dat de account nog bestaat

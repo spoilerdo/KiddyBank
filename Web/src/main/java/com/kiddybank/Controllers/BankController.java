@@ -23,6 +23,16 @@ public class BankController {
         return _bankLogic.createAccount(account);
     }
 
+    @PostMapping(path = "/delete/{id}")
+    public void DeleteAccount(@PathVariable("id") int id) throws IllegalArgumentException{
+        _bankLogic.deleteAccount(id);
+    }
+
+    @PostMapping(path = "/link/{ownID}/{otherID}/{bankID}")
+    public void LinkAnotherUserToBankAccount(@PathVariable("ownID") int ownID, @PathVariable("otherID") int otherID, @PathVariable("bankID") int bankID) throws IllegalArgumentException {
+        _bankLogic.linkAnotherUserToBankAccount(ownID, otherID, bankID);
+    }
+
     @GetMapping(path = "/balance/{id}")
     public Float GetBalance(@PathVariable("id") int id) throws IllegalArgumentException {
         return _bankLogic.getBalance(id);

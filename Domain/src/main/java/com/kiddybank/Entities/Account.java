@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -41,7 +42,6 @@ public class Account {
 
 
     public Account() {}
-
     public Account(String username, String password, String email, String phoneNumber, Date registrationDate) {
         this.username = username;
         this.password = password;
@@ -49,6 +49,7 @@ public class Account {
         this.phoneNumber = phoneNumber;
         this.registrationDate = registrationDate;
     }
+
 
     public int getId() {
         return id;
@@ -92,4 +93,19 @@ public class Account {
         return bankAccounts;
     }
 
+    @JsonIgnore
+    public BankAccount getBankAccountFromId(int ID) throws IllegalArgumentException {
+        for (Iterator<BankAccount> Iterator = bankAccounts.iterator(); Iterator.hasNext(); ){
+            BankAccount bankAccount = Iterator.next();
+            if(bankAccount.getId() == ID)
+                return bankAccount;
+        }
+
+        throw new IllegalArgumentException("Can't find the given bank account");
+    }
+
+    @JsonIgnore
+    public void addBankAccount(BankAccount bankAccount){
+        bankAccounts.add(bankAccount);
+    }
 }

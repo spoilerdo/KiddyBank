@@ -8,5 +8,4 @@ import java.util.Optional;
 
 public interface IAccountRepository extends CrudRepository<Account, Integer> {
     Optional<Account> findByUsername(String username);
-    void deleteAccountById(int id);
 }

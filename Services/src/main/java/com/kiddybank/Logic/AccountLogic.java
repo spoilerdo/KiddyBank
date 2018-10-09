@@ -72,13 +72,13 @@ public class AccountLogic implements IAccountLogic {
     @Override
     @Transactional
     public void deleteUser(int accountID) throws IllegalArgumentException {
-        //Controleren of account wel bestaat
-        Optional<Account> accountInDatabase = this._context.findById(accountID);
-        if(!accountInDatabase.isPresent()) {
+        //controleren of account wel bestaat
+        Optional<Account> accountFromDb = this._context.findById(accountID);
+        if(!accountFromDb.isPresent()) {
             throw new IllegalArgumentException("Account does not exist");
         }
 
         //account verwijderen van database
-        this._context.deleteAccountById(accountID);
+        this._context.deleteById(accountID);
     }
 }

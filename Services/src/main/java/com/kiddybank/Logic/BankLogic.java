@@ -10,6 +10,7 @@ import com.kiddybank.LogicInterfaces.IBankLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -49,7 +50,41 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public Float getBalance(int accountId) {
+    @Transactional
+    public void deleteAccount(int bankAccountID) throws IllegalArgumentException {
+        //Controleren of account wel bestaat
+        Optional<BankAccount> accountFromDb = this._bankContext.findById(bankAccountID);
+        if(!accountFromDb.isPresent()) {
+            throw new IllegalArgumentException("BankAccount does not exist");
+        }
+
+        //account verwijderen van database
+        this._bankContext.deleteById(bankAccountID);
+    }
+
+    @Override
+    public void linkAnotherUserToBankAccount(int ownAccountID, int otherAccountID, int bankAccountID) throws IllegalArgumentException {
+        //controleren of de ingelogde gebruiker wel bestaat
+        Optional<Account> accountFromDb = _accountContext.findById(ownAccountID);
+        if(!accountFromDb.isPresent()){
+            throw new IllegalArgumentException("Your account does not exist");
+        }
+
+        //controleer of de ingelogde gebruiker wel het gegeven bank account heeft
+        BankAccount bankAccountFromDb = accountFromDb.get().getBankAccountFromId(bankAccountID);
+
+        //controleren of het andere account wel bestaat
+        Optional<Account> otherAccountFromDb = _accountContext.findById(otherAccountID);
+        if(!otherAccountFromDb.isPresent()){
+            throw new IllegalArgumentException("Account of your friend doesn't exist");
+        }
+
+        //link het andere account aan de verkregen bank account
+        otherAccountFromDb.get().addBankAccount(bankAccountFromDb);
+    }
+
+    @Override
+    public Float getBalance(int accountId) throws IllegalArgumentException {
         Optional<BankAccount> bankAccountInDatabase = _bankContext.findById(accountId);
         //controleren of bank account gevonden is.
         if(!bankAccountInDatabase.isPresent()) {
@@ -77,7 +112,7 @@ public class BankLogic implements IBankLogic {
 
         //controleren of sender genoeg balans heeft
         if(sender.getBalance() < price) {
-            throw new IllegalArgumentException("Sender heeft niet genoeg balans");
+            throw new IllegalArgumentException("Sender doesn't have enough balance");
         }
 
         //balans aanpassen bij sender en receiver.
