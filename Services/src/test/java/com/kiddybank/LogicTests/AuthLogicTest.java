@@ -4,7 +4,6 @@ import com.kiddybank.DataInterfaces.IAccountRepository;
 import com.kiddybank.Entities.Account;
 import com.kiddybank.Logic.AuthLogic;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,8 +12,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import org.springframework.beans.factory.annotation.Value;

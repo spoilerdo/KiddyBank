@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4614b7e-804e-439d-9082-28ec57387531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -288,38 +291,40 @@
     <session id="-2103766937">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="2" />
-          <entry key="java" value="33" />
+          <entry key="java" value="57" />
           <entry key="properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="33" />
+          <entry key="JAVA" value="57" />
           <entry key="Properties" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gradle" value="1" />
-          <entry key="java" value="3506" />
+          <entry key="java" value="4907" />
           <entry key="properties" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="3506" />
+          <entry key="JAVA" value="4907" />
           <entry key="Properties" value="117" />
         </counts>
       </usages-collector>
@@ -373,46 +378,66 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="33" selection-end-column="83" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-578">
-              <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="64" column="68" selection-start-line="64" selection-start-column="68" selection-end-line="64" selection-end-column="68" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#659#660#0" expanded="true" />
-                <element signature="e#692#693#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-36">
+                  <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                    <element signature="e#976#977#0" expanded="true" />
+                    <element signature="e#1026#1027#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="250">
+                  <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="40" column="11" lean-forward="true" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="142">
+                  <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="59" selection-end-column="53" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -2022,10 +2047,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Java/application/DAL/Interfaces/IUserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/application/Logic/Interfaces/IUserLogic.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/application/Logic/Logic/UserLogic.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/application/DAL/Interfaces/IBankRepository.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/DAL/Interfaces/IAccountRepository.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Logic/Interfaces/IAccountLogic.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Test.java" />
@@ -2068,8 +2089,15 @@
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" />
         <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTests.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" />
         <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java" />
       </list>
     </option>
   </component>
@@ -2079,7 +2107,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-10" />
     <option name="width" value="1400" />
     <option name="height" value="955" />
@@ -2088,7 +2116,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope" proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope" proportions="" version="1">
       <flattenPackages Scope="false" />
       <showModules Scope="true" />
       <hideEmptyPackages Scope="true" ProjectPane="true" />
@@ -2168,6 +2196,13 @@
             </path>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com.kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="LogicInterfaces" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
             <path>
@@ -2201,18 +2236,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="KiddyEnterprise" type="58d84e3e:PackageViewProjectNode" />
-              <item name="KiddyEnterprise_main" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2317,6 +2340,18 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="KiddyEnterprise" type="58d84e3e:PackageViewProjectNode" />
+              <item name="KiddyEnterprise_main" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2327,7 +2362,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538562644014" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539074972348" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -2370,7 +2405,7 @@
     </option>
     <option name="contentProportion" value="0.09090909" />
   </component>
-  <component name="RunManager" selected="JUnit.BankLogicTest.TestGetBalanceValidId">
+  <component name="RunManager" selected="JUnit.JwtLogicTest.TestGenerateTokenValidAccount">
     <configuration name="Plugin" type="GradleRunConfiguration" factoryName="Gradle" singleton="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -2421,7 +2456,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BankLogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BankLogicTest.TestGetBalanceUnvalidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Services_test" />
       <extension name="coverage">
         <pattern>
@@ -2431,6 +2466,8 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
       <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.BankLogicTest" />
+      <option name="METHOD_NAME" value="TestGetBalanceUnvalidId" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -2451,35 +2488,37 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="Web_main" />
+    <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Services_test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value=".*" />
+          <option name="PATTERN" value="com.kiddybank.LogicTests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kiddybank.App" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
+      <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.JwtLogicTest" />
+      <option name="METHOD_NAME" value="TestGenerateTokenValidAccount" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Gradle.Plugin" />
-      <item itemvalue="JUnit.BankLogicTest" />
-      <item itemvalue="Spring Boot.App" />
       <item itemvalue="JUnit.AccountLogicTests.TestGetAccountValidId" />
       <item itemvalue="JUnit.BankLogicTest.TestGetBalanceValidId" />
       <item itemvalue="JUnit.AuthLogicTest.TestValidToken" />
+      <item itemvalue="JUnit.BankLogicTest.TestGetBalanceUnvalidId" />
+      <item itemvalue="JUnit.JwtLogicTest.TestGenerateTokenValidAccount" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BankLogicTest.TestGetBalanceValidId" />
+        <item itemvalue="JUnit.JwtLogicTest.TestGenerateTokenValidAccount" />
         <item itemvalue="JUnit.AuthLogicTest.TestValidToken" />
+        <item itemvalue="JUnit.BankLogicTest.TestGetBalanceUnvalidId" />
+        <item itemvalue="JUnit.BankLogicTest.TestGetBalanceValidId" />
         <item itemvalue="JUnit.AccountLogicTests.TestGetAccountValidId" />
-        <item itemvalue="Spring Boot.App" />
-        <item itemvalue="JUnit.BankLogicTest" />
       </list>
     </recent_temporary>
   </component>
@@ -2512,44 +2551,47 @@
       <workItem from="1538469464237" duration="13973000" />
       <workItem from="1538550145666" duration="1952000" />
       <workItem from="1538552713844" duration="240000" />
-      <workItem from="1538552984238" duration="8712000" />
+      <workItem from="1538552984238" duration="9069000" />
+      <workItem from="1538565943717" duration="666000" />
+      <workItem from="1538983178743" duration="44000" />
+      <workItem from="1539069383357" duration="5579000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BankLogicTest - 2018.10.02 at 15h 27m 53s.xml">
-      <configuration name="BankLogicTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankLogicTest - 2018.10.02 at 15h 28m 37s.xml">
-      <configuration name="BankLogicTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankLogicTest - 2018.10.02 at 15h 35m 52s.xml">
-      <configuration name="BankLogicTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankLogicTest_TestGetBalanceUnvalidId - 2018.10.02 at 15h 38m 57s.xml">
-      <configuration name="BankLogicTest.TestGetBalanceUnvalidId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankLogicTest_TestGetBalanceUnvalidId - 2018.10.02 at 15h 40m 58s.xml">
-      <configuration name="BankLogicTest.TestGetBalanceUnvalidId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankLogicTest - 2018.10.03 at 09h 07m 45s.xml">
-      <configuration name="BankLogicTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountLogicTests_TestGetAccountValidId - 2018.10.03 at 10h 37m 19s.xml">
-      <configuration name="AccountLogicTests.TestGetAccountValidId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BankLogicTest_TestGetBalanceValidId - 2018.10.03 at 10h 38m 28s.xml">
-      <configuration name="BankLogicTest.TestGetBalanceValidId" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AccountLogicTests_TestGetAccountValidId - 2018.10.03 at 10h 58m 41s.xml">
-      <configuration name="AccountLogicTests.TestGetAccountValidId" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AccountLogicTests_TestGetAccountValidId - 2018.10.03 at 11h 00m 59s.xml">
       <configuration name="AccountLogicTests.TestGetAccountValidId" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AuthLogicTest_TestValidToken - 2018.10.03 at 12h 27m 55s.xml">
+      <configuration name="AuthLogicTest.TestValidToken" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankLogicTest_TestGetBalanceValidId - 2018.10.03 at 12h 29m 49s.xml">
+      <configuration name="BankLogicTest.TestGetBalanceValidId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankLogicTest_TestGetBalanceUnvalidId - 2018.10.03 at 12h 33m 14s.xml">
+      <configuration name="BankLogicTest.TestGetBalanceUnvalidId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BankLogicTest_TestGetBalanceUnvalidId - 2018.10.03 at 13h 26m 03s.xml">
+      <configuration name="BankLogicTest.TestGetBalanceUnvalidId" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AuthLogicTest_TestValidToken - 2018.10.03 at 13h 26m 11s.xml">
+      <configuration name="AuthLogicTest.TestValidToken" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 41m 56s.xml">
+      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 43m 45s.xml">
+      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 47m 00s.xml">
+      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 47m 54s.xml">
+      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61362000" />
+    <option name="totallyTimeSpent" value="68008000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2564,7 +2606,7 @@
     <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27565393" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22602281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -2575,7 +2617,7 @@
       <window_info anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8294243" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.74307036" weight="0.3286119" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.74307036" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49840087" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -2645,65 +2687,7 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java</url>
-          <line>27</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java</url>
-          <line>29</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java</url>
-          <line>31</line>
-          <properties />
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java</url>
-          <line>37</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java</url>
-          <line>38</line>
-          <properties />
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties" />
-    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java" />
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -2750,13 +2734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -2928,13 +2905,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -2981,10 +2951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding>
-            <element signature="e#1042#1043#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3002,22 +2968,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTests.java">
+    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTests.java" />
+    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" />
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="45" column="61" lean-forward="true" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+        <state relative-caret-position="85">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#752#753#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="204">
           <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="40" column="11" lean-forward="true" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3026,32 +3006,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="33" selection-end-column="83" />
+        <state relative-caret-position="578">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java">
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-578">
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="64" column="68" selection-start-line="64" selection-start-column="68" selection-end-line="64" selection-end-column="68" />
+        <state relative-caret-position="211">
+          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#659#660#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#976#977#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

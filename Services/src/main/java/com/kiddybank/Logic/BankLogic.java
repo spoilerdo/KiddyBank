@@ -24,7 +24,7 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public BankAccount CreatAccount(Account account) {
+    public BankAccount CreateAccount(Account account) {
         Account accountFromDb = _accountContext.findById(account.getId()).get();
 
         BankAccount bankAccount = new BankAccount();
