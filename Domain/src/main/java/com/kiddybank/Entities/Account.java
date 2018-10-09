@@ -30,7 +30,7 @@ public class Account {
     @JsonProperty("regdate")
     private Date registrationDate;
 
-
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "AccountBankAccount",
@@ -53,6 +53,10 @@ public class Account {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setPassword(String password) {
@@ -78,6 +82,10 @@ public class Account {
 
     public Date getRegistrationDate() {
         return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
     @JsonIgnore

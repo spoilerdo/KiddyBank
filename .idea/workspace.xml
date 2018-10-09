@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4614b7e-804e-439d-9082-28ec57387531" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/ErrorDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/RestErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -260,6 +257,7 @@
     <session id="1779890173">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="2" />
@@ -268,23 +266,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="2" />
-          <entry key="java" value="44" />
+          <entry key="java" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="2" />
-          <entry key="JAVA" value="44" />
+          <entry key="JAVA" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="661" />
+          <entry key="java" value="3668" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="661" />
+          <entry key="JAVA" value="3668" />
         </counts>
       </usages-collector>
     </session>
@@ -376,68 +374,71 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="1319748083">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.2" value="2" />
+          <entry key="project.opened" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="9686" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="9686" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="70" />
+          <entry key="properties" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="70" />
+          <entry key="Properties" value="1" />
+        </counts>
+      </usages-collector>
+    </session>
+    <session id="-790488389">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="2" />
+          <entry key="java" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="2" />
+          <entry key="JAVA" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="1489" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="1489" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-36">
-                  <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#976#977#0" expanded="true" />
-                    <element signature="e#1026#1027#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="250">
-                  <caret line="26" column="73" selection-start-line="26" selection-start-column="73" selection-end-line="26" selection-end-column="73" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="120">
-                  <caret line="40" column="11" lean-forward="true" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="142">
-                  <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="59" selection-end-column="53" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -1486,7 +1487,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="12305590250851" />
+        <entry key="$PROJECT_DIR$" value="12312550967742" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/Data/build.gradle" value="1467231133" />
         <entry key="$PROJECT_DIR$/Domain/build.gradle" value="861898499" />
@@ -2047,9 +2048,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/Java/application/DAL/Interfaces/IAccountRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/application/Logic/Interfaces/IAccountLogic.java" />
-        <option value="$PROJECT_DIR$/src/main/Java/application/Test.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Domain/BankAccount.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Controllers/AccountController.java" />
         <option value="$PROJECT_DIR$/src/main/Java/application/Domain/Account.java" />
@@ -2085,19 +2083,21 @@
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Services/build.gradle" />
-        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
-        <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" />
-        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTests.java" />
-        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" />
-        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
+        <option value="$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IAccountRepository.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/JwtLogic.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
+        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTest.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/ErrorHandler/RestErrorHandler.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/RestErrorHandler.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/ErrorDetails.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
       </list>
     </option>
   </component>
@@ -2107,10 +2107,16 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="1400" />
-    <option name="height" value="955" />
+    <option name="x" value="-9" />
+    <option name="width" value="785" />
+    <option name="height" value="834" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -2125,23 +2131,113 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="KiddyEnterprise" type="58d84e3e:PackageViewProjectNode" />
+              <item name="KiddyEnterprise_main" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
           <expand>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com.kiddybank.LogicTests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="LogicTests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -2155,7 +2251,7 @@
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Data/Data_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -2236,121 +2332,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="DataInterfaces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Data" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Services" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kiddybank" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KiddyBank" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="Web" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kiddybank" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="KiddyEnterprise" type="58d84e3e:PackageViewProjectNode" />
-              <item name="KiddyEnterprise_main" type="616d4139:PackageViewModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView" />
     </panes>
   </component>
@@ -2362,7 +2343,8 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539074972348" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539074416303" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -2372,19 +2354,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Data\src\main\resources" />
-      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Web\src\main\resources" />
-      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Web\src\main\java" />
-      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Web" />
-      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Services\src\main\java" />
       <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Domain\src\main\java\Entities" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Data\src\main\resources" />
+      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Web\src\main\resources" />
+      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Web\src\main\java" />
+      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank\Web" />
+      <recent name="D:\School\Individueel\S3\Backend individueel\KiddyBank" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -2405,7 +2387,7 @@
     </option>
     <option name="contentProportion" value="0.09090909" />
   </component>
-  <component name="RunManager" selected="JUnit.JwtLogicTest.TestGenerateTokenValidAccount">
+  <component name="RunManager" selected="Spring Boot.App">
     <configuration name="Plugin" type="GradleRunConfiguration" factoryName="Gradle" singleton="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -2424,7 +2406,7 @@
       </ExternalSystemSettings>
       <method v="2" />
     </configuration>
-    <configuration name="AccountLogicTests.TestGetAccountValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountLogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Services_test" />
       <extension name="coverage">
         <pattern>
@@ -2433,14 +2415,12 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
-      <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.AccountLogicTests" />
-      <option name="METHOD_NAME" value="TestGetAccountValidId" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.AccountLogicTest" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AuthLogicTest.TestValidToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountLogicTest.TestAddUserValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Services_test" />
       <extension name="coverage">
         <pattern>
@@ -2449,14 +2429,30 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
-      <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.AuthLogicTest" />
-      <option name="METHOD_NAME" value="TestValidToken" />
+      <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.AccountLogicTest" />
+      <option name="METHOD_NAME" value="TestAddUserValid" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BankLogicTest.TestGetBalanceUnvalidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AccountLogicTest.TestDeleteUserInvalid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Services_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.kiddybank.LogicTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
+      <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.AccountLogicTest" />
+      <option name="METHOD_NAME" value="TestDeleteUserInvalid" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankLogicTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Services_test" />
       <extension name="coverage">
         <pattern>
@@ -2466,13 +2462,11 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
       <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.BankLogicTest" />
-      <option name="METHOD_NAME" value="TestGetBalanceUnvalidId" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BankLogicTest.TestGetBalanceValidId" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="BankLogicTest.TestTransactionValid" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Services_test" />
       <extension name="coverage">
         <pattern>
@@ -2482,8 +2476,15 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.kiddybank.LogicTests" />
       <option name="MAIN_CLASS_NAME" value="com.kiddybank.LogicTests.BankLogicTest" />
-      <option name="METHOD_NAME" value="TestGetBalanceValidId" />
+      <option name="METHOD_NAME" value="TestTransactionValid" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Web_main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.kiddybank.App" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -2506,19 +2507,21 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.Plugin" />
-      <item itemvalue="JUnit.AccountLogicTests.TestGetAccountValidId" />
-      <item itemvalue="JUnit.BankLogicTest.TestGetBalanceValidId" />
-      <item itemvalue="JUnit.AuthLogicTest.TestValidToken" />
-      <item itemvalue="JUnit.BankLogicTest.TestGetBalanceUnvalidId" />
-      <item itemvalue="JUnit.JwtLogicTest.TestGenerateTokenValidAccount" />
+      <item itemvalue="Spring Boot.app" />
+      <item itemvalue="Spring Boot.App" />
+      <item itemvalue="JUnit.AccountLogicTest" />
+      <item itemvalue="JUnit.BankLogicTest" />
+      <item itemvalue="JUnit.AccountLogicTest.TestAddUserValid" />
+      <item itemvalue="JUnit.BankLogicTest.TestTransactionValid" />
+      <item itemvalue="JUnit.AccountLogicTest.TestDeleteUserInvalid" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.JwtLogicTest.TestGenerateTokenValidAccount" />
-        <item itemvalue="JUnit.AuthLogicTest.TestValidToken" />
-        <item itemvalue="JUnit.BankLogicTest.TestGetBalanceUnvalidId" />
-        <item itemvalue="JUnit.BankLogicTest.TestGetBalanceValidId" />
-        <item itemvalue="JUnit.AccountLogicTests.TestGetAccountValidId" />
+        <item itemvalue="JUnit.BankLogicTest" />
+        <item itemvalue="JUnit.AccountLogicTest" />
+        <item itemvalue="JUnit.AccountLogicTest.TestDeleteUserInvalid" />
+        <item itemvalue="JUnit.BankLogicTest.TestTransactionValid" />
+        <item itemvalue="JUnit.AccountLogicTest.TestAddUserValid" />
       </list>
     </recent_temporary>
   </component>
@@ -2549,49 +2552,47 @@
       <workItem from="1538468108481" duration="587000" />
       <workItem from="1538469160857" duration="212000" />
       <workItem from="1538469464237" duration="13973000" />
-      <workItem from="1538550145666" duration="1952000" />
-      <workItem from="1538552713844" duration="240000" />
-      <workItem from="1538552984238" duration="9069000" />
-      <workItem from="1538565943717" duration="666000" />
-      <workItem from="1538983178743" duration="44000" />
-      <workItem from="1539069383357" duration="5579000" />
+      <workItem from="1538550145666" duration="11268000" />
+      <workItem from="1538668386575" duration="1066000" />
+      <workItem from="1539009203170" duration="9149000" />
+      <workItem from="1539069097754" duration="5298000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AccountLogicTests_TestGetAccountValidId - 2018.10.03 at 11h 00m 59s.xml">
-      <configuration name="AccountLogicTests.TestGetAccountValidId" configurationId="JUnit" />
+    <history-entry file="AccountLogicTest - 2018.10.08 at 19h 08m 30s.xml">
+      <configuration name="AccountLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AuthLogicTest_TestValidToken - 2018.10.03 at 12h 27m 55s.xml">
-      <configuration name="AuthLogicTest.TestValidToken" configurationId="JUnit" />
+    <history-entry file="AccountLogicTest - 2018.10.08 at 19h 09m 25s.xml">
+      <configuration name="AccountLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankLogicTest_TestGetBalanceValidId - 2018.10.03 at 12h 29m 49s.xml">
-      <configuration name="BankLogicTest.TestGetBalanceValidId" configurationId="JUnit" />
+    <history-entry file="AccountLogicTest - 2018.10.08 at 19h 18m 28s.xml">
+      <configuration name="AccountLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankLogicTest_TestGetBalanceUnvalidId - 2018.10.03 at 12h 33m 14s.xml">
-      <configuration name="BankLogicTest.TestGetBalanceUnvalidId" configurationId="JUnit" />
+    <history-entry file="BankLogicTest - 2018.10.08 at 19h 19m 03s.xml">
+      <configuration name="BankLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BankLogicTest_TestGetBalanceUnvalidId - 2018.10.03 at 13h 26m 03s.xml">
-      <configuration name="BankLogicTest.TestGetBalanceUnvalidId" configurationId="JUnit" />
+    <history-entry file="BankLogicTest - 2018.10.08 at 19h 19m 23s.xml">
+      <configuration name="BankLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AuthLogicTest_TestValidToken - 2018.10.03 at 13h 26m 11s.xml">
-      <configuration name="AuthLogicTest.TestValidToken" configurationId="JUnit" />
+    <history-entry file="BankLogicTest - 2018.10.08 at 19h 19m 29s.xml">
+      <configuration name="BankLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 41m 56s.xml">
-      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    <history-entry file="BankLogicTest - 2018.10.08 at 19h 23m 36s.xml">
+      <configuration name="BankLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 43m 45s.xml">
-      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    <history-entry file="AccountLogicTest - 2018.10.08 at 19h 26m 05s.xml">
+      <configuration name="AccountLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 47m 00s.xml">
-      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    <history-entry file="BankLogicTest - 2018.10.08 at 19h 26m 11s.xml">
+      <configuration name="BankLogicTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="JwtLogicTest_TestGenerateTokenValidAccount - 2018.10.09 at 10h 47m 54s.xml">
-      <configuration name="JwtLogicTest.TestGenerateTokenValidAccount" configurationId="JUnit" />
+    <history-entry file="BankLogicTest - 2018.10.09 at 09h 37m 29s.xml">
+      <configuration name="BankLogicTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68008000" />
+    <option name="totallyTimeSpent" value="93256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2603,10 +2604,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1549" height="837" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22602281" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15138593" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -2614,28 +2614,29 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Run Dashboard" order="0" sideWeight="0.8294243" weight="0.3286119" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.74307036" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49840087" weight="0.3991323" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" sideWeight="0.49840087" weight="0.329718" />
-      <window_info anchor="bottom" id="Build" order="8" sideWeight="0.68710023" weight="0.37093276" />
-      <window_info anchor="bottom" id="Spring" order="9" sideWeight="0.49946696" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.1705757" side_tool="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3286119" />
-      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.329718" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" order="15" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.3299566" />
+      <window_info active="true" anchor="bottom" id="Run Dashboard" order="1" sideWeight="0.8294243" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.74307036" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49840087" weight="0.39696312" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49840087" weight="0.329718" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.68710023" weight="0.37093276" />
+      <window_info anchor="bottom" id="Spring" order="10" sideWeight="0.49946696" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.1705757" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3275488" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.329718" />
+      <window_info anchor="bottom" id="Version Control" order="15" weight="0.3275488" />
+      <window_info anchor="bottom" id="Database Changes" order="16" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32995737" />
       <window_info anchor="right" id="Gradle" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Database" order="7" weight="0.26304802" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
@@ -2644,7 +2645,7 @@
       <window_info anchor="right" id="Coverage" order="11" side_tool="true" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27985075" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14978679" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -2652,21 +2653,23 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Build" order="7" weight="0.329718" />
-      <window_info anchor="bottom" id="Spring" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.329718" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.329718" />
-      <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" order="13" />
-      <window_info anchor="bottom" id="Version Control" order="14" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Console" order="0" weight="0.3299566" />
+      <window_info anchor="bottom" id="Run Dashboard" order="1" sideWeight="0.8294243" weight="0.329718" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="4" sideWeight="0.74307036" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.49840087" weight="0.39696312" />
+      <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="8" sideWeight="0.49840087" weight="0.329718" />
+      <window_info anchor="bottom" id="Build" order="9" sideWeight="0.68710023" weight="0.37093276" />
+      <window_info anchor="bottom" id="Spring" order="10" sideWeight="0.49946696" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.1705757" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Messages" order="13" weight="0.3275488" />
+      <window_info anchor="bottom" id="Java Enterprise" order="14" weight="0.329718" />
+      <window_info anchor="bottom" id="Version Control" order="15" weight="0.3275488" />
+      <window_info anchor="bottom" id="Database Changes" order="16" weight="0.329718" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -2688,111 +2691,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Data/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.0.9.RELEASE/1cfee1c1857cda6542f478ef8fe7d2fdb6c3b20/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractAutowireCapableBeanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="558" selection-start-line="558" selection-end-line="558" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.0.9.RELEASE/1cfee1c1857cda6542f478ef8fe7d2fdb6c3b20/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/ConstructorResolver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="278" selection-start-line="278" selection-end-line="278" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.0.9.RELEASE/1cfee1c1857cda6542f478ef8fe7d2fdb6c3b20/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/factory/support/SimpleInstantiationStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="116" selection-start-line="116" selection-end-line="116" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.0.9.RELEASE/1cfee1c1857cda6542f478ef8fe7d2fdb6c3b20/spring-beans-5.0.9.RELEASE-sources.jar!/org/springframework/beans/BeanUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="168" column="35" selection-start-line="168" selection-start-column="35" selection-end-line="168" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IBankRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="394">
-          <caret line="808" selection-start-line="808" selection-end-line="808" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/AbstractHandlerMethodAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="86" selection-start-line="86" selection-end-line="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="934" selection-start-line="934" selection-end-line="934" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/FrameworkServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="852" selection-start-line="852" selection-end-line="852" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-websocket/8.5.34/ae38c94ef87f320a699e37eb66b484bc6b485bdb/tomcat-embed-websocket-8.5.34-sources.jar!/org/apache/tomcat/websocket/server/WsFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.9.RELEASE/c19005e8a2a2216b0e9da304f1dce8ba0d72e110/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/filter/RequestContextFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.9.RELEASE/c19005e8a2a2216b0e9da304f1dce8ba0d72e110/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/filter/HttpPutFormContentFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="109" selection-start-line="109" selection-end-line="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.9.RELEASE/c19005e8a2a2216b0e9da304f1dce8ba0d72e110/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/filter/HiddenHttpMethodFilter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -2877,28 +2775,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.9.RELEASE/c19005e8a2a2216b0e9da304f1dce8ba0d72e110/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="14" lean-forward="true" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IAccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ddf68c96-4446-419b-992f-04cd2f211563/console.sql" />
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
@@ -2912,14 +2790,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AuthController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" column="72" selection-start-line="21" selection-start-column="72" selection-end-line="21" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
+    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/accountitem" />
+    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/account_bank_account" />
+    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/account" />
+    <entry file="file://$PROJECT_DIR$/Services/out/production/classes/com/kiddybank/Logic/AccountLogic.class" />
+    <entry file="file://$PROJECT_DIR$/Domain/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="22" column="34" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="34" />
@@ -2940,109 +2815,218 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="66" selection-end-line="4" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTests.java" />
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" />
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java">
+    <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IBankRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="40" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-test/5.0.9.RELEASE/e1e6cff03e69e4db489d723c9a1c91afe8e0c637/spring-test-5.0.9.RELEASE-sources.jar!/org/springframework/test/context/junit4/statements/RunAfterTestExecutionCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="19" selection-start-line="19" selection-start-column="19" selection-end-line="19" selection-end-column="19" />
+        <state relative-caret-position="347">
+          <caret line="94" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/2.0.10.RELEASE/b7c6de4b7a506d67f608113b6ecf21091b927002/spring-data-commons-2.0.10.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="40" column="11" lean-forward="true" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="299">
+          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.12/a6c32b40bf3d76eca54e3c601e5d1470c86fcdfa/junit-4.12-sources.jar!/org/junit/runners/model/FrameworkMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="92" lean-forward="true" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="92" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="323">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="26" column="29" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
+        <state relative-caret-position="706">
+          <caret line="91" column="12" lean-forward="true" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" lean-forward="true" selection-start-column="1" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="21" column="63" lean-forward="true" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="84" column="93" selection-start-line="84" selection-start-column="93" selection-end-line="84" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#TestGetBalanceValidId#0;class#BankLogicTest#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="101" column="71" selection-start-line="101" selection-start-column="71" selection-end-line="101" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/JwtLogicTest.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/DispatcherServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="29" column="24" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="24" />
+        <state relative-caret-position="360">
+          <caret line="1020" column="98" lean-forward="true" selection-start-line="1020" selection-start-column="98" selection-end-line="1020" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="898" selection-start-line="898" selection-end-line="898" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IAccountRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#976#977#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/5.0.9.RELEASE/c19005e8a2a2216b0e9da304f1dce8ba0d72e110/spring-web-5.0.9.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="116" selection-start-line="116" selection-end-line="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/ErrorDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1875#1876#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-core/5.0.9.RELEASE/9f9a828936d81afd49a603bda9cc1aed863a0d85/spring-core-5.0.9.RELEASE.jar!/org/springframework/cglib/proxy/MethodProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="105" selection-start-line="105" selection-end-line="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="56" column="35" lean-forward="true" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#getUser#0;class#AccountLogic#0" />
+            <element signature="method#login#0;class#AccountLogic#0" />
+            <element signature="method#deleteUser#0;class#AccountLogic#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/RestErrorHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
         </state>
       </provider>
     </entry>
