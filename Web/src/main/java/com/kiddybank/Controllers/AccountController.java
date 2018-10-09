@@ -14,8 +14,6 @@ import javax.security.auth.login.FailedLoginException;
 public class AccountController {
     private IAccountLogic _accountLogic;
 
-    //todo kijken naar : http://websystique.com/spring-boot/spring-boot-rest-api-example/ voor werking responsentity, hiermee kunnen we html codes enzo bepalen.
-
     @Autowired
     public AccountController(IAccountLogic accountLogic) {
         this._accountLogic = accountLogic;

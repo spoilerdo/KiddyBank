@@ -53,7 +53,7 @@ public class AccountLogic implements IAccountLogic {
 
     @Override
     public Account createUser(Account account) throws IllegalArgumentException {
-        //Controleren of belangrijke waardes nul zijn. TODO : Werkt nog niet
+        //Controleren of belangrijke waardes nul zijn.
         if (Strings.isNullOrEmpty(account.getUsername() )|| Strings.isNullOrEmpty(account.getPassword())|| Strings.isNullOrEmpty(account.getEmail())) {
             throw new IllegalArgumentException("Values cannot be null");
         }
