@@ -66,9 +66,6 @@ public class AccountLogicTest {
         Account dummyAccount = new Account("peter", "wachtwoord", "", "012345", Date.valueOf(LocalDate.now()));
         dummyAccount.setId(0);
 
-        //Repo calls mocken
-        when(accountRepository.findByUsername("peter")).thenReturn(Optional.of(dummyAccount));
-
         //we verwachten dat er een exception optreed.
         exception.expect(IllegalArgumentException.class);
 
