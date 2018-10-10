@@ -17,8 +17,9 @@ public class AuthController {
 
     @RequestMapping(value = "/signin", method = RequestMethod.POST, produces = "application/json")
     public String LoginUser(@RequestBody Account account) {
+        // Sign in and get token
         String token = authLogic.SignIn(account);
-//        String jsonResponse = "{ \"token\":" + "\"" + token + "\"" + "}";
+        // Format JSON string for response
         String jsonResponse = String.format("{\"token\": \"%s\"}", token);
         return jsonResponse;
     }

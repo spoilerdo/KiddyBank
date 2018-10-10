@@ -25,7 +25,7 @@ public class AccountLogic implements IAccountLogic {
 
     @Override
     public Account getUser(int id) throws IllegalArgumentException {
-        Optional<Account> foundAccount = _context.findById(id);
+        Optional<Account> foundAccount = context.findById(id);
         //check if account was found in the system
         if(!foundAccount.isPresent()) {
             throw new IllegalArgumentException("Account with id : " + String.valueOf(id) + "not found in the system");
@@ -41,7 +41,7 @@ public class AccountLogic implements IAccountLogic {
             throw new IllegalArgumentException("Values cannot be null");
         }
 
-        Optional<Account> accountInDatabase = this._context.findByUsername(account.getUsername());
+        Optional<Account> accountInDatabase = this.context.findByUsername(account.getUsername());
         if(accountInDatabase.isPresent()) {
             throw new IllegalArgumentException("User already exists");
         }
@@ -53,7 +53,7 @@ public class AccountLogic implements IAccountLogic {
         account.setRegistrationDate(Date.valueOf(LocalDate.now()));
 
         //opslaan in database en result ophalen.
-        Account createdUser = this._context.save(account);
+        Account createdUser = this.context.save(account);
 
         return createdUser;
     }
@@ -62,12 +62,12 @@ public class AccountLogic implements IAccountLogic {
     @Transactional
     public void deleteUser(int accountID) throws IllegalArgumentException {
         //Controleren of account wel bestaat
-        Optional<Account> accountInDatabase = this._context.findById(accountID);
+        Optional<Account> accountInDatabase = this.context.findById(accountID);
         if(!accountInDatabase.isPresent()) {
             throw new IllegalArgumentException("Account does not exist");
         }
 
         //account verwijderen van database
-        this._context.deleteAccountById(accountID);
+        this.context.deleteAccountById(accountID);
     }
 }

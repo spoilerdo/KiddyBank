@@ -37,7 +37,6 @@ public class Account {
             joinColumns = { @JoinColumn(name = "AccountID") },
             inverseJoinColumns = { @JoinColumn(name = "BankAccountID") }
     )
-    @JsonIgnore
     private Set<BankAccount> bankAccounts = new HashSet<>();
 
 

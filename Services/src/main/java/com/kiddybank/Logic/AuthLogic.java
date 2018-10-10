@@ -21,7 +21,7 @@ public class AuthLogic implements IAuthLogic {
     @Override
     public String SignIn(Account account) {
         // Find account in database
-        Account foundAccount = context.findByUsername(account.getUsername());
+        Account foundAccount = context.findByUsername(account.getUsername()).get();
 
         // If no account is found return nothing
         if(foundAccount == null) {

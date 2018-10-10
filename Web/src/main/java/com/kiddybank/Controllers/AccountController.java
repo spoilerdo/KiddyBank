@@ -22,24 +22,19 @@ public class AccountController {
 
     @PostMapping(path="/add")
     public ResponseEntity<Account> AddNewUser(@RequestBody  Account account) throws IllegalArgumentException{
-        Account createdAccount = _accountLogic.createUser(account);
+        Account createdAccount = accountLogic.createUser(account);
         return new ResponseEntity<>(createdAccount, HttpStatus.OK);
     }
 
     @DeleteMapping(path="/delete/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void DeleteUser(@PathVariable("id") int id) throws IllegalArgumentException {
-         _accountLogic.deleteUser(id);
-    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
-    public Account GetUser(@PathVariable("userId") int userId) {
-        Account account = accountLogic.GetUser(userId);
-        return account;
-    }
+        accountLogic.deleteUser(id);
     }
 
-    @PostMapping(path="/login")
-    public boolean LoginUser(@RequestBody Account account) {
-        boolean login = _accountLogic.Login(account);
-        return login;
+    @RequestMapping(value = "/{userId}", method = RequestMethod.GET)
+    public Account GetUser(@PathVariable("userId") int userId) {
+        Account account = accountLogic.getUser(userId);
+        return account;
     }
 }
