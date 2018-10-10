@@ -2,7 +2,6 @@ package com.kiddybank.LogicTests;
 
 import com.kiddybank.DataInterfaces.IAccountRepository;
 import com.kiddybank.Entities.Account;
-import com.kiddybank.Logic.AuthLogic;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.junit.Assert;

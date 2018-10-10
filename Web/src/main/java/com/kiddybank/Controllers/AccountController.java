@@ -5,6 +5,7 @@ import com.kiddybank.LogicInterfaces.IAccountLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.login.FailedLoginException;
@@ -13,7 +14,6 @@ import javax.security.auth.login.FailedLoginException;
 @RequestMapping(path="/account")
 public class AccountController {
     private IAccountLogic accountLogic;
-
 
     @Autowired
     public AccountController(IAccountLogic accountLogic) {

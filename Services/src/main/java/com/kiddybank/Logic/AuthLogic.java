@@ -2,41 +2,30 @@ package com.kiddybank.Logic;
 
 import com.kiddybank.DataInterfaces.IAccountRepository;
 import com.kiddybank.Entities.Account;
-import com.kiddybank.LogicInterfaces.IAuthLogic;
-import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service
-public class AuthLogic implements IAuthLogic {
-    private IAccountRepository context;
-    JwtLogic jwtLogic;
+import static java.util.Collections.emptyList;
 
+@Service
+public class AuthLogic implements UserDetailsService {
+    private IAccountRepository context;
+
+    @Autowired
     public AuthLogic(IAccountRepository context) {
         this.context = context;
-        jwtLogic = new JwtLogic();
     }
-
-
 
     @Override
-    public String SignIn(Account account) {
-        // Find account in database
-        Account foundAccount = context.findByUsername(account.getUsername()).get();
-
-        // If no account is found return nothing
-        if(foundAccount == null) {
-            return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Account account = context.findByUsername(username).get();
+        if (account == null) {
+            throw new UsernameNotFoundException(username);
         }
-
-        // When a account is found has the given password
-        // and compare it to the password in the database
-        if (BCrypt.checkpw(account.getPassword(), foundAccount.getPassword())) {
-            String token = jwtLogic.GenerateToken(foundAccount);
-            return token;
-        } else {
-            return null;
-        }
-
+        return new User(account.getUsername(), account.getPassword(), emptyList());
     }
-
 }
