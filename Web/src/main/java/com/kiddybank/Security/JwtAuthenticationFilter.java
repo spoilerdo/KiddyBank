@@ -4,16 +4,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiddybank.Entities.Account;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.stereotype.Component;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -21,9 +21,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-import static com.kiddybank.Security.SecurityConstants.SecurityConstants.HEADER_STRING;
 import static com.kiddybank.Security.SecurityConstants.SecurityConstants.JWTKEY;
-import static com.kiddybank.Security.SecurityConstants.SecurityConstants.TOKEN_PREFIX;
 
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     private AuthenticationManager authenticationManager;
@@ -54,11 +52,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,
                                             FilterChain chain,
-                                            Authentication auth) throws IOException, ServletException {
-
+                                            Authentication auth) throws IOException {
+        //generate jwt token with issued date and expiration date of issued date + 1
         Date expirationDate = Date.valueOf(LocalDate.now().plusDays(1));
         Date currentDate = Date.valueOf(LocalDate.now());
-
+        //build token
         String token =  Jwts.builder()
                 .setSubject(((User) auth.getPrincipal()).getUsername())
                 .setExpiration(expirationDate)
@@ -66,7 +64,17 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .signWith(SignatureAlgorithm.HS512, JWTKEY)
                 .compact();
 
-        res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        //Convert token to json and return to the user
+        JSONObject tokenResponse = new JSONObject();
+        try {
+            //TODO : Moet ik hier ook bearer meegeven of doen we dit aan de frontend kant?
+            tokenResponse.put("token",  token);
+        } catch (JSONException e) {
+            logger.error(e.getMessage());
+        }
+
+        //Write token response to body
+        res.getWriter().print(tokenResponse);
     }
 
 }
