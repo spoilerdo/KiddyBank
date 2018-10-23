@@ -1,107 +1,59 @@
-# Directories #
-/build/
-bin/
-repos/
-/repos/
-doc/
-/doc/
-.gradle/
-/bin/
-target/
- 
-# OS Files #
+# Created by http://gitignore.io
+
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+### Linux ###
+.*
+!.gitignore
+!.git*
+*~
+
+
+### OSX ###
 .DS_Store
-
-# JetBrain's Idea specific stuff #
-
-.idea*
-*.iml
+.AppleDouble
+.LSOverride
+Icon
 
 
-# User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
+# Thumbnails
+._*
 
-# Sensitive or high-churn files:
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/dataSources.local.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
 
-# Gradle:
-.idea/gradle.xml
-.idea/libraries
-
-# Mongo Explorer plugin:
-.idea/mongoSettings.xml
-
-## File-based project format:
-*.iws
-
-## Plugin-specific files:
-
-# IntelliJ
-/out/
-
-# mpeltonen/sbt-idea plugin
-.idea_modules/
-
-# JIRA plugin
-atlassian-ide-plugin.xml
-
-# Crashlytics plugin (for Android Studio and IntelliJ)
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
-
-
+### Java ###
 *.class
-browscap.csv
-gradle/wrapper
-gradlew.bat
-gradlew
 
 # Package Files #
 *.jar
 *.war
 *.ear
-*.db
- 
-######################
-# Windows
-######################
- 
-# Windows image file caches
-Thumbs.db 
- 
-# Folder config file
-Desktop.ini
- 
-######################
-# OSX
-######################
- 
-.DS_Store
-.svn
- 
-# Thumbnails
-._*
- 
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
- 
- 
-######################
-# Eclipse
-######################
- 
+
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
+
+### Gradle ###
+# Exclude Folder List #
+.gradle/
+build/
+.bin
+.lock
+
+### Eclipse ###
 *.pydevproject
 .project
 .metadata
@@ -116,15 +68,29 @@ local.properties
 .classpath
 .settings/
 .loadpath
-/src/main/resources/rebel.xml
+
 # External tool builders
 .externalToolBuilders/
- 
+
 # Locally stored "Eclipse launch configurations"
 *.launch
- 
+
 # CDT-specific
 .cproject
- 
+
 # PDT-specific
 .buildpath
+
+### IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
+
+### SVN ###
+.svn/
+
+### Maven ###
+target/
+
+/bin

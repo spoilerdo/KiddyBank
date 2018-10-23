@@ -1,11 +1,13 @@
 package com.kiddybank.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity
@@ -15,9 +17,10 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @JsonProperty("name")
+    @JsonProperty("username")
     private String username;
     @JsonProperty("password")
+    @JsonIgnore
     private String password;
     @JsonProperty("email")
     private String email;
@@ -28,7 +31,7 @@ public class Account {
     @JsonProperty("regdate")
     private Date registrationDate;
 
-
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "AccountBankAccount",
@@ -39,7 +42,6 @@ public class Account {
 
 
     public Account() {}
-
     public Account(String username, String password, String email, String phoneNumber, Date registrationDate) {
         this.username = username;
         this.password = password;
@@ -48,8 +50,13 @@ public class Account {
         this.registrationDate = registrationDate;
     }
 
+
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setPassword(String password) {
@@ -60,6 +67,7 @@ public class Account {
         return username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -76,8 +84,28 @@ public class Account {
         return registrationDate;
     }
 
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    @JsonIgnore
     public Set<BankAccount> getBankAccounts() {
         return bankAccounts;
     }
 
+    @JsonIgnore
+    public BankAccount getBankAccountFromId(int ID) throws IllegalArgumentException {
+        for (Iterator<BankAccount> Iterator = bankAccounts.iterator(); Iterator.hasNext(); ){
+            BankAccount bankAccount = Iterator.next();
+            if(bankAccount.getId() == ID)
+                return bankAccount;
+        }
+
+        throw new IllegalArgumentException("Can't find the given bank account");
+    }
+
+    @JsonIgnore
+    public void addBankAccount(BankAccount bankAccount){
+        bankAccounts.add(bankAccount);
+    }
 }

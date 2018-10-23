@@ -11,6 +11,7 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name="banknumber")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int bankNumber;
     @Column(name="balance")
     private float balance;
@@ -26,6 +27,10 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public int getBankNumber() {
         return bankNumber;
     }
@@ -33,16 +38,14 @@ public class BankAccount {
     public float getBalance() {
         return balance;
     }
-
     public void setBalance(float balance) {
         this.balance = balance;
     }
 
-    public void setAccounts(Set<Account> accounts) {
-        this.accounts = accounts;
-    }
-
     public Set<Account> getAccounts() {
         return accounts;
+    }
+    public void setAccounts(Set<Account> accounts) {
+        this.accounts = accounts;
     }
 }
