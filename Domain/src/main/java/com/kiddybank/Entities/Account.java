@@ -17,7 +17,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @JsonProperty("name")
+    @JsonProperty("username")
     private String username;
     @JsonProperty("password")
     @JsonIgnore

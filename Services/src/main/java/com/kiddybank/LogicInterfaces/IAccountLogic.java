@@ -13,14 +13,6 @@ public interface IAccountLogic {
     Account getUser(int id);
 
     /**
-     * Login User based on information given
-     * @param account the account object translated from JSON into an Account object.
-     * @return nothing if everything goes correct
-     * @throws FailedLoginException if account contains wrong information
-     */
-    void login(Account account) throws FailedLoginException;
-
-    /**
      * Create user with information given
      * @param account the account object translated from JSON into an Account object
      * @return created user
