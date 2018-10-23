@@ -40,11 +40,18 @@ Icon
 *.war
 *.ear
 
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
+
 ### Gradle ###
 # Exclude Folder List #
 .gradle/
 build/
-
+.bin
+.lock
 
 ### Eclipse ###
 *.pydevproject
