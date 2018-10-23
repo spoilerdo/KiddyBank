@@ -68,6 +68,6 @@ public class AccountLogic implements IAccountLogic {
         }
 
         //account verwijderen van database
-        this.context.deleteAccountById(accountID);
+        this.context.deleteById(accountID);
     }
 }
