@@ -67,7 +67,6 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         //Convert token to json and return to the user
         JSONObject tokenResponse = new JSONObject();
         try {
-            //TODO : Moet ik hier ook bearer meegeven of doen we dit aan de frontend kant?
             tokenResponse.put("token",  token);
         } catch (JSONException e) {
             logger.error(e.getMessage());
