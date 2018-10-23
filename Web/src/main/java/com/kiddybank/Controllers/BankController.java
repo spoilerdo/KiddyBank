@@ -38,8 +38,6 @@ public class BankController {
         return _bankLogic.getBalance(id);
     }
 
-    //@RequestBody is maar een keer aangegeven is dit correct?
-    //TODO: kijk ook of je @RequestBody wel nodig hebt.
     @PostMapping(path = "/transfer")
     public void Transaction (@RequestBody TransactionResponse response) throws IllegalArgumentException {
         _bankLogic.transaction(response.getSenderID(), response.getReceiverID(), response.getPrice());
