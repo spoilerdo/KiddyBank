@@ -26,7 +26,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private UserDetailsService userDetailsImpl;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private List<String> allowedOrigins;
+
     private List<String> allowedMethods;
     private List<String> allowedHeaders;
 

@@ -1,6 +1,8 @@
 package com.kiddybank.Logic;
 
+import com.kiddybank.DataInterfaces.IRoleRepository;
 import com.kiddybank.Entities.Account;
+import com.kiddybank.Entities.Role;
 import com.kiddybank.LogicInterfaces.IAccountLogic;
 import com.kiddybank.DataInterfaces.IAccountRepository;
 import org.assertj.core.util.Strings;
@@ -18,11 +20,13 @@ import java.util.Optional;
 
 @Service
 public class AccountLogic implements IAccountLogic {
-    private IAccountRepository context;
+    private IAccountRepository accountRepository;
+    private IRoleRepository roleRepository;
 
     @Autowired
-    public AccountLogic(IAccountRepository context) {
-        this.context = context;
+    public AccountLogic(IAccountRepository accountRepository, IRoleRepository roleRepository) {
+        this.accountRepository = accountRepository;
+        this.roleRepository = roleRepository;
     }
 
     @Override
@@ -61,7 +65,7 @@ public class AccountLogic implements IAccountLogic {
         }
 
         //check if account already exists in the db
-        Optional<Account> accountInDatabase = this.context.findByUsername(account.getUsername());
+        Optional<Account> accountInDatabase = this.accountRepository.findByUsername(account.getUsername());
         if(accountInDatabase.isPresent()) {
             throw new IllegalArgumentException("User already exists");
         }
@@ -72,9 +76,13 @@ public class AccountLogic implements IAccountLogic {
 
         //set registration date
         account.setRegistrationDate(Date.valueOf(LocalDate.now()));
+        //set default role
+        Role userRole = roleRepository.findByName("user").get();
+        account.getRoles().add(userRole);
+        userRole.getUsers().add(account);
 
         //save to the db
-        Account createdUser = this.context.save(account);
+        Account createdUser = this.accountRepository.save(account);
 
         return createdUser;
     }
@@ -88,11 +96,11 @@ public class AccountLogic implements IAccountLogic {
         checkAccountExists(accountID);
 
         //delete the account from the db
-        this.context.deleteById(accountID);
+        this.accountRepository.deleteById(accountID);
     }
 
     private Optional<Account> checkAccountExists(int accountId){
-        Optional<Account> accountFromDb = context.findById(accountId);
+        Optional<Account> accountFromDb = accountRepository.findById(accountId);
         if(!accountFromDb.isPresent()) {
             throw new IllegalArgumentException("Account with id: " + String.valueOf(accountId) + " not found in the system");
         }
@@ -101,7 +109,7 @@ public class AccountLogic implements IAccountLogic {
     }
 
     private Boolean checkAccess(String username, int accountID) {
-        Optional<Account> foundAccount = context.findByUsername(username);
+        Optional<Account> foundAccount = accountRepository.findByUsername(username);
         if(!foundAccount.isPresent()) {
             throw new IllegalArgumentException("Account with username: " + username + " not found in the system");
         }
@@ -116,7 +124,7 @@ public class AccountLogic implements IAccountLogic {
     }
 
     private Optional<Account> checkAccountExists(String username){
-        Optional<Account> accountFromDb = context.findByUsername(username);
+        Optional<Account> accountFromDb = accountRepository.findByUsername(username);
         if(!accountFromDb.isPresent()) {
             throw new IllegalArgumentException("Account with username: " + String.valueOf(username) + " not found in the system");
         }

@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -31,7 +32,7 @@ public class Account {
     @JsonProperty("regdate")
     private Date registrationDate;
 
-    @JsonManagedReference
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "AccountBankAccount",
@@ -40,6 +41,13 @@ public class Account {
     )
     private Set<BankAccount> bankAccounts = new HashSet<>();
 
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     public Account() {}
     public Account(String username, String password, String email, String phoneNumber, Date registrationDate) {
@@ -92,6 +100,10 @@ public class Account {
         }
 
         throw new IllegalArgumentException("Can't find the given bank account");
+    }
+
+    public Collection<Role> getRoles() {
+        return roles;
     }
 
     @JsonIgnore
