@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Account {
-    //JsonProperty wordt toegevoegd zodat de ingebouwde json omzetter weet naar welke namen hij moet zoeken.
+    //JsonProperty added so the build-in json converter knows what name to look for.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -59,10 +59,6 @@ public class Account {
         this.id = id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -72,16 +68,12 @@ public class Account {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmail() {
         return email;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
     }
 
     public void setRegistrationDate(Date registrationDate) {

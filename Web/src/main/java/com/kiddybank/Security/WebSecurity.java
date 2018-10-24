@@ -20,7 +20,6 @@ import java.util.List;
 
 import static com.kiddybank.Security.SecurityConstants.SecurityConstants.SIGN_UP_URL;
 
-
 //https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {

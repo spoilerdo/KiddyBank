@@ -25,34 +25,34 @@ public class AccountLogic implements IAccountLogic {
 
     @Override
     public Account getUser(int id) throws IllegalArgumentException {
-        Optional<Account> foundAccount = context.findById(id);
         //check if account was found in the system
-        if(!foundAccount.isPresent()) {
-            throw new IllegalArgumentException("Account with id : " + String.valueOf(id) + "not found in the system");
-        }
+        Optional<Account> foundAccount = checkAccountExists(id);
+
         //return account
         return foundAccount.get();
     }
 
     @Override
     public Account createUser(Account account) throws IllegalArgumentException {
-        //Controleren of belangrijke waardes nul zijn.
+        //check if account is filled correctly
         if (Strings.isNullOrEmpty(account.getUsername() )|| Strings.isNullOrEmpty(account.getPassword())|| Strings.isNullOrEmpty(account.getEmail())) {
             throw new IllegalArgumentException("Values cannot be null");
         }
 
+        //check if account already exists in the db
         Optional<Account> accountInDatabase = this.context.findByUsername(account.getUsername());
         if(accountInDatabase.isPresent()) {
             throw new IllegalArgumentException("User already exists");
         }
-        //password encrypten
+
+        //password encrypting
         String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
         account.setPassword(encryptedPassword);
 
-        //registration date is tijd van nu
+        //set registration date
         account.setRegistrationDate(Date.valueOf(LocalDate.now()));
 
-        //opslaan in database en result ophalen.
+        //save to the db
         Account createdUser = this.context.save(account);
 
         return createdUser;
@@ -61,13 +61,19 @@ public class AccountLogic implements IAccountLogic {
     @Override
     @Transactional
     public void deleteUser(int accountID) throws IllegalArgumentException {
-        //Controleren of account wel bestaat
-        Optional<Account> accountInDatabase = this.context.findById(accountID);
-        if(!accountInDatabase.isPresent()) {
-            throw new IllegalArgumentException("Account does not exist");
+        //check if the account exists in the db
+        checkAccountExists(accountID);
+
+        //delete the account from the db
+        this.context.deleteById(accountID);
+    }
+
+    private Optional<Account> checkAccountExists(int accountId){
+        Optional<Account> accountFromDb = context.findById(accountId);
+        if(!accountFromDb.isPresent()) {
+            throw new IllegalArgumentException("Account with id: " + String.valueOf(accountId) + " not found in the system");
         }
 
-        //account verwijderen van database
-        this.context.deleteById(accountID);
+        return accountFromDb;
     }
 }

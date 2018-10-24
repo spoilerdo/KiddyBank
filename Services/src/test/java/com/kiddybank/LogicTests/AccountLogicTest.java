@@ -22,11 +22,11 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 
-//Voorbeeld : https://stackoverflow.com/questions/36001201/spring-mock-repository-does-not-work
+//Example : https://stackoverflow.com/questions/36001201/spring-mock-repository-does-not-work
 @RunWith(MockitoJUnitRunner.class)
 public class AccountLogicTest {
 
-    //Exception afvanger toevoegen
+    //Add exception handler
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
@@ -53,9 +53,9 @@ public class AccountLogicTest {
         //Then
         Account createUser = this._logic.createUser(dummyAccount);
 
-        //controleren of save van repository is aangeroepen
+        //check if save is called from the accountrepo
         verify(accountRepository, times(1)).save(dummyAccount);
-        //controleren of we juiste terugkrijgen, na twee gegevens geloven we het wel.
+        //check if we get the correct values back
         Assert.assertEquals("Peter", createUser.getUsername());
         Assert.assertEquals("jan@live.nl", createUser.getEmail());
     }
@@ -65,7 +65,7 @@ public class AccountLogicTest {
         //Given
         Account dummyAccount = new Account("peter", "wachtwoord", "", "012345", Date.valueOf(LocalDate.now()));
 
-        //we verwachten dat er een exception optreed.
+        //We expect a exception
         exception.expect(IllegalArgumentException.class);
 
         //when
@@ -85,17 +85,17 @@ public class AccountLogicTest {
         //When
         this._logic.deleteUser(dummyAccount.getId());
 
-        //we verwachten dat de call naar deletaccountbyid gemaakt is en dat er geen exception optreed.
+        //we expect that a call to deleteById
         verify(accountRepository, times(1)).deleteById(dummyAccount.getId());
     }
 
     @Test
     public void TestDeleteUserInvalid() {
-        //account die nog niet bestaat
+        //account that not exists yet
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
         when(accountRepository.findById(0)).thenReturn(Optional.empty());
 
-        //We verwachten een exception van illegalargument omdat de mock nu aangeeft dat de account nog bestaat
+        //We expect a exception cause the mock says that the account doesn't exist yet
         exception.expect(IllegalArgumentException.class);
 
         //when

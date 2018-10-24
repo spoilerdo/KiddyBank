@@ -28,15 +28,13 @@ public class BankLogic implements IBankLogic {
 
     @Override
     public BankAccount createAccount(Account account) throws IllegalArgumentException {
-        Optional<Account> accountFromDb = _accountContext.findById(account.getId());
+        //check if account exists in the db
+        Optional<Account> accountFromDb = checkAccountExists(account.getId());
 
-        if(!accountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Account with id : " + String.valueOf(account.getId()) + "Not found in the system");
-        }
-        //Get full account data from database
+        //get full account data from database
         account = accountFromDb.get();
 
-
+        //make a new bank-account
         BankAccount bankAccount = new BankAccount();
         bankAccount.setBalance(0);
         bankAccount.getAccounts().add(account);
@@ -44,87 +42,96 @@ public class BankLogic implements IBankLogic {
 
         _bankContext.save(bankAccount);
 
-        //accounts connectie via JPA weghalen voor het weergeven naar gebruiker, dit is niet relevant bij het creeren van de gebruiker
+        //delete account connections trough JPA before returning it.
         bankAccount.getAccounts().clear();
         return bankAccount;
     }
 
     @Override
     @Transactional
-    public void deleteAccount(int bankAccountID) throws IllegalArgumentException {
-        //Controleren of account wel bestaat
-        Optional<BankAccount> accountFromDb = this._bankContext.findById(bankAccountID);
-        if(!accountFromDb.isPresent()) {
-            throw new IllegalArgumentException("BankAccount does not exist");
-        }
+    public void deleteAccount(int bankAccountId) throws IllegalArgumentException {
+        //check if bank-account exists in the db
+        checkBankAccountExists(bankAccountId);
 
-        //account verwijderen van database
-        this._bankContext.deleteById(bankAccountID);
+        //delete the account from the db
+        this._bankContext.deleteById(bankAccountId);
     }
 
     @Override
-    public void linkAnotherUserToBankAccount(int ownAccountID, int otherAccountID, int bankAccountID) throws IllegalArgumentException {
-        //controleren of de ingelogde gebruiker wel bestaat
-        Optional<Account> accountFromDb = _accountContext.findById(ownAccountID);
-        if(!accountFromDb.isPresent()){
-            throw new IllegalArgumentException("Your account does not exist");
+    public void linkAnotherUserToBankAccount(int ownAccountId, int otherAccountId, int bankAccountId) throws IllegalArgumentException {
+        //check if logged-in account exists in the db
+        Optional<Account> accountFromDb = checkAccountExists(ownAccountId);
+
+        //get the logged-in account
+        Account ownAccount = accountFromDb.get();
+
+        //check if the logged-in account actually has the given bank-account
+        BankAccount bankAccountFromDb = ownAccount.getBankAccountFromId(bankAccountId);
+        if(bankAccountFromDb == null){
+            throw new IllegalArgumentException("Account with id: " + String.valueOf(ownAccount.getId()) + " isn't linked to the given bank-account");
         }
 
-        //controleer of de ingelogde gebruiker wel het gegeven bank account heeft
-        BankAccount bankAccountFromDb = accountFromDb.get().getBankAccountFromId(bankAccountID);
+        //check if the other account exists
+        Optional<Account> otherAccountFromDb = checkAccountExists(otherAccountId);
 
-        //controleren of het andere account wel bestaat
-        Optional<Account> otherAccountFromDb = _accountContext.findById(otherAccountID);
-        if(!otherAccountFromDb.isPresent()){
-            throw new IllegalArgumentException("Account of your friend doesn't exist");
-        }
-
-        //link het andere account aan de verkregen bank account
+        //link the other account to the given bank-account
         otherAccountFromDb.get().addBankAccount(bankAccountFromDb);
     }
 
     @Override
     public Float getBalance(int accountId) throws IllegalArgumentException {
-        Optional<BankAccount> bankAccountInDatabase = _bankContext.findById(accountId);
-        //controleren of bank account gevonden is.
-        if(!bankAccountInDatabase.isPresent()) {
-            throw new IllegalArgumentException("bankaccount with id : " + String.valueOf(accountId) + "not found in the system");
-        }
+        //check if the given account contains any bank-accounts
+        Optional<BankAccount> bankAccountFromDb = checkBankAccountExists(accountId);
 
-        //balance teruggeven
-        return bankAccountInDatabase.get().getBalance();
+        //return balance
+        return bankAccountFromDb.get().getBalance();
     }
 
     @Override
     public void transaction(int senderId, int receiverId, Float price) throws IllegalArgumentException{
-        //Sender en receiver account opvragen
-        Optional<BankAccount> senderAccountInDatabase = _bankContext.findById(senderId);
-        Optional<BankAccount> receiverAccountInDatabase = _bankContext.findById(receiverId);
+        //check if the sender and receiver bank-accounts exist
+        Optional<BankAccount> senderAccountInDatabase = checkBankAccountExists(senderId);
+        Optional<BankAccount> receiverAccountInDatabase = checkBankAccountExists(receiverId);
 
-        //tegelijkertijd controleren of deze accounts bestaan, anders word mogelijk al geld toegevoegd / verwijderd voordat gecontroleerd is of allebei de accounts bestaan.
-        if(!senderAccountInDatabase.isPresent() || !receiverAccountInDatabase.isPresent()) {
-            throw new IllegalArgumentException("Sender or Receiver account not found in database");
-        }
+        //get bank-accounts
+        BankAccount senderBankAccount = senderAccountInDatabase.get();
+        BankAccount receiverBankAccount = receiverAccountInDatabase.get();
 
-        //bankaccounts ophalen van optional.
-        BankAccount sender = senderAccountInDatabase.get();
-        BankAccount receiver = receiverAccountInDatabase.get();
-
-        //controleren of sender genoeg balans heeft
-        if(sender.getBalance() < price) {
+        //check if the sender has enough balance
+        if(senderBankAccount.getBalance() < price) {
             throw new IllegalArgumentException("Sender doesn't have enough balance");
         }
 
-        //balans aanpassen bij sender en receiver.
-        changeBalance(sender, -price);
-        changeBalance(receiver, price);
-        //Opslaan in transaction historie.
+        //change balance on sender and receiver account
+        changeBalance(senderBankAccount, -price);
+        changeBalance(receiverBankAccount, price);
+        //save in transaction history
         _transactionContext.save(new TransactionHistory(senderId, receiverId, price));
     }
 
     private void changeBalance (BankAccount account, Float price){
-        //Balans updaten
+        //update balance from the given bank-account
         account.setBalance(account.getBalance() + price);
         _bankContext.save(account);
     }
+
+    //region Generic exception methods
+    private Optional<Account> checkAccountExists(int accountId){
+        Optional<Account> accountFromDb = _accountContext.findById(accountId);
+        if(!accountFromDb.isPresent()) {
+            throw new IllegalArgumentException("Account with id : " + String.valueOf(accountId) + "Not found in the system");
+        }
+
+        return accountFromDb;
+    }
+
+    private Optional<BankAccount> checkBankAccountExists(int bankAccountId){
+        Optional<BankAccount> bankAccountFromDb = _bankContext.findById(bankAccountId);
+        if(!bankAccountFromDb.isPresent()) {
+            throw new IllegalArgumentException("Bank-account with id : " + String.valueOf(bankAccountId) + "not found in the system");
+        }
+
+        return bankAccountFromDb;
+    }
+    //endregion
 }

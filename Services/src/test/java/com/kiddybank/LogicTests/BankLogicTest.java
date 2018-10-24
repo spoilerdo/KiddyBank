@@ -29,7 +29,7 @@ import static org.mockito.Mockito.*;
 @RunWith(MockitoJUnitRunner.class)
 public class BankLogicTest {
 
-    //Exception afvanger toevoegen
+    //Add exception handler
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
@@ -58,10 +58,10 @@ public class BankLogicTest {
 
         BankAccount bankAccount = _logic.createAccount(dummyAccount);
 
-        //controleren of save van repository is aangeroepen
+        //check if save is called from the bankrepo
         verify(bankRepository, times(1)).save(bankAccount);
 
-        //controleren of account en bank account aan elkaar gekoppeld zijn
+        //check if account and bank-account are connected
         Assert.assertTrue(dummyAccount.getBankAccountFromId(bankAccount.getId()) == bankAccount);
     }
 
@@ -69,9 +69,7 @@ public class BankLogicTest {
     public void TestCreatAccountUnvalid(){
         Account dummyAccount = new Account("dummy1", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
 
-        //when(accountRepository.findById(dummyAccount.getId() + 1)).thenReturn(Optional.ofNullable(dummyAccount));
-
-        //we verwachten dat er een exception optreed omdat het gegeven account niet bestaat
+        //We expect a exception cause the given account doesn't exist
         exception.expect(IllegalArgumentException.class);
 
         BankAccount bankAccount = _logic.createAccount(dummyAccount);
@@ -81,23 +79,23 @@ public class BankLogicTest {
 
     @Test
     public void TestDeleteAccountValid(){
-        BankAccount dummyAccount = new BankAccount(1, 1, 100);
+        BankAccount dummyAccount = new BankAccount(1, 100);
 
         when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
 
         _logic.deleteAccount(dummyAccount.getId());
 
-        //controleren of het bank account is deleted en dat er geen exceptions zijn
+        //check if the bank-account is deleted and that there are no exceptions
         verify(bankRepository, times(1)).deleteById(dummyAccount.getId());
     }
 
     @Test
     public void TestDeleteAccountUnvalid(){
-        BankAccount dummyAccount = new BankAccount(1, 1, 100);
+        BankAccount dummyAccount = new BankAccount(1, 100);
 
         when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.empty());
 
-        //We verwacthen een exception omdat hij geen bank account kan vinden
+        //We expect a exception cause the given bank-account doesn't exist
         exception.expect(IllegalArgumentException.class);
 
         _logic.deleteAccount(dummyAccount.getId());
@@ -107,18 +105,18 @@ public class BankLogicTest {
     public void TestLinkAnotherUserToBankAccountValid(){
         Account dummyOwnAccount = new Account("dummy1", "wacthwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
         Account dummyOtherAccount = new Account("dummy2", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
-        BankAccount dummyBankAccount = new BankAccount(1, 1, 100);
-
-        dummyOtherAccount.setId(1); //TODO: kan dit niet anders?
+        dummyOtherAccount.setId(1);
+        BankAccount dummyBankAccount = new BankAccount(1, 100);
 
         when(accountRepository.findById(dummyOwnAccount.getId())).thenReturn(Optional.ofNullable(dummyOwnAccount));
         when(accountRepository.findById(dummyOtherAccount.getId())).thenReturn(Optional.ofNullable(dummyOtherAccount));
 
+        //Ads the dummy bank account to the owner's account
         dummyOwnAccount.addBankAccount(dummyBankAccount);
 
         _logic.linkAnotherUserToBankAccount(dummyOwnAccount.getId(), dummyOtherAccount.getId(), dummyBankAccount.getId());
 
-        //controleren of de dummyOtherAccount een nieuw bank account heeft
+        //check if the dummyOtherAccount has a new bank account
         Assert.assertTrue(!dummyOtherAccount.getBankAccounts().isEmpty());
     }
 
@@ -126,14 +124,12 @@ public class BankLogicTest {
     public void TestLinkAnotherUserToBankAccountUnvalid(){
         Account dummyOwnAccount = new Account("dummy1", "wacthwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
         Account dummyOtherAccount = new Account("dummy2", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
-        BankAccount dummyBankAccount = new BankAccount(1, 1, 100);
-
-        dummyOtherAccount.setId(1); //TODO: kan dit niet anders?
+        dummyOtherAccount.setId(1);
+        BankAccount dummyBankAccount = new BankAccount(1, 100);
 
         when(accountRepository.findById(dummyOwnAccount.getId())).thenReturn(Optional.ofNullable(dummyOwnAccount));
-        //when(accountRepository.findById(dummyOtherAccount.getId())).thenReturn(Optional.ofNullable(dummyOtherAccount));
 
-        //we verwachten dat logic.linkAnotherUserToBankAccount een exception teruggooid omdat dummyOwnAccount geen bank account bevat
+        //We expect a exception cause dummyOwnAccount doesn't contain a bank-account
         exception.expect(IllegalArgumentException.class);
 
         _logic.linkAnotherUserToBankAccount(dummyOwnAccount.getId(), dummyOtherAccount.getId(), dummyBankAccount.getId());
@@ -141,50 +137,53 @@ public class BankLogicTest {
 
     @Test
     public void TestGetBalanceValidId(){
-        //Given
-        BankAccount dummyAccount = new BankAccount(1, 1, 100);
+        BankAccount dummyAccount = new BankAccount(1, 100);
+
         when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
 
-        //When
-        Float balance = _logic.getBalance(1);
+        Float balance = _logic.getBalance(dummyAccount.getId());
 
-        //Then
+        //check if the founded balance is equal to the dummyAccount balance
         Assert.assertTrue(balance == 100);
     }
 
     @Test
     public void TestGetBalanceUnvalidId() {
-        BankAccount dummyAccount = new BankAccount(1, 1, 1);
+        BankAccount dummyAccount = new BankAccount(1, 1);
 
-        //we verwachten dat logic.getbalance een exception teruggooid omdat accountid van 0 niet bestaat.
+        when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.empty());
+
+        //We expect a exception cause the given bank-account doesn't exist
         exception.expect(IllegalArgumentException.class);
 
-        Float balance = _logic.getBalance(0);
+        _logic.getBalance(dummyAccount.getId());
     }
 
     @Test
     public void TestTransactionValid() {
-        BankAccount dummy1Account = new BankAccount(1, 1, 100);
-        BankAccount dummy2Account = new BankAccount(2, 2, 110);
+        BankAccount dummy1Account = new BankAccount(1, 100);
+        BankAccount dummy2Account = new BankAccount(2, 110);
+        dummy2Account.setId(1);
 
         when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));
         when(bankRepository.findById(dummy2Account.getId())).thenReturn(Optional.ofNullable(dummy2Account));
 
         _logic.transaction(dummy1Account.getId(), dummy2Account.getId(), 10f);
 
-        //controleren of er een save call naar transaction repository gemaakt is met een transactionhistory klasse.
-        //indien dit gebeurd is en er is geen exception opgetreden kunnen we concluderen dat de actie juist uitgevoerd is.
+        //check if the transaction is saved
         verify(transactionRepository, times(1)).save(any(TransactionHistory.class));
     }
 
     @Test
     public void TestTransactionInvalid() {
-        BankAccount dummy1Account = new BankAccount(1, 1, 100);
-        //receiver bestaat in deze context niet
-        when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));
-        when(bankRepository.findById(1)).thenReturn(Optional.empty());
+        BankAccount dummy1Account = new BankAccount(1, 100);
+        BankAccount dummy2Account = new BankAccount(2, 100);
+        dummy2Account.setId(1);
 
-        //we verwachten dat er een exception optreed omdat receiver niet bestaat.
+        when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));
+        when(bankRepository.findById(dummy2Account.getId())).thenReturn(Optional.empty());
+
+        //We expect a exception cause the receiver doesn't exist;
         exception.expect(IllegalArgumentException.class);
 
         _logic.transaction(dummy1Account.getId(), 1, 10f);

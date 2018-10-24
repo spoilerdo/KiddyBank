@@ -20,32 +20,29 @@ public class BankAccount {
     private Set<Account> accounts = new HashSet<>();
 
     public BankAccount() {}
-
-    public BankAccount(int id, int bankNumber, int balance) {
-        this.id = id;
+    public BankAccount(int bankNumber, int balance) {
         this.bankNumber = bankNumber;
         this.balance = balance;
     }
+
 
     public int getId() {
         return id;
     }
 
-    public int getBankNumber() {
-        return bankNumber;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public float getBalance() {
         return balance;
     }
+
     public void setBalance(float balance) {
         this.balance = balance;
     }
 
     public Set<Account> getAccounts() {
         return accounts;
-    }
-    public void setAccounts(Set<Account> accounts) {
-        this.accounts = accounts;
     }
 }
