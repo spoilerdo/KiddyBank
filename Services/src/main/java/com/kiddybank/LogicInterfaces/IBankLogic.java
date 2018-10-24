@@ -1,6 +1,5 @@
 package com.kiddybank.LogicInterfaces;
 
-import com.kiddybank.Entities.Account;
 import com.kiddybank.Entities.BankAccount;
 
 import java.util.List;
@@ -8,11 +7,11 @@ import java.util.List;
 public interface IBankLogic {
     /**
      * Creates Bank Account for given account parameter
-     * @param account The account you want to create a bank-account for
+     * @param accountId The Id of the account you want to create a bank-account for
      * @return created bank-account
      * @throws IllegalArgumentException if given account doesn't exists in the db
      */
-    BankAccount createAccount(Account account);
+    BankAccount createAccount(int accountId, BankAccount bankAccount);
 
     /**
      * Delete Bank Account for given account parameter

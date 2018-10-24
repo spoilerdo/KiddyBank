@@ -28,15 +28,14 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public BankAccount createAccount(Account account) throws IllegalArgumentException {
+    public BankAccount createAccount(int accountId, BankAccount bankAccount) throws IllegalArgumentException {
         //check if account exists in the db
-        Optional<Account> accountFromDb = checkAccountExists(account.getId());
+        Optional<Account> accountFromDb = checkAccountExists(accountId);
 
         //get full account data from database
-        account = accountFromDb.get();
+        Account account = accountFromDb.get();
 
         //make a new bank-account
-        BankAccount bankAccount = new BankAccount();
         bankAccount.setBalance(0);
         bankAccount.getAccounts().add(account);
         account.getBankAccounts().add(bankAccount);
