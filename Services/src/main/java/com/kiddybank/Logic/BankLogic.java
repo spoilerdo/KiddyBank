@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,12 +29,12 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public BankAccount createAccount(Account account) throws IllegalArgumentException {
+    public BankAccount createAccount(Principal user) throws IllegalArgumentException {
         //check if account exists in the db
-        Optional<Account> accountFromDb = checkAccountExists(account.getId());
+        Optional<Account> accountFromDb = checkAccountExistsByUsername(user.getName());
 
         //get full account data from database
-        account = accountFromDb.get();
+        Account account = accountFromDb.get();
 
         //make a new bank-account
         BankAccount bankAccount = new BankAccount();
@@ -43,16 +44,14 @@ public class BankLogic implements IBankLogic {
 
         _bankContext.save(bankAccount);
 
-        //delete account connections trough JPA before returning it.
-        bankAccount.getAccounts().clear();
         return bankAccount;
     }
 
     @Override
     @Transactional
-    public void deleteAccount(int bankAccountId) throws IllegalArgumentException {
-        //check if bank-account exists in the db
-        checkBankAccountExists(bankAccountId);
+    public void deleteAccount(int bankAccountId, Principal user) throws IllegalArgumentException {
+        //Check if user has access to bankaccount
+        checkHasAccessToBankAccount(user.getName(), bankAccountId);
 
         //delete the account from the db
         this._bankContext.deleteById(bankAccountId);
@@ -142,6 +141,15 @@ public class BankLogic implements IBankLogic {
         return accountFromDb;
     }
 
+    private Optional<Account> checkAccountExistsByUsername(String username){
+        Optional<Account> AccountFromDb = _accountContext.findByUsername(username);
+        if(!AccountFromDb.isPresent()) {
+            throw new IllegalArgumentException("Bank-account with username : " + username + "not found in the system");
+        }
+
+        return AccountFromDb;
+    }
+
     private Optional<BankAccount> checkBankAccountExists(int bankAccountId){
         Optional<BankAccount> bankAccountFromDb = _bankContext.findById(bankAccountId);
         if(!bankAccountFromDb.isPresent()) {
@@ -150,5 +158,30 @@ public class BankLogic implements IBankLogic {
 
         return bankAccountFromDb;
     }
+
+    private Boolean checkHasAccessToBankAccount(String username, int bankaccountID) {
+        Optional<Account> foundAccount = _accountContext.findByUsername(username);
+
+        if(!foundAccount.isPresent()) {
+            throw new IllegalArgumentException("User with username : " + username + " not found");
+        }
+
+        Optional<BankAccount> foundBankAccount = _bankContext.findById(bankaccountID);
+
+        if(!foundBankAccount.isPresent()) {
+            throw new IllegalArgumentException("Bank account with id : " + String.valueOf(bankaccountID) + " not found");
+        }
+
+        BankAccount bankAccount = foundBankAccount.get();
+        //Controleren of gebruiker aan bank account gekoppeld zit.
+        if(!bankAccount.getAccounts().contains(foundAccount.get())) {
+            return false;
+        }
+
+        //gebruiker heeft toegang.
+        return true;
+
+    }
+
     //endregion
 }

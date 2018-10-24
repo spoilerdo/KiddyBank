@@ -8,6 +8,7 @@ import com.kiddybank.Wrappers.TransactionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -21,13 +22,13 @@ public class BankController {
     }
 
     @PostMapping(path = "/create")
-    public BankAccount CreateAccount(@RequestBody Account account) throws IllegalArgumentException {
-        return _bankLogic.createAccount(account);
+    public BankAccount CreateAccount(Principal user) throws IllegalArgumentException {
+        return _bankLogic.createAccount(user);
     }
 
     @PostMapping(path = "/delete/{id}")
-    public void DeleteAccount(@PathVariable("id") int id) throws IllegalArgumentException{
-        _bankLogic.deleteAccount(id);
+    public void DeleteAccount(@PathVariable("id") int id, Principal user) throws IllegalArgumentException{
+        _bankLogic.deleteAccount(id, user);
     }
 
     @PostMapping(path = "/link/{ownID}/{otherID}/{bankID}")

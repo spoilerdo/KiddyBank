@@ -1,5 +1,7 @@
 package com.kiddybank.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,7 +18,8 @@ public class BankAccount {
     @Column(name="balance")
     private float balance;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, mappedBy = "bankAccounts")
+    @JsonBackReference
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "bankAccounts")
     private Set<Account> accounts = new HashSet<>();
 
     public BankAccount() {}
