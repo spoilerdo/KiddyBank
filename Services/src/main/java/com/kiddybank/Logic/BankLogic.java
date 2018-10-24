@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -79,12 +80,28 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public Float getBalance(int accountId) throws IllegalArgumentException {
-        //check if the given account contains any bank-accounts
-        Optional<BankAccount> bankAccountFromDb = checkBankAccountExists(accountId);
+    public Float getBalance(int bankAccountId) throws IllegalArgumentException {
+        //check if bank-account exists in db
+        Optional<BankAccount> bankAccountFromDb = checkBankAccountExists(bankAccountId);
 
         //return balance
         return bankAccountFromDb.get().getBalance();
+    }
+
+    @Override
+    public List<BankAccount> getBankAccounts(int accountId){
+        //check if account exists in db
+        Optional<Account> accountFromDb = checkAccountExists(accountId);
+
+        //get account
+        Account account = accountFromDb.get();
+
+        //check if account contains any bank-accounts
+        if(account.getBankAccounts().isEmpty()){
+            throw new IllegalArgumentException("Account with id: " + String.valueOf(account.getId()) + "has no bank-accounts");
+        }
+
+        return (List<BankAccount>) account.getBankAccounts();
     }
 
     @Override

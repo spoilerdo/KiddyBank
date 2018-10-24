@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4614b7e-804e-439d-9082-28ec57387531" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/TransactionHistory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAuthLogic.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IJwtLogic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Domain/.gradle/" />
     <ignored path="$PROJECT_DIR$/Domain/build/" />
@@ -453,7 +442,7 @@
           <entry key="DATABASE/ddf68c96-4446-419b-992f-04cd2f211563" value="1" />
           <entry key="account" value="1" />
           <entry key="gitignore" value="1" />
-          <entry key="java" value="55" />
+          <entry key="java" value="58" />
           <entry key="properties" value="1" />
           <entry key="sql" value="1" />
         </counts>
@@ -461,7 +450,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Database Element" value="1" />
-          <entry key="JAVA" value="55" />
+          <entry key="JAVA" value="58" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="1" />
           <entry key="Scratch" value="1" />
@@ -470,12 +459,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="4242" />
+          <entry key="java" value="5140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4242" />
+          <entry key="JAVA" value="5140" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -493,8 +482,40 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="86" column="52" lean-forward="true" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
+            <state relative-caret-position="370">
+              <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
+              <folding>
+                <element signature="method#BankLogic#0;class#BankLogic#0" />
+                <element signature="method#createAccount#0;class#BankLogic#0" />
+                <element signature="e#1784#1793#0" />
+                <element signature="method#deleteAccount#0;class#BankLogic#0" />
+                <element signature="method#linkAnotherUserToBankAccount#0;class#BankLogic#0" />
+                <element signature="method#getBalance#0;class#BankLogic#0" />
+                <element signature="method#getBankAccounts#0;class#BankLogic#0" />
+                <element signature="method#transaction#0;class#BankLogic#0" />
+                <element signature="method#changeBalance#0;class#BankLogic#0" />
+                <element signature="n#!!doc;n#checkAccountExists#0;n#BankLogic#0" />
+                <element signature="method#checkAccountExists#0;class#BankLogic#0" />
+                <element signature="method#checkBankAccountExists#0;class#BankLogic#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
             </state>
           </provider>
         </entry>
@@ -2123,10 +2144,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IAccountRepository.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java" />
-        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" />
-        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/ErrorHandler/RestErrorHandler.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/ErrorDetails.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AuthController.java" />
@@ -2155,9 +2174,11 @@
         <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/BankLogicTest.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" />
       </list>
     </option>
   </component>
@@ -2167,7 +2188,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="685" />
     <option name="y" value="50" />
     <option name="width" value="980" />
@@ -2250,15 +2271,6 @@
           <expand>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
             </path>
             <path>
@@ -2270,19 +2282,13 @@
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank/Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com.kiddybank.Security.SecurityConstants" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
               <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="SecurityConstants" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="KiddyEnterprise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank/Wrappers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com.kiddybank.Wrappers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -2306,7 +2312,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540312842557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540371457793" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -2467,7 +2473,7 @@
       <workItem from="1540282589728" duration="763000" />
       <workItem from="1540286385418" duration="3492000" />
       <workItem from="1540313477130" duration="648000" />
-      <workItem from="1540366408798" duration="2638000" />
+      <workItem from="1540366408798" duration="4320000" />
     </task>
     <servers />
   </component>
@@ -2504,7 +2510,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120702000" />
+    <option name="totallyTimeSpent" value="122384000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2695,13 +2701,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="21" column="63" lean-forward="true" selection-start-line="21" selection-start-column="63" selection-end-line="21" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -2793,13 +2792,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="32" column="29" selection-start-line="32" selection-start-column="29" selection-end-line="32" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="39" column="59" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -2914,10 +2906,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="44" column="15" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="86" column="52" lean-forward="true" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
+        <state relative-caret-position="370">
+          <caret line="91" column="59" selection-start-line="91" selection-start-column="59" selection-end-line="91" selection-end-column="59" />
+          <folding>
+            <element signature="method#BankLogic#0;class#BankLogic#0" />
+            <element signature="method#createAccount#0;class#BankLogic#0" />
+            <element signature="e#1784#1793#0" />
+            <element signature="method#deleteAccount#0;class#BankLogic#0" />
+            <element signature="method#linkAnotherUserToBankAccount#0;class#BankLogic#0" />
+            <element signature="method#getBalance#0;class#BankLogic#0" />
+            <element signature="method#getBankAccounts#0;class#BankLogic#0" />
+            <element signature="method#transaction#0;class#BankLogic#0" />
+            <element signature="method#changeBalance#0;class#BankLogic#0" />
+            <element signature="n#!!doc;n#checkAccountExists#0;n#BankLogic#0" />
+            <element signature="method#checkAccountExists#0;class#BankLogic#0" />
+            <element signature="method#checkBankAccountExists#0;class#BankLogic#0" />
+          </folding>
         </state>
       </provider>
     </entry>

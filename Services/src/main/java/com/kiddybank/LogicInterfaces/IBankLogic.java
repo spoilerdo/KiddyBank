@@ -3,13 +3,14 @@ package com.kiddybank.LogicInterfaces;
 import com.kiddybank.Entities.Account;
 import com.kiddybank.Entities.BankAccount;
 
+import java.util.List;
+
 public interface IBankLogic {
     /**
      * Creates Bank Account for given account parameter
      * @param account The account you want to create a bank-account for
      * @return created bank-account
      * @throws IllegalArgumentException if given account doesn't exists in the db
-     * //TODO: mag een account meerdere bankaccounts aanmaken met nul saldo?? miss moeten we dit voorkomen
      */
     BankAccount createAccount(Account account);
 
@@ -35,12 +36,21 @@ public interface IBankLogic {
 
     /**
      * Get balance for given account
-     * @param accountId The id of the account you want to get the balance f rom
+     * @param bankAccountId The id of the bank-account you want to get the balance f rom
      * @return Balance of the account
-     * @throws  IllegalArgumentException if given accountID was not found in the system
+     * @throws IllegalArgumentException if given accountId was not found in the system
      * @throws IllegalArgumentException if given account contains no bank-accounts
      */
-    Float getBalance(int accountId);
+    Float getBalance(int bankAccountId);
+
+    /**
+     * Get all bank-accounts the logged-in user
+     * @param accountId The id of the logged-in user
+     * @retun A list of all bank-accounts
+     * @throws IllegalArgumentException if given accountId was not found in the system
+     * @throws IllegalArgumentException if given account doesn't have any bank-accounts
+     */
+    List<BankAccount> getBankAccounts(int accountId);
 
     /**
      * Send money from one account to the other

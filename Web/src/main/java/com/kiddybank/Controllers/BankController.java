@@ -8,6 +8,8 @@ import com.kiddybank.Wrappers.TransactionResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path="/bank")
 public class BankController {
@@ -36,6 +38,11 @@ public class BankController {
     @GetMapping(path = "/balance/{id}")
     public Float GetBalance(@PathVariable("id") int id) throws IllegalArgumentException {
         return _bankLogic.getBalance(id);
+    }
+
+    @PostMapping(path = "/all/{id}")
+    public List<BankAccount> GetBankAccounts(@PathVariable("id") int id) throws IllegalArgumentException{
+        return _bankLogic.getBankAccounts(id);
     }
 
     @PostMapping(path = "/transfer")
