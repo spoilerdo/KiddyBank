@@ -15,6 +15,8 @@ public class BankAccount {
     @Column(name="banknumber")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int bankNumber;
+    @Column(name="name")
+    private String name;
     @Column(name="balance")
     private float balance;
 
@@ -23,11 +25,19 @@ public class BankAccount {
     private Set<Account> accounts = new HashSet<>();
 
     public BankAccount() {}
-    public BankAccount(int bankNumber, int balance) {
+    public BankAccount(int bankNumber, String name, int balance) {
         this.bankNumber = bankNumber;
+        this.name = name;
         this.balance = balance;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public int getId() {
         return id;

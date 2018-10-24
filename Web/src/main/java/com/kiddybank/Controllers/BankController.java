@@ -5,6 +5,7 @@ import com.kiddybank.Entities.BankAccount;
 import com.kiddybank.LogicInterfaces.IAccountLogic;
 import com.kiddybank.LogicInterfaces.IBankLogic;
 import com.kiddybank.Wrappers.TransactionResponse;
+import com.kiddybank.Wrappers.createRequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,8 +23,8 @@ public class BankController {
     }
 
     @PostMapping(path = "/create")
-    public BankAccount CreateAccount(Principal user) throws IllegalArgumentException {
-        return _bankLogic.createAccount(user);
+    public BankAccount CreateAccount(Principal user, @RequestBody createRequestModel requestModel) throws IllegalArgumentException {
+        return _bankLogic.createAccount(user, requestModel.getName());
     }
 
     @PostMapping(path = "/delete/{id}")

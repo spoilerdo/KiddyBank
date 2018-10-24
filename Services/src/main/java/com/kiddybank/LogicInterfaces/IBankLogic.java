@@ -10,10 +10,11 @@ public interface IBankLogic {
     /**
      * Creates Bank Account for given account parameter
      * @param user The claim of the account you want to create a bank-account for
+     * @param bankAccountNaam the name you want to give to the bankaccount
      * @return created bank-account
      * @throws IllegalArgumentException if given account doesn't exists in the db
      */
-    BankAccount createAccount(Principal user);
+    BankAccount createAccount(Principal user, String bankAccountNaam);
 
     /**
      * Delete Bank Account for given account parameter

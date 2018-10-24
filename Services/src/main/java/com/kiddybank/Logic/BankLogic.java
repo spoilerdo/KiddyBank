@@ -29,7 +29,7 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public BankAccount createAccount(Principal user) throws IllegalArgumentException {
+    public BankAccount createAccount(Principal user, String bankAccountName) throws IllegalArgumentException {
         //check if account exists in the db
         Optional<Account> accountFromDb = checkAccountExistsByUsername(user.getName());
 
@@ -39,6 +39,7 @@ public class BankLogic implements IBankLogic {
         //make a new bank-account
         BankAccount bankAccount = new BankAccount();
         bankAccount.setBalance(0);
+        bankAccount.setName(bankAccountName);
         bankAccount.getAccounts().add(account);
         account.getBankAccounts().add(bankAccount);
 
