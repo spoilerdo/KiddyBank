@@ -43,7 +43,7 @@ public class BankLogic implements IBankLogic {
         bankAccount.getAccounts().add(account);
         account.getBankAccounts().add(bankAccount);
 
-        _bankContext.save(bankAccount);
+        bankAccount = _bankContext.save(bankAccount);
 
         return bankAccount;
     }
@@ -174,14 +174,13 @@ public class BankLogic implements IBankLogic {
         }
 
         BankAccount bankAccount = foundBankAccount.get();
-        //Controleren of gebruiker aan bank account gekoppeld zit.
+        //Check if user is authorized within bank account
         if(!bankAccount.getAccounts().contains(foundAccount.get())) {
             return false;
         }
 
-        //gebruiker heeft toegang.
+        //user has access to bank account
         return true;
-
     }
 
     //endregion
