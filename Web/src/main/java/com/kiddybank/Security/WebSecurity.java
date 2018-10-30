@@ -44,6 +44,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()))
                 // this disables session creation on Spring Security
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        // voorbeeld role based authorization per url :    .antMatchers("/account/35").hasAuthority("ADMIN")
     }
 
     @Override
