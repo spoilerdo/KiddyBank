@@ -27,7 +27,7 @@ public interface IBankLogic {
 
     /**
      * Link a given user account to a given bank account
-     * @param ownAccountId the account of the logged in user
+     * @param myUsername the username of the logged in user retrieved from the jwt token claim
      * @param otherAccountId the account you want to link to a bank account
      * @param bankAccountId the bank account you want to add a new user to
      * @return nothing if everything goes right
@@ -35,7 +35,7 @@ public interface IBankLogic {
      * @throws IllegalArgumentException if logged-in account is linked to the given bank-account
      * @throws IllegalArgumentException if other account exists
      */
-    void linkAnotherUserToBankAccount (int ownAccountId, int otherAccountId, int bankAccountId);
+    void linkAnotherUserToBankAccount (String myUsername, int otherAccountId, int bankAccountId);
 
     /**
      * Get balance for given account

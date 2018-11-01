@@ -6,6 +6,7 @@ import com.kiddybank.LogicInterfaces.IAccountLogic;
 import com.kiddybank.LogicInterfaces.IBankLogic;
 import com.kiddybank.Wrappers.TransactionResponse;
 import com.kiddybank.Wrappers.createRequestModel;
+import com.kiddybank.Wrappers.linkRequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +33,9 @@ public class BankController {
         _bankLogic.deleteAccount(id, user);
     }
 
-    @PostMapping(path = "/link/{ownID}/{otherID}/{bankID}")
-    public void LinkAnotherUserToBankAccount(@PathVariable("ownID") int ownID, @PathVariable("otherID") int otherID, @PathVariable("bankID") int bankID) throws IllegalArgumentException {
-        _bankLogic.linkAnotherUserToBankAccount(ownID, otherID, bankID);
+    @PostMapping(path = "/link")
+    public void LinkAnotherUserToBankAccount(Principal user, linkRequestModel linkRequestModel) throws IllegalArgumentException {
+        _bankLogic.linkAnotherUserToBankAccount(user.getName(), linkRequestModel.getOtherID(), linkRequestModel.getBankID());
     }
 
     @GetMapping(path = "/balance/{id}")

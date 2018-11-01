@@ -59,9 +59,9 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public void linkAnotherUserToBankAccount(int ownAccountId, int otherAccountId, int bankAccountId) throws IllegalArgumentException {
+    public void linkAnotherUserToBankAccount(String myUsername, int otherAccountId, int bankAccountId) throws IllegalArgumentException {
         //check if logged-in account exists in the db
-        Optional<Account> accountFromDb = checkAccountExists(ownAccountId);
+        Optional<Account> accountFromDb = checkAccountExistsByUsername(myUsername);
 
         //get the logged-in account
         Account ownAccount = accountFromDb.get();
@@ -75,8 +75,13 @@ public class BankLogic implements IBankLogic {
         //check if the other account exists
         Optional<Account> otherAccountFromDb = checkAccountExists(otherAccountId);
 
+
         //link the other account to the given bank-account
         otherAccountFromDb.get().addBankAccount(bankAccountFromDb);
+        bankAccountFromDb.getAccounts().add(otherAccountFromDb.get());
+
+        //save changes to database
+        _bankContext.save(bankAccountFromDb);
     }
 
     @Override
