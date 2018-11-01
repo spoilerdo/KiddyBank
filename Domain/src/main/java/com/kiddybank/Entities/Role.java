@@ -3,6 +3,7 @@ package com.kiddybank.Entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,7 +16,7 @@ public class Role {
 
     @JsonBackReference
     @ManyToMany(mappedBy = "roles")
-    private Set<Account> users;
+    private Set<Account> users = new HashSet<>();
 
     public Role() {
 

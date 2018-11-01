@@ -150,7 +150,7 @@ public class BankLogic implements IBankLogic {
     private Optional<Account> checkAccountExistsByUsername(String username){
         Optional<Account> AccountFromDb = _accountContext.findByUsername(username);
         if(!AccountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Bank-account with username : " + username + "not found in the system");
+            throw new IllegalArgumentException("account with username : " + username + "not found in the system");
         }
 
         return AccountFromDb;
