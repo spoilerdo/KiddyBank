@@ -51,7 +51,7 @@ public class BankLogic implements IBankLogic {
     @Override
     @Transactional
     public void deleteAccount(int bankAccountId, Principal user) throws IllegalArgumentException {
-        //Check if user has access to bankaccount
+        //check if user has access to bank-account
         checkHasAccessToBankAccount(user.getName(), bankAccountId);
 
         //delete the account from the db

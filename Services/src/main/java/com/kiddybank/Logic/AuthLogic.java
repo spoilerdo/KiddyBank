@@ -30,6 +30,7 @@ public class AuthLogic implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Account account = context.findByUsername(username).get();
+        //Checks if the user exists in the db
         if (account == null) {
             throw new UsernameNotFoundException(username);
         }

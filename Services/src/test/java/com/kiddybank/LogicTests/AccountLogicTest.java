@@ -108,8 +108,6 @@ public class AccountLogicTest {
         Principal mockPrincipal = Mockito.mock(Principal.class);
         Account dummyAccount = new Account("Peter", "", "jan@live.nl", "012345", Date.valueOf(LocalDate.now()));
 
-        when(accountRepository.findById(0)).thenReturn(Optional.empty());
-        when(accountRepository.findByUsername(dummyAccount.getUsername())).thenReturn(Optional.of(dummyAccount));
         when(mockPrincipal.getName()).thenReturn("fakeaccountclaim");
 
         //We expect a exception cause the mock says that the account doesn't exist yet

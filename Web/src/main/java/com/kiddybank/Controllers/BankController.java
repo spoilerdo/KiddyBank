@@ -1,6 +1,5 @@
 package com.kiddybank.Controllers;
 
-import com.kiddybank.Entities.Account;
 import com.kiddybank.Entities.BankAccount;
 import com.kiddybank.LogicInterfaces.IAccountLogic;
 import com.kiddybank.LogicInterfaces.IBankLogic;
@@ -19,7 +18,7 @@ public class BankController {
     private IBankLogic _bankLogic;
 
     @Autowired
-    public BankController(IBankLogic bankLogic, IAccountLogic accountLogic) {
+    public BankController(IBankLogic bankLogic) {
         this._bankLogic = bankLogic;
     }
 

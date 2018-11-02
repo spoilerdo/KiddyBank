@@ -20,13 +20,13 @@ import java.util.Optional;
 
 @Service
 public class AccountLogic implements IAccountLogic {
-    private IAccountRepository accountRepository;
-    private IRoleRepository roleRepository;
+    private IAccountRepository accountContext;
+    private IRoleRepository roleContext;
 
     @Autowired
-    public AccountLogic(IAccountRepository accountRepository, IRoleRepository roleRepository) {
-        this.accountRepository = accountRepository;
-        this.roleRepository = roleRepository;
+    public AccountLogic(IAccountRepository accountContext, IRoleRepository roleContext) {
+        this.accountContext = accountContext;
+        this.roleContext = roleContext;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class AccountLogic implements IAccountLogic {
         //check if account was found in the system
         Optional<Account> foundAccount = checkAccountExists(id);
 
-        //Handmatig password verwijderen, JSONIGNORE gaat niet omdat ik bij de andere getuser wel het wachtwoord nodig heb
+        //TODO: Handmatig password verwijderen, JSONIGNORE gaat niet omdat ik bij de andere get user wel het wachtwoord nodig heb
 
         Account account = foundAccount.get();
 
@@ -65,7 +65,7 @@ public class AccountLogic implements IAccountLogic {
         }
 
         //check if account already exists in the db
-        Optional<Account> accountInDatabase = this.accountRepository.findByUsername(account.getUsername());
+        Optional<Account> accountInDatabase = this.accountContext.findByUsername(account.getUsername());
         if(accountInDatabase.isPresent()) {
             throw new IllegalArgumentException("User already exists");
         }
@@ -76,13 +76,14 @@ public class AccountLogic implements IAccountLogic {
 
         //set registration date
         account.setRegistrationDate(Date.valueOf(LocalDate.now()));
+
         //set default role
-        Role userRole = roleRepository.findByName("user").get();
+        Role userRole = roleContext.findByName("user").get();
         account.getRoles().add(userRole);
         userRole.getUsers().add(account);
 
         //save to the db
-        Account createdUser = this.accountRepository.save(account);
+        Account createdUser = this.accountContext.save(account);
 
         return createdUser;
     }
@@ -96,11 +97,12 @@ public class AccountLogic implements IAccountLogic {
         checkAccountExists(accountID);
 
         //delete the account from the db
-        this.accountRepository.deleteById(accountID);
+        this.accountContext.deleteById(accountID);
     }
 
+    //region Generic exception methods
     private Optional<Account> checkAccountExists(int accountId){
-        Optional<Account> accountFromDb = accountRepository.findById(accountId);
+        Optional<Account> accountFromDb = accountContext.findById(accountId);
         if(!accountFromDb.isPresent()) {
             throw new IllegalArgumentException("Account with id: " + String.valueOf(accountId) + " not found in the system");
         }
@@ -108,8 +110,17 @@ public class AccountLogic implements IAccountLogic {
         return accountFromDb;
     }
 
+    private Optional<Account> checkAccountExists(String username){
+        Optional<Account> accountFromDb = accountContext.findByUsername(username);
+        if(!accountFromDb.isPresent()) {
+            throw new IllegalArgumentException("Account with username: " + String.valueOf(username) + " not found in the system");
+        }
+
+        return accountFromDb;
+    }
+
     private Boolean checkAccess(String username, int accountID) {
-        Optional<Account> foundAccount = accountRepository.findByUsername(username);
+        Optional<Account> foundAccount = accountContext.findByUsername(username);
         if(!foundAccount.isPresent()) {
             throw new IllegalArgumentException("Account with username: " + username + " not found in the system");
         }
@@ -122,13 +133,5 @@ public class AccountLogic implements IAccountLogic {
 
         return true;
     }
-
-    private Optional<Account> checkAccountExists(String username){
-        Optional<Account> accountFromDb = accountRepository.findByUsername(username);
-        if(!accountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Account with username: " + String.valueOf(username) + " not found in the system");
-        }
-
-        return accountFromDb;
-    }
+    //endregion
 }
