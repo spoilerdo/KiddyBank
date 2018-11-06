@@ -2,6 +2,7 @@ package com.kiddybank.utils;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
@@ -20,6 +21,18 @@ public class RestErrorHandler extends ResponseEntityExceptionHandler {
      */
     @ExceptionHandler(value = IllegalArgumentException.class)
     public final ResponseEntity<ErrorDetails> handleIllegalArgumentException (IllegalArgumentException e, WebRequest request) {
+        ErrorDetails details = new ErrorDetails(new Date(), e.getMessage(), request.getDescription(false));
+        return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * AccessDeniedException opvanger, deze wordt gebruikt als de client gegevens probeert op te halen waarvoor hij/zij niet geauthoriseerd is.
+     * @param e the exception that was thrown by the request
+     * @param request the webrequest containing information like the url
+     * @return a responseentity of type errordetails with HTTP status 400
+     */
+    @ExceptionHandler(value = AccessDeniedException.class)
+    public final ResponseEntity<ErrorDetails> handleAccessDeniedException(AccessDeniedException e, WebRequest request) {
         ErrorDetails details = new ErrorDetails(new Date(), e.getMessage(), request.getDescription(false));
         return new ResponseEntity<>(details, HttpStatus.BAD_REQUEST);
     }

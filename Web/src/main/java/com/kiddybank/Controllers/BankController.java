@@ -3,9 +3,12 @@ package com.kiddybank.Controllers;
 import com.kiddybank.Entities.BankAccount;
 import com.kiddybank.LogicInterfaces.IBankLogic;
 import com.kiddybank.Wrappers.TransactionResponse;
+import com.kiddybank.Wrappers.createRequestModel;
+import com.kiddybank.Wrappers.linkRequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -18,19 +21,19 @@ public class BankController {
         this._bankLogic = bankLogic;
     }
 
-    @PostMapping(path = "/create/{id}")
-    public BankAccount CreateAccount(@PathVariable("id") int id, @RequestBody BankAccount bankAccount) throws IllegalArgumentException {
-        return _bankLogic.createAccount(id, bankAccount);
+    @PostMapping(path = "/create")
+    public BankAccount CreateAccount(Principal user, @RequestBody createRequestModel requestModel) throws IllegalArgumentException {
+        return _bankLogic.createAccount(user, requestModel.getName());
     }
 
     @PostMapping(path = "/delete/{id}")
-    public void DeleteAccount(@PathVariable("id") int id) throws IllegalArgumentException{
-        _bankLogic.deleteAccount(id);
+    public void DeleteAccount(@PathVariable("id") int id, Principal user) throws IllegalArgumentException{
+        _bankLogic.deleteAccount(id, user);
     }
 
-    @PostMapping(path = "/link/{ownID}/{otherID}/{bankID}")
-    public void LinkAnotherUserToBankAccount(@PathVariable("ownID") int ownID, @PathVariable("otherID") int otherID, @PathVariable("bankID") int bankID) throws IllegalArgumentException {
-        _bankLogic.linkAnotherUserToBankAccount(ownID, otherID, bankID);
+    @PostMapping(path = "/link")
+    public void LinkAnotherUserToBankAccount(Principal user, linkRequestModel linkRequestModel) throws IllegalArgumentException {
+        _bankLogic.linkAnotherUserToBankAccount(user.getName(), linkRequestModel.getOtherID(), linkRequestModel.getBankID());
     }
 
     @GetMapping(path = "/balance/{id}")

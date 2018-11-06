@@ -15,9 +15,11 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.security.Principal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -53,37 +55,50 @@ public class BankLogicTest {
     @Test
     public void TestCreateAccountValid(){
         Account dummyAccount = new Account("dummy1", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
+        BankAccount dummyBankAccount = new BankAccount(1, "mooie account",  100);
+        dummyBankAccount.getAccounts().add(dummyAccount);
+        Principal mockPrincipal = Mockito.mock(Principal.class);
 
-        when(accountRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
+        when(accountRepository.findByUsername(dummyAccount.getUsername())).thenReturn(Optional.ofNullable(dummyAccount));
+        when(mockPrincipal.getName()).thenReturn("dummy1");
+        when(bankRepository.save(any(BankAccount.class))).thenReturn(dummyBankAccount);
 
-        BankAccount bankAccount = _logic.createAccount(dummyAccount);
+        BankAccount returnedBankAccount = _logic.createAccount(mockPrincipal ,"mooie bank account");
 
         //check if save is called from the bankrepo
-        verify(bankRepository, times(1)).save(bankAccount);
+        verify(bankRepository, times(1)).save(any(BankAccount.class));
 
         //check if account and bank-account are connected
-        Assert.assertTrue(dummyAccount.getBankAccountFromId(bankAccount.getId()) == bankAccount);
+        Assert.assertTrue(returnedBankAccount.getAccounts().contains(dummyAccount));
     }
 
     @Test
     public void TestCreatAccountUnvalid(){
-        Account dummyAccount = new Account("dummy1", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
+        Principal mockPrincipal = Mockito.mock(Principal.class);
+
+        when(mockPrincipal.getName()).thenReturn("dummy1");
 
         //We expect a exception cause the given account doesn't exist
         exception.expect(IllegalArgumentException.class);
 
-        BankAccount bankAccount = _logic.createAccount(dummyAccount);
+        BankAccount bankAccount = _logic.createAccount(mockPrincipal ,"mooie bank account");
 
         verify(bankRepository, times(1)).save(bankAccount);
     }
 
     @Test
     public void TestDeleteAccountValid(){
-        BankAccount dummyAccount = new BankAccount(1, 100);
+        Principal mockPrincipal = Mockito.mock(Principal.class);
+        Account dummyAccount = new Account("dummy1", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
+        BankAccount dummyBankAccount = new BankAccount(1, "mooie bank account", 100);
+        dummyAccount.getBankAccounts().add(dummyBankAccount);
 
-        when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
+        when(mockPrincipal.getName()).thenReturn("dummy1");
 
-        _logic.deleteAccount(dummyAccount.getId());
+        when(accountRepository.findByUsername(dummyAccount.getUsername())).thenReturn(Optional.of(dummyAccount));
+        when(bankRepository.findById(dummyBankAccount.getId())).thenReturn(Optional.ofNullable(dummyBankAccount));
+
+        _logic.deleteAccount(dummyBankAccount.getId(), mockPrincipal);
 
         //check if the bank-account is deleted and that there are no exceptions
         verify(bankRepository, times(1)).deleteById(dummyAccount.getId());
@@ -91,53 +106,52 @@ public class BankLogicTest {
 
     @Test
     public void TestDeleteAccountUnvalid(){
-        BankAccount dummyAccount = new BankAccount(1, 100);
+        Principal mockPrincipal = Mockito.mock(Principal.class);
+        BankAccount dummyAccount = new BankAccount(1, "mooie bank account", 100);
 
-        when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.empty());
+        when(mockPrincipal.getName()).thenReturn("dummy1");
 
         //We expect a exception cause the given bank-account doesn't exist
         exception.expect(IllegalArgumentException.class);
 
-        _logic.deleteAccount(dummyAccount.getId());
+        _logic.deleteAccount(dummyAccount.getId(), mockPrincipal);
     }
 
     @Test
-    public void TestLinkAnotherUserToBankAccountValid(){
+    public void TestLinkAnotherUserToBankAccountValid() {
         Account dummyOwnAccount = new Account("dummy1", "wacthwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
         Account dummyOtherAccount = new Account("dummy2", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
         dummyOtherAccount.setId(1);
-        BankAccount dummyBankAccount = new BankAccount(1, 100);
+        BankAccount dummyBankAccount = new BankAccount(1, "mooie rekening", 100);
 
-        when(accountRepository.findById(dummyOwnAccount.getId())).thenReturn(Optional.ofNullable(dummyOwnAccount));
+        when(accountRepository.findByUsername(dummyOwnAccount.getUsername())).thenReturn(Optional.ofNullable(dummyOwnAccount));
         when(accountRepository.findById(dummyOtherAccount.getId())).thenReturn(Optional.ofNullable(dummyOtherAccount));
 
         //Ads the dummy bank account to the owner's account
         dummyOwnAccount.addBankAccount(dummyBankAccount);
 
-        _logic.linkAnotherUserToBankAccount(dummyOwnAccount.getId(), dummyOtherAccount.getId(), dummyBankAccount.getId());
+        _logic.linkAnotherUserToBankAccount(dummyOwnAccount.getUsername(), dummyOtherAccount.getId(), dummyBankAccount.getId());
 
-        //check if the dummyOtherAccount has a new bank account
+        //check if the   dummyOtherAccount has a new bank account
         Assert.assertTrue(!dummyOtherAccount.getBankAccounts().isEmpty());
     }
 
     @Test
     public void TestLinkAnotherUserToBankAccountUnvalid(){
-        Account dummyOwnAccount = new Account("dummy1", "wacthwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
         Account dummyOtherAccount = new Account("dummy2", "wachtwoord", "dummy@dummy.com", "0000", Date.valueOf(LocalDate.now()));
         dummyOtherAccount.setId(1);
-        BankAccount dummyBankAccount = new BankAccount(1, 100);
+        BankAccount dummyBankAccount = new BankAccount(1, "mooie rekening", 100);
 
-        when(accountRepository.findById(dummyOwnAccount.getId())).thenReturn(Optional.ofNullable(dummyOwnAccount));
 
         //We expect a exception cause dummyOwnAccount doesn't contain a bank-account
         exception.expect(IllegalArgumentException.class);
 
-        _logic.linkAnotherUserToBankAccount(dummyOwnAccount.getId(), dummyOtherAccount.getId(), dummyBankAccount.getId());
+        _logic.linkAnotherUserToBankAccount("nietgelinktepersoon", dummyOtherAccount.getId(), dummyBankAccount.getId());
     }
 
     @Test
     public void TestGetBalanceValidId(){
-        BankAccount dummyAccount = new BankAccount(1, 100);
+        BankAccount dummyAccount = new BankAccount(1, "mooie rekening", 100);
 
         when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.ofNullable(dummyAccount));
 
@@ -149,7 +163,7 @@ public class BankLogicTest {
 
     @Test
     public void TestGetBalanceUnvalidId() {
-        BankAccount dummyAccount = new BankAccount(1, 1);
+        BankAccount dummyAccount = new BankAccount(1, "mooie rekening", 1);
 
         when(bankRepository.findById(dummyAccount.getId())).thenReturn(Optional.empty());
 
@@ -161,8 +175,8 @@ public class BankLogicTest {
 
     @Test
     public void TestTransactionValid() {
-        BankAccount dummy1Account = new BankAccount(1, 100);
-        BankAccount dummy2Account = new BankAccount(2, 110);
+        BankAccount dummy1Account = new BankAccount(1, "mooie rekening", 100);
+        BankAccount dummy2Account = new BankAccount(2,"mooie rekening", 110);
         dummy2Account.setId(1);
 
         when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));
@@ -176,8 +190,8 @@ public class BankLogicTest {
 
     @Test
     public void TestTransactionInvalid() {
-        BankAccount dummy1Account = new BankAccount(1, 100);
-        BankAccount dummy2Account = new BankAccount(2, 100);
+        BankAccount dummy1Account = new BankAccount(1,"mooie rekening", 100);
+        BankAccount dummy2Account = new BankAccount(2,"mooie rekening", 100);
         dummy2Account.setId(1);
 
         when(bankRepository.findById(dummy1Account.getId())).thenReturn(Optional.ofNullable(dummy1Account));

@@ -2,28 +2,31 @@ package com.kiddybank.LogicInterfaces;
 
 import com.kiddybank.Entities.BankAccount;
 
+import java.security.Principal;
 import java.util.List;
 
 public interface IBankLogic {
     /**
      * Creates Bank Account for given account parameter
-     * @param accountId The Id of the account you want to create a bank-account for
+     * @param user The claim of the account you want to create a bank-account for
+     * @param bankAccountNaam the name you want to give to the bankaccount
      * @return created bank-account
      * @throws IllegalArgumentException if given account doesn't exists in the db
      */
-    BankAccount createAccount(int accountId, BankAccount bankAccount);
+    BankAccount createAccount(Principal user, String bankAccountNaam);
 
     /**
      * Delete Bank Account for given account parameter
      * @param bankAccountId The Id of the account you want to delete
+     * @param user The claim of the account you want to delete a bank-account for
      * @return nothing if everything goes right
      * @throws IllegalArgumentException if given account doesn't have a existing bank account
      */
-    void deleteAccount(int bankAccountId);
+    void deleteAccount(int bankAccountId, Principal user);
 
     /**
      * Link a given user account to a given bank account
-     * @param ownAccountId the account of the logged in user
+     * @param myUsername the username of the logged in user retrieved from the jwt token claim
      * @param otherAccountId the account you want to link to a bank account
      * @param bankAccountId the bank account you want to add a new user to
      * @return nothing if everything goes right
@@ -31,7 +34,7 @@ public interface IBankLogic {
      * @throws IllegalArgumentException if logged-in account is linked to the given bank-account
      * @throws IllegalArgumentException if other account exists
      */
-    void linkAnotherUserToBankAccount (int ownAccountId, int otherAccountId, int bankAccountId);
+    void linkAnotherUserToBankAccount (String myUsername, int otherAccountId, int bankAccountId);
 
     /**
      * Get balance for given account
