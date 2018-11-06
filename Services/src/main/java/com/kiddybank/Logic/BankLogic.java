@@ -37,6 +37,7 @@ public class BankLogic implements IBankLogic {
         Account account = accountFromDb.get();
 
         //make a new bank-account
+        BankAccount bankAccount = new BankAccount();
         bankAccount.setBalance(0);
         bankAccount.setName(bankAccountName);
         bankAccount.getAccounts().add(account);
