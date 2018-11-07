@@ -34,8 +34,6 @@ public class AccountLogic implements IAccountLogic {
         //check if account was found in the system
         Optional<Account> foundAccount = checkAccountExists(id);
 
-        //TODO: Handmatig password verwijderen, JSONIGNORE gaat niet omdat ik bij de andere get user wel het wachtwoord nodig heb
-
         Account account = foundAccount.get();
 
         //clear sensitive data
@@ -83,9 +81,7 @@ public class AccountLogic implements IAccountLogic {
         userRole.getUsers().add(account);
 
         //save to the db
-        Account createdUser = this.accountContext.save(account);
-
-        return createdUser;
+        return this.accountContext.save(account);
     }
 
     @Override
@@ -103,27 +99,21 @@ public class AccountLogic implements IAccountLogic {
     //region Generic exception methods
     private Optional<Account> checkAccountExists(int accountId){
         Optional<Account> accountFromDb = accountContext.findById(accountId);
-        if(!accountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Account with id: " + String.valueOf(accountId) + " not found in the system");
-        }
+        checkAccountStatus(accountFromDb, String.valueOf(accountId), "id");
 
         return accountFromDb;
     }
 
     private Optional<Account> checkAccountExists(String username){
         Optional<Account> accountFromDb = accountContext.findByUsername(username);
-        if(!accountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Account with username: " + String.valueOf(username) + " not found in the system");
-        }
+        checkAccountStatus(accountFromDb, username, "username");
 
         return accountFromDb;
     }
 
     private Boolean checkAccess(String username, int accountID) {
         Optional<Account> foundAccount = accountContext.findByUsername(username);
-        if(!foundAccount.isPresent()) {
-            throw new IllegalArgumentException("Account with username: " + username + " not found in the system");
-        }
+        checkAccountStatus(foundAccount, username, "username");
 
         Account account = foundAccount.get();
 
@@ -132,6 +122,12 @@ public class AccountLogic implements IAccountLogic {
         }
 
         return true;
+    }
+
+    private void checkAccountStatus(Optional<Account> account, String accountIdentifier, String identifierSort){
+        if(!account.isPresent()) {
+            throw new IllegalArgumentException("Account with " + identifierSort + ": " + accountIdentifier + " not found in the system");
+        }
     }
     //endregion
 }
