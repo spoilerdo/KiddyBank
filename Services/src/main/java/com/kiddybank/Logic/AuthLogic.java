@@ -32,7 +32,7 @@ public class AuthLogic implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Account> accountFromDb = context.findByUsername(username);
         //Checks if the user exists in the db
-        if (accountFromDb.isPresent()) {
+        if (!accountFromDb.isPresent()) {
             throw new UsernameNotFoundException(username);
         }
         Account account = accountFromDb.get();
