@@ -69,7 +69,7 @@ public class BankLogic implements IBankLogic {
         //check if the logged-in account actually has the given bank-account
         BankAccount bankAccountFromDb = ownAccount.getBankAccountFromId(bankAccountId);
         if(bankAccountFromDb == null){
-            throw new IllegalArgumentException("Account with id: " + String.valueOf(ownAccount.getId()) + " isn't linked to the given bank-account");
+            throw new IllegalArgumentException("Account with id: " + ownAccount.getId() + " isn't linked to the given bank-account");
         }
 
         //check if the other account exists
@@ -103,7 +103,7 @@ public class BankLogic implements IBankLogic {
 
         //check if account contains any bank-accounts
         if(account.getBankAccounts().isEmpty()){
-            throw new IllegalArgumentException("Account with id: " + String.valueOf(account.getId()) + "has no bank-accounts");
+            throw new IllegalArgumentException("Account with id: " + account.getId() + "has no bank-accounts");
         }
 
         return (List<BankAccount>) account.getBankAccounts();
@@ -140,52 +140,47 @@ public class BankLogic implements IBankLogic {
     //region Generic exception methods
     private Optional<Account> checkAccountExists(int accountId){
         Optional<Account> accountFromDb = _accountContext.findById(accountId);
-        if(!accountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Account with id : " + String.valueOf(accountId) + "Not found in the system");
-        }
+        checkAccountStatus(accountFromDb, String.valueOf(accountId), "id");
 
         return accountFromDb;
     }
 
     private Optional<Account> checkAccountExistsByUsername(String username){
-        Optional<Account> AccountFromDb = _accountContext.findByUsername(username);
-        if(!AccountFromDb.isPresent()) {
-            throw new IllegalArgumentException("account with username : " + username + "not found in the system");
-        }
+        Optional<Account> accountFromDb = _accountContext.findByUsername(username);
+        checkAccountStatus(accountFromDb, username, "username");
 
-        return AccountFromDb;
+        return accountFromDb;
     }
 
     private Optional<BankAccount> checkBankAccountExists(int bankAccountId){
         Optional<BankAccount> bankAccountFromDb = _bankContext.findById(bankAccountId);
-        if(!bankAccountFromDb.isPresent()) {
-            throw new IllegalArgumentException("Bank-account with id : " + String.valueOf(bankAccountId) + "not found in the system");
-        }
+        checkBankAccountStatus(bankAccountFromDb, String.valueOf(bankAccountId));
 
         return bankAccountFromDb;
     }
 
-    private Boolean checkHasAccessToBankAccount(String username, int bankaccountID) {
+    private Boolean checkHasAccessToBankAccount(String username, int bankAccountId) {
         Optional<Account> foundAccount = _accountContext.findByUsername(username);
+        checkAccountStatus(foundAccount, username, "username");
 
-        if(!foundAccount.isPresent()) {
-            throw new IllegalArgumentException("User with username : " + username + " not found");
-        }
-
-        Optional<BankAccount> foundBankAccount = _bankContext.findById(bankaccountID);
-
-        if(!foundBankAccount.isPresent()) {
-            throw new IllegalArgumentException("Bank account with id : " + String.valueOf(bankaccountID) + " not found");
-        }
+        Optional<BankAccount> foundBankAccount = _bankContext.findById(bankAccountId);
+        checkBankAccountStatus(foundBankAccount, String.valueOf(bankAccountId));
 
         BankAccount bankAccount = foundBankAccount.get();
         //Check if user is authorized within bank account
-        if(!bankAccount.getAccounts().contains(foundAccount.get())) {
-            return false;
-        }
+        return bankAccount.getAccounts().contains(foundAccount.get());
+    }
 
-        //user has access to bank account
-        return true;
+    private void checkAccountStatus(Optional<Account> account, String accountIdentifier, String identifierSort){
+        if(!account.isPresent()) {
+            throw new IllegalArgumentException("Account with " + identifierSort + ": " + accountIdentifier + " not found in the system");
+        }
+    }
+
+    private void checkBankAccountStatus(Optional<BankAccount> bankAccount, String accountIdentifier){
+        if(!bankAccount.isPresent()) {
+            throw new IllegalArgumentException("Account with id: " + accountIdentifier + " not found in the system");
+        }
     }
 
     //endregion

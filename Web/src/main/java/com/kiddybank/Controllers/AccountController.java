@@ -33,15 +33,13 @@ public class AccountController {
         accountLogic.deleteUser(id, user);
     }
 
-    @RequestMapping(value = "/{userId:[0-9]+}", method = RequestMethod.GET)
+    @GetMapping(value = "/{userId:[0-9]+}")
     public Account GetUser(@PathVariable("userId") int userId) {
-        Account account = accountLogic.getUser(userId);
-        return account;
+        return accountLogic.getUser(userId);
     }
 
     @GetMapping(path = "/{username:[A-Za-z]+}")
     public Account getUserByName(@PathVariable("username") String username, Principal user) {
-        Account account = accountLogic.getUser(username, user);
-        return account;
+        return accountLogic.getUser(username, user);
     }
 }

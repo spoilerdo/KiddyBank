@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.Collections.emptyList;
 
@@ -29,11 +30,12 @@ public class AuthLogic implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account account = context.findByUsername(username).get();
+        Optional<Account> accountFromDb = context.findByUsername(username);
         //Checks if the user exists in the db
-        if (account == null) {
+        if (accountFromDb.isPresent()) {
             throw new UsernameNotFoundException(username);
         }
+        Account account = accountFromDb.get();
         return new User(account.getUsername(), account.getPassword(), getUserAuthority(account.getRoles()));
     }
 
