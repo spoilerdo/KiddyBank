@@ -22,10 +22,18 @@ public interface IAccountLogic {
      */
     Account getUser(String username, Principal user);
     /**
+     * Gets user id based on given username and password
+     * @param username the username of the user you want to find
+     * @param password the password of the user you want to find
+     * @return found user id
+     * @throws IllegalArgumentException if account is not found in the system
+     */
+    int getUserId(String username, String password);
+    /**
      * Create user with information given
      * @param account the account object translated from JSON into an Account object
      * @return created user
-     * @throws IllegalArgumentException if given paremeters are already known in the system
+     * @throws IllegalArgumentException if given parameters are already known in the system
      */
     Account createUser(Account account);
 

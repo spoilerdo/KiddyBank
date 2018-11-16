@@ -5,11 +5,11 @@ import com.kiddybank.LogicInterfaces.IAccountLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
-import javax.security.auth.login.FailedLoginException;
 import java.security.Principal;
+
+import static com.kiddybank.Security.SecurityConstants.SecurityConstants.HEADER_STRING;
 
 @RestController
 @RequestMapping(path="/account")
@@ -41,5 +41,15 @@ public class AccountController {
     @GetMapping(path = "/{username:[A-Za-z]+}")
     public Account getUserByName(@PathVariable("username") String username, Principal user) {
         return accountLogic.getUser(username, user);
+    }
+
+    @GetMapping(path = "/{username:[A-Za-z]+}/{password}")
+    public int getUserId(@PathVariable("username") String username, @PathVariable("password") String password){
+        return accountLogic.getUserId(username, password);
+    }
+
+    @GetMapping(path = "/")
+    public Account getUserByToken(Principal user){
+        return accountLogic.getUser(user.getName(), user);
     }
 }

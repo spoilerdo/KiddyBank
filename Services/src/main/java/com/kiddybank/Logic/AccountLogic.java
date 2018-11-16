@@ -32,14 +32,11 @@ public class AccountLogic implements IAccountLogic {
     @Override
     public Account getUser(int id) throws IllegalArgumentException {
         //check if account was found in the system
-        Optional<Account> foundAccount = checkAccountExists(id);
-
-        Account account = foundAccount.get();
+        Account foundAccount = checkAccountExists(id);
 
         //clear sensitive data
-        account.setPassword("");
-        //return account
-        return account;
+        foundAccount.setPassword("");
+        return foundAccount;
     }
 
     @Override
@@ -49,11 +46,20 @@ public class AccountLogic implements IAccountLogic {
             throw new AccessDeniedException("you do not have access to view this!");
         }
         //check if account is in the system and return it.
-        Optional<Account> foundAccount = checkAccountExists(username);
+        Account foundAccount = checkAccountExists(username);
 
-        return foundAccount.get();
+        //clear sensitive data
+        foundAccount.setPassword("");
+        return foundAccount;
     }
 
+    @Override
+    public int getUserId(String username, String password) {
+        //check if account was found in the system
+        Account account = checkAccountExists(username);
+
+        return account.getId();
+    }
 
     @Override
     public Account createUser(Account account) throws IllegalArgumentException {
@@ -63,9 +69,9 @@ public class AccountLogic implements IAccountLogic {
         }
 
         //check if account already exists in the db
-        Optional<Account> accountInDatabase = this.accountContext.findByUsername(account.getUsername());
-        if(accountInDatabase.isPresent()) {
-            throw new IllegalArgumentException("User already exists");
+        Optional<Account> accountFromDb = accountContext.findByUsername(account.getUsername());
+        if(accountFromDb.isPresent()){
+            throw new IllegalArgumentException("Account with: " + account.getId() + " already exists in the system");
         }
 
         //password encrypting
@@ -97,18 +103,19 @@ public class AccountLogic implements IAccountLogic {
     }
 
     //region Generic exception methods
-    private Optional<Account> checkAccountExists(int accountId){
+
+    private Account checkAccountExists(int accountId){
         Optional<Account> accountFromDb = accountContext.findById(accountId);
         checkAccountStatus(accountFromDb, String.valueOf(accountId), "id");
 
-        return accountFromDb;
+        return accountFromDb.get();
     }
 
-    private Optional<Account> checkAccountExists(String username){
+    private Account checkAccountExists(String username){
         Optional<Account> accountFromDb = accountContext.findByUsername(username);
         checkAccountStatus(accountFromDb, username, "username");
 
-        return accountFromDb;
+        return accountFromDb.get();
     }
 
     private Boolean checkAccess(String username, int accountID) {
@@ -129,5 +136,6 @@ public class AccountLogic implements IAccountLogic {
             throw new IllegalArgumentException("Account with " + identifierSort + ": " + accountIdentifier + " not found in the system");
         }
     }
+
     //endregion
 }

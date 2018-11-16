@@ -35,9 +35,9 @@ public class AccountLogicTest {
     @Rule
     public final ExpectedException exception = ExpectedException.none();
 
+    //Mock repos
     @Mock
     private IAccountRepository accountRepository;
-
     @Mock
     private IRoleRepository roleRepository;
 

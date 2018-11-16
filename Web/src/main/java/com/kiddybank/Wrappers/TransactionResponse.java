@@ -11,23 +11,13 @@ public class TransactionResponse {
         return senderID;
     }
 
-    public void setSenderID(int senderID) {
-        this.senderID = senderID;
-    }
-
     public int getReceiverID() {
         return receiverID;
-    }
-
-    public void setReceiverID(int receiverID) {
-        this.receiverID = receiverID;
     }
 
     public float getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
+    //TODO: heb je perse de setters nodig??
 }
