@@ -31,11 +31,14 @@ public interface IAccountLogic {
     int getUserId(String username, String password);
     /**
      * Create user with information given
-     * @param account the account object translated from JSON into an Account object
+     * @param username the username of the account you want to create
+     * @param password the password of the account you want to create
+     * @param email the email of the account you want to create
+     * @param phoneNumber the phone number of the account you want to create
      * @return created user
      * @throws IllegalArgumentException if given parameters are already known in the system
      */
-    Account createUser(Account account);
+    Account createUser(String username, String password, String email, String phoneNumber);
 
     /**
      * Delete user with information given

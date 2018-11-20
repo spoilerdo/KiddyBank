@@ -62,25 +62,22 @@ public class AccountLogic implements IAccountLogic {
     }
 
     @Override
-    public Account createUser(Account account) throws IllegalArgumentException {
+    public Account createUser(String username, String password, String email, String phoneNumber) throws IllegalArgumentException {
         //check if account is filled correctly
-        if (Strings.isNullOrEmpty(account.getUsername() )|| Strings.isNullOrEmpty(account.getPassword())|| Strings.isNullOrEmpty(account.getEmail())) {
+        if (Strings.isNullOrEmpty(username )|| Strings.isNullOrEmpty(password)|| Strings.isNullOrEmpty(email)) {
             throw new IllegalArgumentException("Values cannot be null");
         }
 
         //check if account already exists in the db
-        Optional<Account> accountFromDb = accountContext.findByUsername(account.getUsername());
+        Optional<Account> accountFromDb = accountContext.findByUsername(username);
         if(accountFromDb.isPresent()){
-            throw new IllegalArgumentException("Account with: " + account.getId() + " already exists in the system");
+            throw new IllegalArgumentException("Account with username : " + username + " already exists in the system");
         }
 
         //password encrypting
-        String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
-        account.setPassword(encryptedPassword);
-
-        //set registration date
-        account.setRegistrationDate(Date.valueOf(LocalDate.now()));
-
+        String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        //create account object
+        Account account = new Account(username, encryptedPassword, email, phoneNumber, Date.valueOf(LocalDate.now()));
         //set default role
         Role userRole = roleContext.findByName("user").get();
         account.getRoles().add(userRole);

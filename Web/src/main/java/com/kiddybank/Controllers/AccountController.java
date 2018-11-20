@@ -2,14 +2,13 @@ package com.kiddybank.Controllers;
 
 import com.kiddybank.Entities.Account;
 import com.kiddybank.LogicInterfaces.IAccountLogic;
+import com.kiddybank.Wrappers.createAccountRequestModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
-
-import static com.kiddybank.Security.SecurityConstants.SecurityConstants.HEADER_STRING;
 
 @RestController
 @RequestMapping(path="/account")
@@ -22,8 +21,8 @@ public class AccountController {
     }
 
     @PostMapping(path="/add")
-    public ResponseEntity<Account> AddNewUser(@RequestBody  Account account) throws IllegalArgumentException{
-        Account createdAccount = accountLogic.createUser(account);
+    public ResponseEntity<Account> AddNewUser(@RequestBody createAccountRequestModel requestModel) throws IllegalArgumentException{
+        Account createdAccount = accountLogic.createUser(requestModel.getUsername(), requestModel.getPassword(), requestModel.getEmail(), requestModel.getPhonenr());
         return new ResponseEntity<>(createdAccount, HttpStatus.OK);
     }
 
