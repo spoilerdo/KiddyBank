@@ -37,12 +37,12 @@ public class AccountController {
         return accountLogic.getUser(userId);
     }
 
-    @GetMapping(path = "/{username:[A-Za-z]+}")
+    @GetMapping(path = "/{username:[A-Za-z0-9]+}")
     public Account getUserByName(@PathVariable("username") String username, Principal user) {
         return accountLogic.getUser(username, user);
     }
 
-    @GetMapping(path = "/{username:[A-Za-z]+}/{password}")
+    @GetMapping(path = "/{username:[A-Za-z0-9]+}/{password}")
     public int getUserId(@PathVariable("username") String username, @PathVariable("password") String password){
         return accountLogic.getUserId(username, password);
     }
