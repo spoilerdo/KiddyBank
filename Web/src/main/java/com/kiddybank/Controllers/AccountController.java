@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 @RestController
-@RequestMapping(path="/account")
+@RequestMapping(path="/accounts")
 public class AccountController {
     private IAccountLogic accountLogic;
 
@@ -20,13 +20,13 @@ public class AccountController {
         this.accountLogic = accountLogic;
     }
 
-    @PostMapping(path="/add")
+    @PostMapping
     public ResponseEntity<Account> AddNewUser(@RequestBody createAccountRequestModel requestModel) throws IllegalArgumentException{
         Account createdAccount = accountLogic.createUser(requestModel.getUsername(), requestModel.getPassword(), requestModel.getEmail(), requestModel.getPhonenr());
         return new ResponseEntity<>(createdAccount, HttpStatus.OK);
     }
 
-    @DeleteMapping(path="/delete/{id}")
+    @DeleteMapping(path="/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void DeleteUser(@PathVariable("id") int id, Principal user) throws IllegalArgumentException {
         accountLogic.deleteUser(id, user);
@@ -42,13 +42,4 @@ public class AccountController {
         return accountLogic.getUser(username, user);
     }
 
-    @GetMapping(path = "/{username:[A-Za-z0-9]+}/{password}")
-    public int getUserId(@PathVariable("username") String username, @PathVariable("password") String password){
-        return accountLogic.getUserId(username, password);
-    }
-
-    @GetMapping(path = "/")
-    public Account getUserByToken(Principal user){
-        return accountLogic.getUser(user.getName(), user);
-    }
 }

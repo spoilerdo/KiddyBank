@@ -21,12 +21,12 @@ public class BankController {
         this._bankLogic = bankLogic;
     }
 
-    @PostMapping(path = "/create")
+    @PostMapping
     public BankAccount CreateAccount(Principal user, @RequestBody createRequestModel requestModel) throws IllegalArgumentException {
         return _bankLogic.createAccount(user, requestModel.getName());
     }
 
-    @PostMapping(path = "/delete/{id}")
+    @PostMapping(path = "/{id}")
     public void DeleteAccount(@PathVariable("id") int id, Principal user) throws IllegalArgumentException{
         _bankLogic.deleteAccount(id, user);
     }
