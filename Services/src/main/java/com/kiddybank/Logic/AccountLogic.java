@@ -40,16 +40,10 @@ public class AccountLogic implements IAccountLogic {
     }
 
     @Override
-    public Account getUser(String username, Principal user) throws IllegalArgumentException, AccessDeniedException {
-        //only the user can access his/her own personal data
-        if(!username.equals(user.getName())) {
-            throw new AccessDeniedException("you do not have access to view this!");
-        }
+    public Account getUser(String username) throws IllegalArgumentException, AccessDeniedException {
         //check if account is in the system and return it.
         Account foundAccount = checkAccountExists(username);
 
-        //clear sensitive data
-        foundAccount.setPassword("");
         return foundAccount;
     }
 

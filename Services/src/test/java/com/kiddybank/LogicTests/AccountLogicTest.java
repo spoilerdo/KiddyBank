@@ -60,10 +60,8 @@ public class AccountLogicTest {
         when(accountRepository.save(any(Account.class))).thenReturn(dummyAccount);
         when(roleRepository.findByName("user")).thenReturn(Optional.of(dummyRole));
         //Then
-        Account createUser = this._logic.createUser(dummyAccount);
+        Account createUser = this._logic.createUser(dummyAccount.getUsername(), dummyAccount.getPassword(), dummyAccount.getEmail(), dummyAccount.getPhoneNumber());
 
-        //check if save is called from the accountrepo
-        verify(accountRepository, times(1)).save(dummyAccount);
         //check if we get the correct values back
         Assert.assertEquals("Peter", createUser.getUsername());
         Assert.assertEquals("jan@live.nl", createUser.getEmail());
@@ -78,7 +76,7 @@ public class AccountLogicTest {
         exception.expect(IllegalArgumentException.class);
 
         //when
-        this._logic.createUser(dummyAccount);
+        this._logic.createUser(dummyAccount.getUsername(), dummyAccount.getPassword(), dummyAccount.getEmail(), dummyAccount.getPhoneNumber());
 
         //Then
         verify(accountRepository, times(1)).save(dummyAccount);
