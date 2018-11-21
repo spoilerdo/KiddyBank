@@ -1,7 +1,8 @@
 package com.kiddybank.LogicInterfaces;
 
 import com.kiddybank.Entities.Account;
-import javax.security.auth.login.FailedLoginException;
+import org.springframework.security.access.AccessDeniedException;
+import java.security.Principal;
 
 public interface IAccountLogic {
     /**
@@ -11,14 +12,32 @@ public interface IAccountLogic {
      * @throws IllegalArgumentException if userID is not found in our system
      */
     Account getUser(int id);
-
+    /**
+     * Gets user based on username given, this one gives you the sensitive data so we check the claim to make sure you have access to this and block it otherwise.
+     * @param username the username of the user you want to find
+     * @return found user
+     * @throws IllegalArgumentException if userID is not found in our system
+     * @throws AccessDeniedException if claim has no right to access this users data
+     */
+    Account getUser(String username);
+    /**
+     * Gets user id based on given username and password
+     * @param username the username of the user you want to find
+     * @param password the password of the user you want to find
+     * @return found user id
+     * @throws IllegalArgumentException if account is not found in the system
+     */
+    int getUserId(String username, String password);
     /**
      * Create user with information given
-     * @param account the account object translated from JSON into an Account object
+     * @param username the username of the account you want to create
+     * @param password the password of the account you want to create
+     * @param email the email of the account you want to create
+     * @param phoneNumber the phone number of the account you want to create
      * @return created user
-     * @throws IllegalArgumentException if given paremeters are already known in the system
+     * @throws IllegalArgumentException if given parameters are already known in the system
      */
-    Account createUser(Account account);
+    Account createUser(String username, String password, String email, String phoneNumber);
 
     /**
      * Delete user with information given
@@ -26,5 +45,5 @@ public interface IAccountLogic {
      * @return nothing if everything goes correct, in most cases the client side should already have all necessary data
      * @throws IllegalArgumentException if account was not found
      */
-    void deleteUser(int accountID);
+    void deleteUser(int accountID, Principal user);
 }

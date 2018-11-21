@@ -1,11 +1,13 @@
 package com.kiddybank.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -13,14 +15,13 @@ import java.util.Set;
 @Entity
 @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class Account {
-    //JsonProperty wordt toegevoegd zodat de ingebouwde json omzetter weet naar welke namen hij moet zoeken.
+    //JsonProperty added so the build-in json converter knows what name to look for.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @JsonProperty("username")
     private String username;
     @JsonProperty("password")
-    @JsonIgnore
     private String password;
     @JsonProperty("email")
     private String email;
@@ -31,8 +32,8 @@ public class Account {
     @JsonProperty("regdate")
     private Date registrationDate;
 
-    @JsonIgnore
-    @ManyToMany(cascade = CascadeType.PERSIST)
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "AccountBankAccount",
             joinColumns = { @JoinColumn(name = "AccountID") },
@@ -40,6 +41,13 @@ public class Account {
     )
     private Set<BankAccount> bankAccounts = new HashSet<>();
 
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles = new HashSet<>();
 
     public Account() {}
     public Account(String username, String password, String email, String phoneNumber, Date registrationDate) {
@@ -59,36 +67,26 @@ public class Account {
         this.id = id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    @JsonIgnore
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public Date getRegistrationDate() {
-        return registrationDate;
-    }
-
     public void setRegistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
     }
 
-    @JsonIgnore
     public Set<BankAccount> getBankAccounts() {
         return bankAccounts;
     }
@@ -104,8 +102,20 @@ public class Account {
         throw new IllegalArgumentException("Can't find the given bank account");
     }
 
+    public Collection<Role> getRoles() {
+        return roles;
+    }
+
     @JsonIgnore
     public void addBankAccount(BankAccount bankAccount){
         bankAccounts.add(bankAccount);
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

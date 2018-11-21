@@ -15,22 +15,9 @@ public class TransactionHistory {
     private Float transactionAmound;
 
     public TransactionHistory() {}
-
     public TransactionHistory(int senderId, int receiverId, Float transactionAmound) {
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.transactionAmound = transactionAmound;
-    }
-
-    public int getSenderId() {
-        return senderId;
-    }
-
-    public int getReceiverId() {
-        return receiverId;
-    }
-
-    public Float getTransactionAmound() {
-        return transactionAmound;
     }
 }

@@ -20,32 +20,24 @@ import java.util.List;
 
 import static com.kiddybank.Security.SecurityConstants.SecurityConstants.SIGN_UP_URL;
 
-
 //https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
     private UserDetailsService userDetailsImpl;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private List<String> allowedOrigins;
-    private List<String> allowedMethods;
-    private List<String> allowedHeaders;
 
     @Autowired
     public WebSecurity(@Qualifier("authLogic") UserDetailsService userDetailsImpl, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsImpl = userDetailsImpl;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-
-        //Create list of CORS ALlOWED METHODS AND ORIGINS
-        allowedMethods = Arrays.asList("HEAD", "GET", "POST", "PUT", "DELETE", "PATCH");
-        allowedHeaders = Arrays.asList("Authorization");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests()
+        http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**", "/swagger-resources/configuration/ui", "/swagger-resources/configuration/security").permitAll()
+                .antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources", "/configuration/security", "/swagger-ui.html", "/webjars/**", "/swagger-resources/configuration/ui", "/swagger-resources/configuration/security", "/account/{\\d+}").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JwtAuthenticationFilter(authenticationManager()))
@@ -53,7 +45,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 // this disables session creation on Spring Security
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        http.cors();
+        // voorbeeld role based authorization per url :    .antMatchers("/account/35").hasAuthority("ADMIN")
     }
 
     @Override
@@ -65,9 +57,11 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedMethods(allowedMethods);
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH"));
         configuration.setAllowCredentials(true);
-        configuration.setAllowedHeaders(allowedHeaders);
+        configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setExposedHeaders(Arrays.asList("X-Auth-Token","Authorization","Access-Control-Allow-Origin","Access-Control-Allow-Credentials"));
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;

@@ -2,6 +2,7 @@ package com.kiddybank.Security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiddybank.Entities.Account;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.json.JSONException;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import static com.kiddybank.Security.SecurityConstants.SecurityConstants.JWTKEY;
 
@@ -56,11 +58,18 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         //generate jwt token with issued date and expiration date of issued date + 1
         Date expirationDate = Date.valueOf(LocalDate.now().plusDays(1));
         Date currentDate = Date.valueOf(LocalDate.now());
+
+        //get username and make a claim with roles
+        String subject = ((User)auth.getPrincipal()).getUsername();
+        Claims claim = Jwts.claims().setSubject(subject);
+        claim.put("scopes", auth.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
+
         //build token
         String token =  Jwts.builder()
-                .setSubject(((User) auth.getPrincipal()).getUsername())
-                .setExpiration(expirationDate)
+                .setSubject(subject)
                 .setIssuedAt(currentDate)
+                .setExpiration(expirationDate)
+                .setClaims(claim)
                 .signWith(SignatureAlgorithm.HS512, JWTKEY)
                 .compact();
 

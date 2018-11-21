@@ -1,14 +1,18 @@
 package com.kiddybank.Logic;
 
+import com.kiddybank.DataInterfaces.IRoleRepository;
 import com.kiddybank.Entities.Account;
+import com.kiddybank.Entities.Role;
 import com.kiddybank.LogicInterfaces.IAccountLogic;
 import com.kiddybank.DataInterfaces.IAccountRepository;
 import org.assertj.core.util.Strings;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.security.Principal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -16,58 +20,113 @@ import java.util.Optional;
 
 @Service
 public class AccountLogic implements IAccountLogic {
-    private IAccountRepository context;
+    private IAccountRepository accountContext;
+    private IRoleRepository roleContext;
 
     @Autowired
-    public AccountLogic(IAccountRepository context) {
-        this.context = context;
+    public AccountLogic(IAccountRepository accountContext, IRoleRepository roleContext) {
+        this.accountContext = accountContext;
+        this.roleContext = roleContext;
     }
 
     @Override
     public Account getUser(int id) throws IllegalArgumentException {
-        Optional<Account> foundAccount = context.findById(id);
         //check if account was found in the system
-        if(!foundAccount.isPresent()) {
-            throw new IllegalArgumentException("Account with id : " + String.valueOf(id) + "not found in the system");
-        }
-        //return account
-        return foundAccount.get();
+        Account foundAccount = checkAccountExists(id);
+
+        //clear sensitive data
+        foundAccount.setPassword("");
+        return foundAccount;
     }
 
     @Override
-    public Account createUser(Account account) throws IllegalArgumentException {
-        //Controleren of belangrijke waardes nul zijn.
-        if (Strings.isNullOrEmpty(account.getUsername() )|| Strings.isNullOrEmpty(account.getPassword())|| Strings.isNullOrEmpty(account.getEmail())) {
+    public Account getUser(String username) throws IllegalArgumentException, AccessDeniedException {
+        //check if account is in the system and return it.
+        Account foundAccount = checkAccountExists(username);
+
+        return foundAccount;
+    }
+
+    @Override
+    public int getUserId(String username, String password) {
+        //check if account was found in the system
+        Account account = checkAccountExists(username);
+
+        return account.getId();
+    }
+
+    @Override
+    public Account createUser(String username, String password, String email, String phoneNumber) throws IllegalArgumentException {
+        //check if account is filled correctly
+        if (Strings.isNullOrEmpty(username )|| Strings.isNullOrEmpty(password)|| Strings.isNullOrEmpty(email)) {
             throw new IllegalArgumentException("Values cannot be null");
         }
 
-        Optional<Account> accountInDatabase = this.context.findByUsername(account.getUsername());
-        if(accountInDatabase.isPresent()) {
-            throw new IllegalArgumentException("User already exists");
+        //check if account already exists in the db
+        Optional<Account> accountFromDb = accountContext.findByUsername(username);
+        if(accountFromDb.isPresent()){
+            throw new IllegalArgumentException("Account with username : " + username + " already exists in the system");
         }
-        //password encrypten
-        String encryptedPassword = BCrypt.hashpw(account.getPassword(), BCrypt.gensalt());
-        account.setPassword(encryptedPassword);
 
-        //registration date is tijd van nu
-        account.setRegistrationDate(Date.valueOf(LocalDate.now()));
+        //password encrypting
+        String encryptedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
+        //create account object
+        Account account = new Account(username, encryptedPassword, email, phoneNumber, Date.valueOf(LocalDate.now()));
+        //set default role
+        Role userRole = roleContext.findByName("user").get();
+        account.getRoles().add(userRole);
+        userRole.getUsers().add(account);
 
-        //opslaan in database en result ophalen.
-        Account createdUser = this.context.save(account);
-
-        return createdUser;
+        //save to the db
+        return this.accountContext.save(account);
     }
 
     @Override
     @Transactional
-    public void deleteUser(int accountID) throws IllegalArgumentException {
-        //Controleren of account wel bestaat
-        Optional<Account> accountInDatabase = this.context.findById(accountID);
-        if(!accountInDatabase.isPresent()) {
-            throw new IllegalArgumentException("Account does not exist");
+    public void deleteUser(int accountID, Principal user) throws IllegalArgumentException {
+        //Check access to account
+        checkAccess(user.getName(), accountID);
+        //check if the account exists in the db
+        checkAccountExists(accountID);
+
+        //delete the account from the db
+        this.accountContext.deleteById(accountID);
+    }
+
+    //region Generic exception methods
+
+    private Account checkAccountExists(int accountId){
+        Optional<Account> accountFromDb = accountContext.findById(accountId);
+        checkAccountStatus(accountFromDb, String.valueOf(accountId), "id");
+
+        return accountFromDb.get();
+    }
+
+    private Account checkAccountExists(String username){
+        Optional<Account> accountFromDb = accountContext.findByUsername(username);
+        checkAccountStatus(accountFromDb, username, "username");
+
+        return accountFromDb.get();
+    }
+
+    private Boolean checkAccess(String username, int accountID) {
+        Optional<Account> foundAccount = accountContext.findByUsername(username);
+        checkAccountStatus(foundAccount, username, "username");
+
+        Account account = foundAccount.get();
+
+        if(account.getId() != accountID) {
+            throw new AccessDeniedException("You do not have access to do this");
         }
 
-        //account verwijderen van database
-        this.context.deleteById(accountID);
+        return true;
     }
+
+    private void checkAccountStatus(Optional<Account> account, String accountIdentifier, String identifierSort){
+        if(!account.isPresent()) {
+            throw new IllegalArgumentException("Account with " + identifierSort + ": " + accountIdentifier + " not found in the system");
+        }
+    }
+
+    //endregion
 }
