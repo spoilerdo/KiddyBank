@@ -38,8 +38,8 @@ public class AccountController {
     }
 
     @GetMapping(path = "/{username:[A-Za-z0-9]+}")
-    public Account getUserByName(@PathVariable("username") String username, Principal user) {
-        return accountLogic.getUser(username, user);
+    public Account getUserByName(@PathVariable("username") String username) {
+        return accountLogic.getUser(username);
     }
 
     @GetMapping(path = "/{username:[A-Za-z0-9]+}/{password}")
@@ -49,6 +49,6 @@ public class AccountController {
 
     @GetMapping(path = "/")
     public Account getUserByToken(Principal user){
-        return accountLogic.getUser(user.getName(), user);
+        return accountLogic.getUser(user.getName());
     }
 }

@@ -110,4 +110,12 @@ public class Account {
     public void addBankAccount(BankAccount bankAccount){
         bankAccounts.add(bankAccount);
     }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 }

@@ -15,12 +15,11 @@ public interface IAccountLogic {
     /**
      * Gets user based on username given, this one gives you the sensitive data so we check the claim to make sure you have access to this and block it otherwise.
      * @param username the username of the user you want to find
-     * @param user The claim of the user, we use this to check if you are or have access to the sensitive data of this user.
      * @return found user
      * @throws IllegalArgumentException if userID is not found in our system
      * @throws AccessDeniedException if claim has no right to access this users data
      */
-    Account getUser(String username, Principal user);
+    Account getUser(String username);
     /**
      * Gets user id based on given username and password
      * @param username the username of the user you want to find
