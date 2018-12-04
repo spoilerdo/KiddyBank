@@ -2,6 +2,7 @@ package com.kiddybank.Logic;
 
 import com.kiddybank.DataInterfaces.IAccountRepository;
 import com.kiddybank.Entities.Account;
+import com.kiddybank.Entities.CustomUser;
 import com.kiddybank.Entities.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -36,7 +37,7 @@ public class AuthLogic implements UserDetailsService {
             throw new UsernameNotFoundException(username);
         }
         Account account = accountFromDb.get();
-        return new User(account.getUsername(), account.getPassword(), getUserAuthority(account.getRoles()));
+        return new CustomUser(account.getId(), account.getUsername(), account.getPassword(), getUserAuthority(account.getRoles()));
     }
 
     private List<GrantedAuthority> getUserAuthority(final Collection<Role> userRoles) {

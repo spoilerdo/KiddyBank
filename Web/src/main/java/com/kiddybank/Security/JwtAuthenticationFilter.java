@@ -2,6 +2,7 @@ package com.kiddybank.Security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kiddybank.Entities.Account;
+import com.kiddybank.Entities.CustomUser;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -59,9 +60,11 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         Date expirationDate = Date.valueOf(LocalDate.now().plusDays(1));
         Date currentDate = Date.valueOf(LocalDate.now());
 
+        CustomUser user = (CustomUser)auth.getPrincipal();
         //get username and make a claim with roles
-        String subject = ((User)auth.getPrincipal()).getUsername();
+        String subject = user.getUsername();
         Claims claim = Jwts.claims().setSubject(subject);
+        claim.put("userID", user.getUserID());
         claim.put("scopes", auth.getAuthorities().stream().map(s -> s.toString()).collect(Collectors.toList()));
 
         //build token
