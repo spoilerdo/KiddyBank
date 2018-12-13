@@ -31,6 +31,10 @@ public class BankAccount {
         this.balance = balance;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -53,5 +57,13 @@ public class BankAccount {
 
     public Set<Account> getAccounts() {
         return accounts;
+    }
+
+    public int getBankNumber() {
+        return bankNumber;
+    }
+
+    public void setBankNumber(int bankNumber) {
+        this.bankNumber = bankNumber;
     }
 }

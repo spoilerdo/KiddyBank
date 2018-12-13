@@ -2,7 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4614b7e-804e-439d-9082-28ec57387531" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/out/production/classes/com/kiddybank/Logic/AuthLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/Services/out/production/classes/com/kiddybank/Logic/AuthLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/out/production/classes/com/kiddybank/Security/JwtAuthenticationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/out/production/classes/com/kiddybank/Security/JwtAuthenticationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/out/production/classes/com/kiddybank/Security/SecurityConstants/SecurityConstants.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/out/production/classes/com/kiddybank/Security/SecurityConstants/SecurityConstants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/out/production/classes/com/kiddybank/Security/WebSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/Web/out/production/classes/com/kiddybank/Security/WebSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Domain/.gradle/" />
     <ignored path="$PROJECT_DIR$/Domain/build/" />
@@ -26,10 +38,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/KiddyEnterprise$Test.ic" NAME="Test Coverage Results" MODIFIED="1537957411546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/KiddyEnterprise$BankLogicTest.ic" NAME="BankLogicTest Coverage Results" MODIFIED="1541526192110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.kiddybank.LogicTests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/KiddyEnterprise$Test.ic" NAME="Test Coverage Results" MODIFIED="1537957411546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="CoverageViewManager">
     <option name="myElementSize" value="241" />
@@ -48,22 +60,22 @@
     <expand>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Semester3@kiddyapi.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="@bankAPI.database.windows.net" type="feb32156:DbDataSourceImpl" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Semester3@kiddyapi.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="@bankAPI.database.windows.net" type="feb32156:DbDataSourceImpl" />
         <item name="Semester3: database" type="bdf80c8a:MssqlImplModel$Database" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Semester3@kiddyapi.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="@bankAPI.database.windows.net" type="feb32156:DbDataSourceImpl" />
         <item name="Semester3: database" type="bdf80c8a:MssqlImplModel$Database" />
         <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="Semester3@kiddyapi.database.windows.net" type="feb32156:DbDataSourceImpl" />
+        <item name="@bankAPI.database.windows.net" type="feb32156:DbDataSourceImpl" />
         <item name="Semester3: database" type="bdf80c8a:MssqlImplModel$Database" />
         <item name="dbo: schema" type="3adcb6a6:MssqlImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
@@ -483,53 +495,62 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="DATABASE/ddf68c96-4446-419b-992f-04cd2f211563" value="1" />
-          <entry key="account" value="4" />
-          <entry key="bank_account" value="1" />
+          <entry key="account" value="5" />
+          <entry key="account_bank_account" value="2" />
+          <entry key="bank_account" value="5" />
           <entry key="gitignore" value="1" />
           <entry key="gradle" value="7" />
           <entry key="item" value="1" />
-          <entry key="java" value="121" />
-          <entry key="properties" value="1" />
+          <entry key="java" value="147" />
+          <entry key="properties" value="3" />
           <entry key="role" value="1" />
-          <entry key="sql" value="1" />
+          <entry key="sql" value="2" />
           <entry key="users_roles" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="7" />
+          <entry key="Database Element" value="14" />
           <entry key="Groovy" value="7" />
-          <entry key="JAVA" value="121" />
+          <entry key="JAVA" value="147" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="1" />
-          <entry key="Scratch" value="1" />
+          <entry key="Properties" value="3" />
+          <entry key="Scratch" value="2" />
           <entry key="UML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="3" />
+          <entry key="cell" value="67" />
           <entry key="gradle" value="4" />
-          <entry key="java" value="7325" />
+          <entry key="java" value="7443" />
+          <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="4" />
-          <entry key="JAVA" value="7325" />
-          <entry key="Scratch" value="3" />
+          <entry key="JAVA" value="7443" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Scratch" value="67" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.closed" value="23" />
+          <entry key="project.open.time.1" value="4" />
           <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.29" value="2" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.30" value="3" />
+          <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="23" />
         </counts>
       </usages-collector>
     </session>
@@ -537,40 +558,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="24" column="36" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="36" />
+            <state relative-caret-position="509">
+              <caret line="52" column="61" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="61" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java">
+        <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -578,29 +578,83 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="-289">
               <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#2519#2520#0" expanded="true" />
+                <element signature="e#2554#2555#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Data/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-38">
-              <caret line="43" column="48" lean-forward="true" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+            <state>
+              <caret column="16" selection-start-column="12" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="das://f18ff668-ed0c-4ad8-8a4d-787a6e1a2c51/database/semester3/schema/dbo/table/bank_account">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="52" column="51" lean-forward="true" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+              <folding>
+                <element signature="method#BankLogic#0;class#BankLogic#0" />
+                <element signature="method#createAccount#0;class#BankLogic#0" />
+                <element signature="e#1827#1836#0" />
+                <element signature="method#deleteAccount#0;class#BankLogic#0" />
+                <element signature="method#linkAnotherUserToBankAccount#0;class#BankLogic#0" />
+                <element signature="method#getBalance#0;class#BankLogic#0" />
+                <element signature="method#getBankAccounts#0;class#BankLogic#0" />
+                <element signature="method#changeBalance#0;class#BankLogic#0" />
+                <element signature="n#!!doc;n#checkAccountExists#0;n#BankLogic#0" />
+                <element signature="method#checkAccountExists#0;class#BankLogic#0" />
+                <element signature="method#checkAccountExistsByUsername#0;class#BankLogic#0" />
+                <element signature="method#checkBankAccountExists#0;class#BankLogic#0" />
+                <element signature="method#checkHasAccessToBankAccount#0;class#BankLogic#0" />
+                <element signature="method#checkAccountStatus#0;class#BankLogic#0" />
+                <element signature="method#checkBankAccountStatus#0;class#BankLogic#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="492">
+              <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -1606,10 +1660,10 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="12329491678232" />
+        <entry key="$PROJECT_DIR$" value="12342122817422" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
         <entry key="$PROJECT_DIR$/Data/build.gradle" value="684202579" />
-        <entry key="$PROJECT_DIR$/Domain/build.gradle" value="2090329613" />
+        <entry key="$PROJECT_DIR$/Domain/build.gradle" value="3798577803" />
         <entry key="$PROJECT_DIR$/Services/build.gradle" value="3943979660" />
         <entry key="$PROJECT_DIR$/Web/build.gradle" value="3052962447" />
         <entry key="$PROJECT_DIR$/build.gradle" value="476544440" />
@@ -1883,24 +1937,17 @@
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Config/SwaggerConfig.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/RestErrorHandler.java" />
         <option value="$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IBankRepository.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/createRequestModel.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthorizationFilter.java" />
         <option value="$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IRoleRepository.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java" />
-        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
-        <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" />
         <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Role.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/App.java" />
-        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/Web/build.gradle" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/SecurityConstants/SecurityConstants.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
-        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" />
-        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" />
         <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java" />
@@ -1908,6 +1955,13 @@
         <option value="$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTest.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
         <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java" />
+        <option value="$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java" />
+        <option value="$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java" />
+        <option value="$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java" />
       </list>
     </option>
   </component>
@@ -1918,16 +1972,16 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="y" value="-10" />
-    <option name="width" value="1939" />
-    <option name="height" value="1049" />
+    <option name="x" value="-1608" />
+    <option name="y" value="-8" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope" proportions="" version="1">
       <flattenPackages Scope="true" PackagesPane="true" />
       <showModules Scope="true" />
       <showLibraryContents PackagesPane="false" />
@@ -1937,6 +1991,82 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
+          <expand>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com.kiddybank.LogicTests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <subPane subId="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope">
+          <expand>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Data/Data_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Data/Data_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="resources" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Domain/Domain_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Domain/Domain_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Domain/Domain_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com/kiddybank/Entities" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="com/kiddybank/LogicInterfaces" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+            </path>
+            <path>
+              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
+              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -2005,112 +2135,19 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope">
-        <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
-          <expand>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_test" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com.kiddybank.LogicTests" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <subPane subId="Scope 'Production'; set:Production; class com.intellij.psi.search.scope.ProjectProductionScope">
-          <expand>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Domain/Domain_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Domain/Domain_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Domain/Domain_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank/Entities" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Logic" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Services/Services_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="LogicInterfaces" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="com.kiddybank" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="Web/Web_main" type="2674bda8:ScopeViewTreeModel$GroupNode" />
-              <item name="java" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="com/kiddybank" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="Controllers" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="azure" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542383032157" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544736402248" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KiddyMarket" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../KiddyInventory" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -2284,6 +2321,18 @@
       <workItem from="1542357468091" duration="10416000" />
       <workItem from="1542738558572" duration="674000" />
       <workItem from="1542786424033" duration="2743000" />
+      <workItem from="1543493660401" duration="52000" />
+      <workItem from="1543494068431" duration="1321000" />
+      <workItem from="1543570407088" duration="1373000" />
+      <workItem from="1543909626095" duration="5494000" />
+      <workItem from="1543997276321" duration="1855000" />
+      <workItem from="1544111275481" duration="47000" />
+      <workItem from="1544169765379" duration="607000" />
+      <workItem from="1544258567423" duration="28000" />
+      <workItem from="1544514548924" duration="3156000" />
+      <workItem from="1544603665687" duration="711000" />
+      <workItem from="1544618675563" duration="1954000" />
+      <workItem from="1544686313970" duration="10778000" />
     </task>
     <servers />
   </component>
@@ -2320,7 +2369,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="154005000" />
+    <option name="totallyTimeSpent" value="186039000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2332,9 +2381,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-1608" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20134228" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22300771" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -2344,15 +2393,15 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3299566" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32967034" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.31043956" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.41346154" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.0" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49946696" weight="0.329718" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32850942" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32850942" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.32850942" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
@@ -2366,7 +2415,7 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.32995737" />
       <window_info anchor="right" id="Gradle" order="6" sideWeight="0.496" weight="0.3295302" />
-      <window_info anchor="right" id="Database" order="7" weight="0.26107383" />
+      <window_info active="true" anchor="right" id="Database" order="7" visible="true" weight="0.26092544" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
       <window_info anchor="right" id="Bean Validation" order="10" weight="0.32995737" />
@@ -2419,54 +2468,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AuthLogicTest.java" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/ddf68c96-4446-419b-992f-04cd2f211563/console.sql" />
-    <entry file="uml://DATABASE/ddf68c96-4446-419b-992f-04cd2f211563">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>ddf68c96-4446-419b-992f-04cd2f211563</OriginalElement>
-          <nodes />
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="388.0" y="197.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.0.8.RELEASE/eacb961f1d4b542fb4b4bcd1321d0ae9e4b93843/spring-security-core-5.0.8.RELEASE-sources.jar!/org/springframework/security/core/userdetails/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="83" column="41" lean-forward="true" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/5.0.9.RELEASE/beafb55eae32edb39351cb84594261a60d12219c/spring-aop-5.0.9.RELEASE-sources.jar!/org/springframework/aop/framework/AdvisedSupport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="138" selection-start-line="138" selection-end-line="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-webmvc/5.0.9.RELEASE/631cf6fd5e89e7797b0504994338fe07c983a551/spring-webmvc-5.0.9.RELEASE-sources.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="107" column="22" lean-forward="true" selection-start-line="107" selection-start-column="22" selection-end-line="107" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.data/spring-data-commons/2.0.10.RELEASE/b7c6de4b7a506d67f608113b6ecf21091b927002/spring-data-commons-2.0.10.RELEASE-sources.jar!/org/springframework/data/repository/CrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -2509,17 +2510,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IBankRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -2551,13 +2545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/linkRequestModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Config/SwaggerConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -2579,13 +2566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Domain/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -2600,13 +2580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/App.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -2614,35 +2587,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IAccountRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/SecurityConstants/SecurityConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="60" lean-forward="true" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="42" column="33" lean-forward="true" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/item" />
-    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/role">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/role" />
     <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/utils/RestErrorHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -2657,55 +2603,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/account">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/users_roles">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthorizationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="60" column="62" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/createRequestModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="139" column="38" selection-start-line="139" selection-start-column="38" selection-end-line="139" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/account" />
+    <entry file="das://ddf68c96-4446-419b-992f-04cd2f211563/database/semester3/schema/dbo/table/users_roles" />
     <entry file="file://$PROJECT_DIR$/Services/src/test/java/com/kiddybank/LogicTests/AccountLogicTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -2720,58 +2619,202 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java">
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/SecurityConstants/SecurityConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java">
+    <entry file="file://$PROJECT_DIR$/Data/src/main/java/com/kiddybank/DataInterfaces/IAccountRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="50" column="27" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="153">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
+    <entry file="file://$PROJECT_DIR$/Data/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="24" column="36" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="36" />
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IAccountLogic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
+          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f18ff668-ed0c-4ad8-8a4d-787a6e1a2c51/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
+        <state relative-caret-position="714">
+          <caret line="66" column="46" selection-start-line="66" selection-start-column="46" selection-end-line="66" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/CustomUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthorizationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="54" column="73" selection-start-line="54" selection-start-column="73" selection-end-line="54" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AuthLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f18ff668-ed0c-4ad8-8a4d-787a6e1a2c51/database/semester3/schema/dbo/table/account">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/AccountLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="80" column="31" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="31" />
+        <state relative-caret-position="472">
+          <caret line="76" column="41" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/createAccountRequestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/createRequestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/linkRequestModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f18ff668-ed0c-4ad8-8a4d-787a6e1a2c51/database/semester3/schema/dbo/table/account_bank_account">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/WebSecurity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="52" column="51" lean-forward="true" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-289">
+          <caret line="19" column="47" selection-start-line="19" selection-start-column="47" selection-end-line="19" selection-end-column="47" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#2519#2520#0" expanded="true" />
+            <element signature="e#2554#2555#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Security/JwtAuthenticationFilter.java">
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Controllers/BankController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="43" column="48" lean-forward="true" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+        <state relative-caret-position="509">
+          <caret line="52" column="61" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Web/src/main/java/com/kiddybank/Wrappers/TransactionResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/Logic/BankLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="method#BankLogic#0;class#BankLogic#0" />
+            <element signature="method#createAccount#0;class#BankLogic#0" />
+            <element signature="e#1827#1836#0" />
+            <element signature="method#deleteAccount#0;class#BankLogic#0" />
+            <element signature="method#linkAnotherUserToBankAccount#0;class#BankLogic#0" />
+            <element signature="method#getBalance#0;class#BankLogic#0" />
+            <element signature="method#getBankAccounts#0;class#BankLogic#0" />
+            <element signature="method#changeBalance#0;class#BankLogic#0" />
+            <element signature="n#!!doc;n#checkAccountExists#0;n#BankLogic#0" />
+            <element signature="method#checkAccountExists#0;class#BankLogic#0" />
+            <element signature="method#checkAccountExistsByUsername#0;class#BankLogic#0" />
+            <element signature="method#checkBankAccountExists#0;class#BankLogic#0" />
+            <element signature="method#checkHasAccessToBankAccount#0;class#BankLogic#0" />
+            <element signature="method#checkAccountStatus#0;class#BankLogic#0" />
+            <element signature="method#checkBankAccountStatus#0;class#BankLogic#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Services/src/main/java/com/kiddybank/LogicInterfaces/IBankLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Domain/src/main/java/com/kiddybank/Entities/BankAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="492">
+          <caret line="63" column="5" lean-forward="true" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://f18ff668-ed0c-4ad8-8a4d-787a6e1a2c51/database/semester3/schema/dbo/table/bank_account">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

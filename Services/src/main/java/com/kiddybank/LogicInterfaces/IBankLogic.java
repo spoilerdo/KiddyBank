@@ -4,6 +4,7 @@ import com.kiddybank.Entities.BankAccount;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Set;
 
 public interface IBankLogic {
     /**
@@ -52,7 +53,7 @@ public interface IBankLogic {
      * @throws IllegalArgumentException if given accountId was not found in the system
      * @throws IllegalArgumentException if given account doesn't have any bank-accounts
      */
-    List<BankAccount> getBankAccounts(int accountId);
+    Set<BankAccount> getBankAccounts(int accountId);
 
     /**
      * Send money from one account to the other
