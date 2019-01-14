@@ -14,4 +14,10 @@ pipeline {
       }
     }
   }
+  post {
+    always{
+        junit 'Services/build/test-results/test/TEST-com.kiddybank.LogicTests.AccountLogicTest.xml'
+        junit 'Services/build/test-results/test/TEST-com.kiddybank.LogicTests.BankLogicTest.xml'
+    }
+  }
 }
