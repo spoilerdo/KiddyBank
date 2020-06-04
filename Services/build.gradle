@@ -15,6 +15,7 @@ dependencies{
     compile("org.springframework.boot:spring-boot-starter-security")
     compile group: 'org.mindrot', name: 'jbcrypt', version: '0.4'
     compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.2'
+    compile group: 'org.javassist', name: 'javassist', version: '3.23.1-GA'
     compile project(':Domain')
     compile project(':Data')
 }

@@ -78,7 +78,8 @@ public class AccountLogic implements IAccountLogic {
         userRole.getUsers().add(account);
 
         //save to the db
-        return this.accountContext.save(account);
+        Account createdAccount = this.accountContext.save(account);
+        return createdAccount;
     }
 
     @Override
