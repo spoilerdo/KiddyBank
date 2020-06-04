@@ -14,6 +14,7 @@ import javax.transaction.Transactional;
 import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class BankLogic implements IBankLogic {
@@ -94,7 +95,7 @@ public class BankLogic implements IBankLogic {
     }
 
     @Override
-    public List<BankAccount> getBankAccounts(int accountId){
+    public Set<BankAccount> getBankAccounts(int accountId){
         //check if account exists in db
         Optional<Account> accountFromDb = checkAccountExists(accountId);
 
@@ -106,7 +107,7 @@ public class BankLogic implements IBankLogic {
             throw new IllegalArgumentException("Account with id: " + account.getId() + "has no bank-accounts");
         }
 
-        return (List<BankAccount>) account.getBankAccounts();
+        return account.getBankAccounts();
     }
 
     @Override
